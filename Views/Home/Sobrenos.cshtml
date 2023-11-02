@@ -1,0 +1,338 @@
+﻿<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GWI Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!--  header  -->
+    <header>
+        <!--logo-->
+        <a id="container_da_logo" href="../html/index.html">
+            <!--desktop-->
+            <img id="logo_header_desktop" src="../img/index_img/logo_nova_vetor.svg" alt="logo escrito GWI NEWS">
+            <!--mobile-->
+            <img id="logo_header_mobile" src="../img/index_img/logo_nova_vetor_vertical.svg" alt="logo escrito GWI NEWS">
+        </a>
+        <!--nav-->
+        <nav id="container_das_categorias">
+            <ul class="links_paginas_categorias">
+                <li><a class="link_header_empregos" href="empregos.html">Empregos</a></li>
+                <li><a class="link_header_educacao" href="educacao.html">Educação</a></li>
+                <li><a class="link_header_esportes" href="esportes.html">Esportes</a></li>
+                <li><a class="link_header_entretenimento" href="entretenimento.html">Entretenimento</a></li>
+                <li><a class="link_header_economia" href="economia.html">Economia</a></li>
+            </ul>
+        </nav>
+        <!--buttons-->
+        <div id="container_header_buttons" class="botao_header">
+            <!--search-->
+            <a id="search_container">
+                <button id="search_button" class="btn" type="button" data-bs-toggle="collapse" href="#search_bar" aria-expanded="false" aria-controls="search_bar">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+                <div id="search_bar" class="input-group flex-nowrap collapse collapse-horizontal">
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="addon-wrapping">
+                </div>
+            </a>
+            <!--login-->
+            <a>
+                <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Senha</label>
+                                        <input type="password" class="form-control" id="password">
+                                    </div>
+                                    <button type="submit" id="entrar" class="text-center btn">Entrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="botao_de_login" class="botao_header" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                </button>
+            </a>
+            <!--dark-->
+            <a class="botao_header" href="../html/index_dark.html">
+                <button id="botao_dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
+                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+        <!--menu hamburger mobile-->
+        <!--botão na home-->
+        <button id="menu_hamburger" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#barra_lateral" aria-controls="barra_lateral">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </button>
+        <!--barra lateral-->
+        <aside id="barra_lateral" class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <!--links das páginas na barra lateral-->
+            <nav class="offcanvas-body">
+                <ul class="links_paginas_categorias">
+                    <li><a class="link_header_empregos" href="empregos.html">Empregos</a></li>
+                    <li><a class="link_header_educacao" href="educacao.html">Educação</a></li>
+                    <li><a class="link_header_esportes" href="esportes.html">Esportes</a></li>
+                    <li><a class="link_header_entretenimento" href="entretenimento.html">Entretenimento</a></li>
+                    <li><a class="link_header_economia" href="economia.html">Economia</a></li>
+                    <li><a class="link_do_aside" href="../html/index.html">Home</a></li>
+                    <li>
+                        <button id="fechar_modal" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <a class="link_do_aside" href="#" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        </button>
+                    </li>
+                    <li><a class="link_do_aside" href="../html/sobre_nos.html">Sobre Nós</a></li>
+                    <li>
+                        <button id="fechar_modal" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <a class="link_do_aside" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Fale Conosco</a>
+                        </button>
+                    </li>
+                    <li id="modo_noturno_container">
+                        <p class="link_do_aside">Tema</p>
+                        <div id="switch_container">
+                            <a id="link_dark_pag" href="../html/index_dark.html">
+                                <div id="switch">
+                                    <svg id="sun_icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                                        <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <svg id="moon_icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+    <!--   /main do sobre nós/   -->
+    <main class="pag_sem_cotacoes">
+        <section id="section_principal_do_sobre_nos">
+            <!--seção de informações da empresa-->
+            <section id="section_sobre_empresa">
+                <article>
+                    <img id="logo_do_sobre_nos" src="../img/sobre_nos_img/logo_nova_vetor.svg">
+                    <h1 id="titulo_do_sobre_nos">Conheça a Nossa Identidade, Equipe e Serviços!</h1>
+                    <p id="info_sobre_empresa">
+                        Somos um portal de notícias regional comprometido em fornecer informações precisas, relevantes e atualizadas sobre os acontecimentos locais. Nossa equipe dedicada de jornalistas busca trazer coberturas abrangentes, incluindo notícias locais, eventos culturais, esportes e muito mais. Valorizamos a nossa comunidade e nos esforçamos para trazer uma perspectiva única e aprofundada sobre os assuntos que impactam a região. Nosso objetivo é ser uma fonte confiável de informação, promovendo a conscientização e o engajamento dos nossos leitores. Estamos comprometidos em contar as histórias que importam para a nossa comunidade e em fornecer um serviço de qualidade para mantê-los informados.
+                    </p>
+                    <h2>Missão:</h2>
+                    <p class="p_do_sobre_nos">Nosso objetivo na GWI News é fornecer informações precisas, imparciais e relevantes sobre os acontecimentos locais. Estamos comprometidos em manter nossa comunidade regional informada, promovendo a transparência e o acesso à informação. Buscamos contar histórias impactantes, dar voz aos diversos segmentos da sociedade e contribuir para o desenvolvimento e engajamento da nossa região.</p>
+                    <h2>Visão</h2>
+                    <p class="p_do_sobre_nos">Nossa visão na GWI News é ser o principal portal de notícias regional, reconhecido pela excelência na cobertura jornalística e pela relevância das histórias que contamos. Almejamos ser uma fonte confiável de informação, estabelecendo uma relação de proximidade e confiança com nossos leitores. Buscamos nos adaptar às novas tendências e tecnologias, expandindo nosso alcance e impacto para melhor atender às necessidades da comunidade regional</p>
+                    <h2>Valores</h2>
+                    <p class="p_do_sobre_nos">Em todos os aspectos de nosso trabalho, na GWI News valorizamos a ética, a imparcialidade e a veracidade dos fatos. Nosso compromisso com a integridade jornalística é fundamental para fornecer informações confiáveis e construir a confiança de nossos leitores. Além disso, valorizamos a diversidade de opiniões e a liberdade de expressão, promovendo o diálogo e o debate construtivo. Nossos valores também incluem o respeito pela comunidade e a responsabilidade social, buscando sempre trazer uma perspectiva positiva e inspiradora para o desenvolvimento da nossa região.</p>
+                </article>
+            </section>
+            <!--seção de informações dos membros-->
+            <section id="section_sobre_membros">
+                <h1 class="titulo_da_section_sobre_nos">Desenvolvedores</h1>
+                <article class="descricao_dos_membros">
+                    <img class="foto_dev_desktop" src="../img/sobre_nos_img/carlos.png" alt="foto do dt carlos">
+                    <div class="texto_dev">
+                        <div class="foto_e_nome_dev">
+                            <img class="foto_dev_mobile" src="../img/sobre_nos_img/carlos.png" alt="foto do dt gabriel">
+                            <h2>Carlos Ramos</h2>
+                        </div>
+                        <p>informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos informações do carlos</p>
+                    </div>
+                </article>
+                <article class="descricao_dos_membros">
+                    <img class="foto_dev_desktop" src="../img/sobre_nos_img/gabriel.png" alt="foto do dt gabriel">
+                    <div class="texto_dev">
+                        <div class="foto_e_nome_dev">
+                            <img class="foto_dev_mobile" src="../img/sobre_nos_img/gabriel.png" alt="foto do dt gabriel">
+                            <h2>Gabriel Fecchio</h2>
+                        </div>
+                        <p>informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel informações do gabriel </p>
+                    </div>
+                </article>
+                <article class="descricao_dos_membros">
+                    <img class="foto_dev_desktop" src="../img/sobre_nos_img/lucas.png" alt="foto do dt carlos">
+                    <div class="texto_dev">
+                        <div class="foto_e_nome_dev">
+                            <img class="foto_dev_mobile" src="../img/sobre_nos_img/lucas.png" alt="foto do dt gabriel">
+                            <h2>Lucas Malachias</h2>
+                        </div>
+                        <p>informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas informações do lucas</p>
+                    </div>
+                </article>
+                <article class="descricao_dos_membros">
+                    <img class="foto_dev_desktop" src="../img/sobre_nos_img/md chefe.png" alt="foto do dt carlos">
+                    <div class="texto_dev">
+                        <div class="foto_e_nome_dev">
+                            <img class="foto_dev_mobile" src="../img/sobre_nos_img/md chefe.png" alt="foto do dt gabriel">
+                            <h2>Michael Douglas</h2>
+                        </div>
+                        <p>informações do michael informações do michael informações do michael informações do michael informações do michael informações do michael informações do michael informações do michael</p>
+                    </div>
+                </article>
+                <article class="descricao_dos_membros">
+                    <img class="foto_dev_desktop" src="../img/sobre_nos_img/sophia.png" alt="foto do dt carlos">
+                    <div class="texto_dev">
+                        <div class="foto_e_nome_dev">
+                            <img class="foto_dev_mobile" src="../img/sobre_nos_img/sophia.png" alt="foto do dt gabriel">
+                            <h2>Sophia Tavares</h2>
+                        </div>
+                        <p>informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia informações da sophia</p>
+                    </div>
+                </article>
+            </section>
+            <!--seção de informações dos serviços-->
+            <section id="section_sobre_servicos">
+                <h1 class="titulo_da_section_sobre_nos">Serviços</h1>
+                <article id="container_empregos" class="container_dos_servicos">
+                    <img src="../img/sobre_nos_img/art_empregos.svg" alt="icones que demonstram a interconexão no ambiente laboral">
+                    <div>
+                        <h2>Empregos</h2>
+                        <p>Descubra oportunidades profissionais emocionantes com nosso serviço de divulgação de notícias de emprego do GWI News. Mantenha-se atualizado com as últimas vagas de trabalho, oportunidades de carreira e tendências do mercado de trabalho. Com uma ampla gama de setores cobertos, desde tecnologia a finanças, saúde a marketing, oferecemos informações relevantes para profissionais em busca de novas oportunidades. Nossa equipe de especialistas em carreiras busca e compartilha as melhores vagas disponíveis, além de fornecer dicas úteis sobre currículos, entrevistas e desenvolvimento profissional. Esteja um passo à frente na busca por emprego com nosso serviço de divulgação de notícias de emprego e transforme sua carreira de forma positiva.</p>
+                    </div>
+                </article>
+                <article id="container_educacao" class="container_dos_servicos">
+                    <div>
+                        <h2>Educação</h2>
+                        <p>Esteja atualizado sobre as últimas tendências e novidades na área da educação, desde avanços na tecnologia educacional até políticas e programas educacionais inovadores. Nossa equipe de especialistas em educação traz informações abrangentes sobre instituições de ensino, cursos, bolsas de estudo e eventos educacionais. Quer você seja um estudante em busca de orientação sobre escolhas acadêmicas, um profissional buscando aprimorar suas habilidades ou um educador em busca de recursos e estratégias, nosso serviço oferece insights valiosos e inspiração para impulsionar sua jornada educacional. Esteja à frente do aprendizado e descubra um mundo de possibilidades com nosso serviço de divulgação de notícias de educação.</p>
+                    </div>
+                    <img src="../img/sobre_nos_img/art_educacao.svg" alt="">
+                </article>
+                <article id="container_esportes" class="container_dos_servicos">
+                    <img src="../img/sobre_nos_img/art_esportes.svg" alt="art sobre o serviço de esportes">
+                    <div>
+                        <h2>Esportes</h2>
+                        <p>Descubra o mundo emocionante do esporte com o nosso serviço de divulgação de notícias esportivas do Portal de Notícias! Mantenha-se atualizado com as últimas informações, resultados, análises e destaques dos principais eventos esportivos em todo o mundo. De futebol a basquete, tênis a corrida, cobrimos uma ampla variedade de esportes para satisfazer todos os gostos e interesses. Com uma equipe de jornalistas especializados, trazemos a você coberturas abrangentes, entrevistas exclusivas e análises aprofundadas para que você não perca nenhum lance importante. Esteja no centro da ação esportiva com nosso serviço de divulgação de notícias esportivas e desfrute de uma experiência envolvente e informativa que o manterá à frente do jogo.</p>
+                    </div>
+                </article>
+                <article id="container_entretenimento" class="container_dos_servicos">
+                    <div>
+                        <h2>Entretenimento</h2>
+                        <p>Mantenha-se atualizado com as últimas novidades do cinema, televisão, música, cultura pop e eventos especiais. De lançamentos de filmes e séries a shows e concertos, trazemos informações exclusivas, entrevistas com artistas, críticas e recomendações para que você nunca perca os acontecimentos mais quentes do mundo do entretenimento. Quer você seja um cinéfilo, um aficionado por música ou um fã de cultura pop, nosso serviço oferece uma dose diária de diversão e inspiração. Esteja sempre à frente das tendências e mergulhe no emocionante universo do entretenimento com nosso serviço de divulgação de notícias de entretenimento. Prepare-se para se divertir e explorar um mundo de possibilidades!</p>
+                    </div>
+                    <img src="../img/sobre_nos_img/art_entretenimento.svg" alt="">
+                </article>
+                <article id="container_economia" class="container_dos_servicos">
+                    <img src="../img/sobre_nos_img/art_economia.svg" alt="">
+                    <div>
+                        <h2>Economia</h2>
+                        <p>Mantenha-se informado sobre as últimas tendências econômicas, desenvolvimentos financeiros e insights do mercado global. Nossa equipe de especialistas em economia traz análises aprofundadas, informações sobre empresas, relatórios de mercado e cobertura de eventos que afetam o cenário econômico. Seja você um investidor, empreendedor ou profissional buscando compreender os desafios e oportunidades da economia atual, nosso serviço oferece uma visão abrangente e confiável para ajudá-lo a tomar decisões informadas. Esteja à frente das mudanças econômicas e maximize seu potencial financeiro com nosso serviço de divulgação de notícias de economia. Descubra insights valiosos e navegue pelo mundo dos negócios com confiança e conhecimento.</p>
+                    </div>
+                </article>
+            </section>
+        </section>
+    </main>
+    <!--  /footer/  -->
+    <footer>
+        <div id="lists_e_footlogo_container">
+            <!--social media-->
+            <ul id="container_social_media" class="col-md-4">
+                <li>
+                    <a class="footer_social_media" href="#">
+                        <p>
+                            <svg class="icon_links" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                            </svg>
+                            <span>@gwi.news</span>
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer_social_media" href="#">
+                        <p>
+                            <svg class="icon_links" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                            </svg>
+                            <span>@gwinews.tt</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            <!--logo do footer-->
+            <div class="col-md-4">
+                <a id="link_logo_do_footer" href="index.html">
+                    <img id="logo_do_footer" src="../img/index_img/logo_nova_vetor_footer.svg">
+                </a>
+            </div>
+            <!--lista de links-->
+            <ul id="container_links_de_pags" class="col-md-4">
+                <li>
+                    <a class="footer_links_de_acesso" href="../html/sobre_nos.html">
+                        <p>
+                            <svg class="icon_links" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                            </svg>
+                            <span>Sobre Nós</span>
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer_links_de_acesso" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <p>
+                            <svg class="icon_links" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                                <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z" />
+                            </svg>
+                            <span>Fale Conosco</span>
+                        </p>
+                    </a>
+                    <!--fale conosco modal-->
+                    <div class="modal" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="contactModalLabel">Fale Conosco</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Nome</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Mensagem</label>
+                                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                                        </div>
+                                        <button type="submit" id="enviar" class="text-center btn">Enviar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--copyright-->
+        <p id="footer_direitos">&copy; 2023 GWI NEWS. Todos os direitos reservados.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
