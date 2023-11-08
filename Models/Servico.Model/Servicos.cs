@@ -1,12 +1,9 @@
-﻿namespace GWI.Models.Noticia.Model
+﻿namespace GWI.Models.Servico.Model
 {
-    public class Noticias
+    public class Servicos
     {
-        public class Noticia
+        public class Servico
         {
-            private int Id_not { get; set; }
-            private int Id_categoria { get; set; }
-            private List<int> Id_subcategoria { get; set; }
             private string Titulo { get; set; }
             private string Subtitulo { get; set; }
             private int Autor_Id_pess { get; set; }
@@ -18,3 +15,4 @@
         }
     }
 }
+
