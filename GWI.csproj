@@ -14,4 +14,8 @@
     <None Include="Views\Home\Economia.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+  </ItemGroup>
+
 </Project>

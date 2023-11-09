@@ -1,31 +1,55 @@
-﻿namespace GWI.Models.Pessoa.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GWI.Models.Pessoa.Model
 {
     public class Pessoas
     {
-        public abstract class Pessoa
+        private string Senha { get; set; }
+
+        private bool Ativo;
+        private int Id_pess { get; set; }
+
+        [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 50 caracteres.")]
+        private string Nome { get; set; }
+
+        [Required(ErrorMessage = "Campo Sobrenome obrigatório", AllowEmptyStrings = false)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 50 caracteres.")]
+        private string Sobrenome { get; set; }
+
+        [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
+        private List<string> Telefone { get; set; }
+
+        [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
+        private List<string> Email { get; set; }
+
+        public class Usuario : Pessoas
         {
-            private int Id_pess { get; set; }
-            private string Nome { get; set; }
-            private string Sobrenome { get; set; }
-            private List<string> Telefone { get; set; }
-            private List<string> Email { get; set; }
-            private string Senha { get; set; }
 
-            private bool Ativo;
-            public class Usuario : Pessoa
-            {
-
-            }
-
-            public class Administrador : Pessoa
-            {
-
-            }
-
-            public class Autor : Pessoa
-            {
-                private string Cidade { get; set; }
-            }
         }
+
+        public class Administrador : Pessoas
+        {
+
+        }
+
+        public class Autor : Pessoas
+        {
+            private string Cidade { get; set; }
+        }
+        public Pessoas()
+        {
+            Senha = string.Empty;
+            Ativo = false;
+            Id_pess = 0;
+            Nome = string.Empty;
+            Sobrenome = string.Empty;
+            Telefone = string.Empty;
+            Email = string.Empty
+        }
+
     }
 }
+
