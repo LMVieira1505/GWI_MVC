@@ -4,36 +4,39 @@ namespace GWI.Models
 {
     public class FormsAcads
     {
-        private int Id { get; set; }
+        public int fcd_id { get; set; }
 
         [Required(ErrorMessage = "Campo instituição obrigatório", AllowEmptyStrings = false)]
         [StringLength(20, MinimumLength = 5, ErrorMessage = "Mínimo de 5 e máximo de 20 caracteres.")]
-        private string Instituicao { get; set; }
+        public string fcd_instituicao { get; set; }
 
         [Required(ErrorMessage = "Campo área de formação obrigatório", AllowEmptyStrings = false)]
         [StringLength(20, MinimumLength = 5, ErrorMessage = "Mínimo de 5 e máximo de 20 caracteres.")]
-        private string AreaFor { get; set; }
+        public string fcd_area { get; set; }
 
         [Required(ErrorMessage = "Campo ano de início obrigatório", AllowEmptyStrings = false)]
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Mínimo de 4 e máximo de 10 caracteres.")]
-        private string AnoInicio { get; set; }
+        public string fcd_ano_ini { get; set; }
 
         [Required(ErrorMessage = "Campo ano de término obrigatório", AllowEmptyStrings = false)]
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Mínimo de 4 e máximo de 10 caracteres.")]
-        private string AnoTermino { get; set; }
+        public string fcd_ano_ter { get; set; }
 
         [Required(ErrorMessage = "Campo descrição obrigatório", AllowEmptyStrings = false)]
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Mínimo de 10 e máximo de 200 caracteres.")]
-        private string Descricao { get; set; }
+        public string fcd_descricao { get; set; }
+
+        
 
         public FormsAcads()
         {
-            Id = 0;
-            Instituicao = string.Empty;
-            AreaFor = string.Empty;
-            AnoInicio = string.Empty;
-            AnoTermino = string.Empty;
-            Descricao = string.Empty;
+            fcd_id = 0;
+            fcd_instituicao = string.Empty;
+            fcd_area = string.Empty;
+            fcd_ano_ini = string.Empty;
+            fcd_ano_ter = string.Empty;
+            fcd_descricao = string.Empty;
+            
         }
     }
 }
