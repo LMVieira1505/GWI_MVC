@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GWI", "GWI.csproj", "{399D430D-3056-45B5-AEE0-358A0023FC23}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteGwiNews", "..\TesteGwiNews\TesteGwiNews.csproj", "{BD3D7CE7-8436-4852-8CCC-E65CA77278A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{399D430D-3056-45B5-AEE0-358A0023FC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{399D430D-3056-45B5-AEE0-358A0023FC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{399D430D-3056-45B5-AEE0-358A0023FC23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3D7CE7-8436-4852-8CCC-E65CA77278A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3D7CE7-8436-4852-8CCC-E65CA77278A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3D7CE7-8436-4852-8CCC-E65CA77278A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3D7CE7-8436-4852-8CCC-E65CA77278A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
