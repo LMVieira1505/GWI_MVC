@@ -1,4 +1,4 @@
-﻿namespace GWI.Models.Habilidade.Model
+﻿namespace GWI.Models
 {
     public class Habilidades
     {

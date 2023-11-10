@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.Pessoa.Model
+namespace GWI.Models
 {
     public class Pessoas
     {
@@ -46,8 +46,8 @@ namespace GWI.Models.Pessoa.Model
             Id_pess = 0;
             Nome = string.Empty;
             Sobrenome = string.Empty;
-            Telefone = string.Empty;
-            Email = string.Empty
+            Telefone = new List<string>();
+            Email = new List<string>();
         }
 
     }

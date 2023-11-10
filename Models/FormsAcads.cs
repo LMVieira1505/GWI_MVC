@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.FormAcad.Model
+namespace GWI.Models
 {
     public class FormsAcads
     {

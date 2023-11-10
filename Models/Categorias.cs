@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.Categoria.Model
+namespace GWI.Models
 {
     public class Categorias
     {
@@ -10,11 +10,11 @@ namespace GWI.Models.Categoria.Model
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Mínimo de 3 e máximo de 100 caracteres.")]
         private string Nome { get; set; }
 
-        public Categorias ()
+        public Categorias()
         {
-            this.Id_categoria = 0;
-            this.Nome = string.Empty;
+            Id_categoria = 0;
+            Nome = string.Empty;
         }
-       
+
     }
 }

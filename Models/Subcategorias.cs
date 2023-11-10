@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.Subcategoria.Model
+namespace GWI.Models
 {
     public class Subcategorias
     {
@@ -10,7 +10,7 @@ namespace GWI.Models.Subcategoria.Model
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Mínimo de 2 e máximo de 20 caracteres.")]
         private string Nome { get; set; }
 
-        public Subcategorias() 
+        public Subcategorias()
         {
             Id_subcategoria = 0;
             Nome = string.Empty;

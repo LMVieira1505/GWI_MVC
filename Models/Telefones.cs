@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.Telefone.Model
+namespace GWI.Models
 {
     public class Telefones
     {
@@ -20,6 +20,6 @@ namespace GWI.Models.Telefone.Model
             DDD = string.Empty;
             Numero = string.Empty;
         }
-       
+
     }
 }

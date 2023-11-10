@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.ExpProf.Model
+namespace GWI.Models
 {
     public class ExpsProfs
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models.Email.Model
+namespace GWI.Models
 {
     public class Emails
     {
@@ -15,11 +15,11 @@ namespace GWI.Models.Email.Model
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Mínimo de 3 e máximo de 100 caracteres.")]
         private string FinalEmail { get; set; }
 
-        public Emails ()
+        public Emails()
         {
-            this.Id= 0;
-            this.ComecoEmail = string.Empty;
-            this.FinalEmail = string.Empty;
+            Id = 0;
+            ComecoEmail = string.Empty;
+            FinalEmail = string.Empty;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GWI.Models.FormCurr.Model
+﻿namespace GWI.Models
 {
     public class FormsCurrs
     {
