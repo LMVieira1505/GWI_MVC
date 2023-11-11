@@ -4,16 +4,16 @@ namespace GWI.Models
 {
     public class Subcategorias
     {
-        private int Id_subcategoria { get; set; }
+        public int sct_id { get; set; }
 
         [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Mínimo de 2 e máximo de 20 caracteres.")]
-        private string Nome { get; set; }
+        public string sct_nome { get; set; }
 
         public Subcategorias()
         {
-            Id_subcategoria = 0;
-            Nome = string.Empty;
+            sct_id = 0;
+            sct_nome = string.Empty;
         }
     }
 }
