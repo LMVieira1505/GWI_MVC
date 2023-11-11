@@ -8,6 +8,7 @@ namespace GWI.Models
         public int nt_cat_id { get; set; }
         public int nt_sct_id { get; set; }
         public int nt_p_id { get; set; }
+        public int nt_im_id { get; set; }
 
         public bool nt_ativo;
 
@@ -38,6 +39,7 @@ namespace GWI.Models
             nt_subtitulo = string.Empty;
             nt_texto = string.Empty;
             nt_data_publicação = DateTime.Now;
+            nt_im_id = 0;
         }
     }
 }

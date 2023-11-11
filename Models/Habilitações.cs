@@ -2,8 +2,14 @@
 {
     public class Habilitações
     { 
-        private int Id { get; set; }
-        private string Letra { get; set; }
+        public int hbt_id { get; set; }
+        public string hbt_letra { get; set; }
+
+        public Habilitações() 
+        {
+            hbt_id = 0;
+            hbt_letra = string.Empty;
+        }   
     }
 }
 

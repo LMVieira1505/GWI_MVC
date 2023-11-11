@@ -2,10 +2,15 @@
 {
     public class Habilidades
     {
-        public class Habilidade
+        
+            public int hb_id { get; set; }
+            public string hb_descrição { get; set; }
+
+            public Habilidades() 
         {
-            private int Id { get; set; }
-            private string Descricao { get; set; }
+            hb_id = 0;
+            hb_descrição = string.Empty;
         }
+        
     }
 }
