@@ -6,7 +6,7 @@ namespace GWI.Models
     {
         public int nt_id {get; set; }
         public int nt_cat_id { get; set; }
-        public List<int> nt_sct_id { get; set; }
+        public int nt_sct_id { get; set; }
         public int nt_p_id { get; set; }
 
         public bool nt_ativo;
@@ -31,7 +31,7 @@ namespace GWI.Models
         {
             nt_id = 0;
             nt_cat_id = 0;
-            nt_sct_id = new List<int>();
+            nt_sct_id = 0;
             nt_p_id = 0;
             nt_ativo = false;
             nt_titulo = string.Empty;
