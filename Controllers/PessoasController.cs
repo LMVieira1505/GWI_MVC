@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GWI.Models;
+﻿using GWI.Models;
 using GWI.Repositories.ADO.SQLServer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace GWI.Controllers
 {
-    public class NoticiasController : Controller
+    public class PessoasController : Controller
     {
-        private readonly Repositories.ADO.SQLServer.NoticiaADO repository;
+        private readonly Repositories.ADO.SQLServer.PessoaADO repository;
 
-        public NoticiasController(IConfiguration configuration) // objeto configuration => parte do framework que permite ler o arquivo appsettings.json - GetConnectionString => método do framework que permite ler a chave ConnectionStrings deste arquivo.
+        public PessoasController(IConfiguration configuration) // objeto configuration => parte do framework que permite ler o arquivo appsettings.json - GetConnectionString => método do framework que permite ler a chave ConnectionStrings deste arquivo.
         {
-            this.repository = new Repositories.ADO.SQLServer.NoticiaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
+            this.repository = new Repositories.ADO.SQLServer.PessoaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
             //Configurations.Appsettings.getKeyConnectionString => nossa classe de configuração para trazer a chave que deve ser lida, neste caso: DefaultConnection.
         }
 
@@ -30,11 +31,11 @@ namespace GWI.Controllers
         // POST: CarrosController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Noticias noticias)
+        public ActionResult Create(Models.Pessoas pessoas)
         {
             try
             {
-                this.repository.add(noticias);
+                this.repository.add(pessoas);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -53,11 +54,11 @@ namespace GWI.Controllers
         // POST: CarrosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Models.Noticias noticias)
+        public ActionResult Edit(int id, Models.Pessoas pessoas)
         {
             try
             {
-                this.repository.update(id, noticias);
+                this.repository.update(id, pessoas);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -75,4 +76,3 @@ namespace GWI.Controllers
 
     }
 }
-

@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Views\Economia.cshtml" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+    <Folder Include="SqlQuerry\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
 
 </Project>

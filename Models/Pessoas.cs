@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GWI.Models
 {
@@ -19,11 +20,11 @@ namespace GWI.Models
 
         [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
-        public List<string> p_telefone { get; set; }
+        public string p_telefone { get; set; }
 
         [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
-        public List<string> p_email { get; set; }
+        public string p_email { get; set; }
 
         public class Usuario : Pessoas
         {
@@ -46,8 +47,8 @@ namespace GWI.Models
             p_id = 0;
             p_nome = string.Empty;
             p_sobrenome = string.Empty;
-            p_telefone = new List<string>();
-            p_email = new List<string>();
+            p_telefone = string.Empty;
+            p_email = string.Empty;
         }
 
     }

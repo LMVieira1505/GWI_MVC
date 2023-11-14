@@ -1,4 +1,7 @@
-﻿namespace GWI.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GWI.Models
 {
     public class Imagens
     {
