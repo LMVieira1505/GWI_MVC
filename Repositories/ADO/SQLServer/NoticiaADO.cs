@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using GWI.Models;
-using static GWI.Models.Imagens;
-using static System.Net.Mime.MediaTypeNames;
+using System.Runtime.ConstrainedExecution;
+
 
 namespace GWI.Repositories.ADO.SQLServer
 {
-    public class Noticia
+    public class NoticiaADO
     {
         private readonly string connectionString; //Declarado para toda a classe. Possível alterar somente no construtor.
-        public Noticia(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
+        public NoticiaADO(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
         {
             this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
         }
@@ -50,7 +50,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select nt_id, nt_titulo, nt_subtitulo, nt_texto, nt_data_publicação, nt_ativo, nt_cat_id, nt_sct_id, nt_p_id from noticia;";
+                    command.CommandText = "select nt_id, nt_titulo, nt_subtitulo, nt_texto, nt_data_publicação, nt_ativo, nt_cat_id, nt_sct_id, nt_p_id from noticias;";
 
                     SqlDataReader dr = command.ExecuteReader();
 

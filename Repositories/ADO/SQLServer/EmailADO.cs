@@ -5,7 +5,7 @@ using GWI.Models;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
-    public class Email
+    public class EmailADO
     {
     }
 }

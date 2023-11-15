@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GWI.Models
 {
@@ -10,20 +11,20 @@ namespace GWI.Models
         public int p_id { get; set; }
 
         [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 50 caracteres.")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 3 e máximo de 50 caracteres.")]
         public string p_nome { get; set; }
 
         [Required(ErrorMessage = "Campo Sobrenome obrigatório", AllowEmptyStrings = false)]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 50 caracteres.")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 3 e máximo de 50 caracteres.")]
         public string p_sobrenome { get; set; }
 
-        [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
-        public List<string> p_telefone { get; set; }
+        [Required(ErrorMessage = "Campo telefone obrigatório", AllowEmptyStrings = false)]
+        [StringLength(12, MinimumLength = 11, ErrorMessage = "Mínimo de 11 e máximo de 12 caracteres.")]
+        public string p_telefone { get; set; }
 
-        [Required(ErrorMessage = "Campo Nome obrigatório", AllowEmptyStrings = false)]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 10 e máximo de 500 caracteres.")]
-        public List<string> p_email { get; set; }
+        [Required(ErrorMessage = "Campo email obrigatório", AllowEmptyStrings = false)]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "Mínimo de 6 e máximo de 50 caracteres.")]
+        public string p_email { get; set; }
 
         public class Usuario : Pessoas
         {
@@ -46,8 +47,8 @@ namespace GWI.Models
             p_id = 0;
             p_nome = string.Empty;
             p_sobrenome = string.Empty;
-            p_telefone = new List<string>();
-            p_email = new List<string>();
+            p_telefone = string.Empty;
+            p_email = string.Empty;
         }
 
     }

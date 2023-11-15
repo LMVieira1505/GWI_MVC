@@ -4,7 +4,7 @@ using GWI.Models;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
-    public class Imagem
+    public class SubcategoriaADO
     {
     }
 }

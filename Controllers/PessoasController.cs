@@ -1,18 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GWI.Models;
+﻿using GWI.Models;
 using GWI.Repositories.ADO.SQLServer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace GWI.Controllers
 {
-    public class NoticiasController : Controller
+    public class PessoasController : Controller
     {
-        private readonly Repositories.ADO.SQLServer.NoticiaADO repository;
+        private readonly Repositories.ADO.SQLServer.PessoaADO repository;
 
-        public NoticiasController(IConfiguration configuration)
+        public PessoasController(IConfiguration configuration)
         { 
-            this.repository = new Repositories.ADO.SQLServer.NoticiaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
+            this.repository = new Repositories.ADO.SQLServer.PessoaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
+           
         }
 
+       
         [HttpGet]
         public ActionResult Index()
         {
@@ -28,11 +31,11 @@ namespace GWI.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Noticias noticias)
+        public ActionResult Create(Models.Pessoas pessoas)
         {
             try
             {
-                this.repository.add(noticias);
+                this.repository.add(pessoas);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -42,19 +45,20 @@ namespace GWI.Controllers
             }
         }
 
-      
+       
         public ActionResult Edit(int id)
         {
             return View(this.repository.getById(id));
         }
 
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Models.Noticias noticias)
+        public ActionResult Edit(int id, Models.Pessoas pessoas)
         {
             try
             {
-                this.repository.update(id, noticias);
+                this.repository.update(id, pessoas);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -63,7 +67,7 @@ namespace GWI.Controllers
             }
         }
 
-        
+       
         public ActionResult Delete(int id)
         {
             this.repository.delete(id);
@@ -72,4 +76,3 @@ namespace GWI.Controllers
 
     }
 }
-
