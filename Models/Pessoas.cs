@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GWI.Models
@@ -26,20 +27,21 @@ namespace GWI.Models
         [StringLength(50, MinimumLength = 6, ErrorMessage = "Mínimo de 6 e máximo de 50 caracteres.")]
         public string p_email { get; set; }
 
-        public class Usuario : Pessoas
-        {
+        //public class Usuario : Pessoas
+        //{
 
-        }
+        //}
 
-        public class Administrador : Pessoas
-        {
+        //public class Administrador : Pessoas
+        //{
 
-        }
+        //}
 
-        public class Autor : Pessoas
-        {
-            private string Cidade { get; set; }
-        }
+        //public class Autor : Pessoas
+        //{
+        //    private string Cidade { get; set; }
+           
+        //}
         public Pessoas()
         {
             p_senha = string.Empty;
@@ -49,6 +51,7 @@ namespace GWI.Models
             p_sobrenome = string.Empty;
             p_telefone = string.Empty;
             p_email = string.Empty;
+            
         }
 
     }
