@@ -1,4 +1,5 @@
-﻿using GWI.Models;
+﻿using Newtonsoft.Json;
+using GWI.Models;
 
 namespace GWI.Services
 {
@@ -6,6 +7,7 @@ namespace GWI.Services
     {
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly string tokenSessao;
+
 
         public Sessao(IHttpContextAccessor httpContextAccessor)
         {

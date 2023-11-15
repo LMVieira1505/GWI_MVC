@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using GWI.Models;
+using System.Runtime.ConstrainedExecution;
 
 
 namespace GWI.Repositories.ADO.SQLServer

@@ -18,7 +18,13 @@ namespace GWI.Controllers
 
         public IActionResult Login()
         {
-            // Se o usuário não estiver logado retorna a View() senão retorna para a página de início.
+            Pessoas pessoa = new Pessoas();
+            Login login = new Login();
+
+            login.Email = pessoa.p_email;
+            login.Senha = pessoa.p_senha;
+
+
             return this.sessao.getTokenLogin() == null ? View() : RedirectToAction("Index", "Home");
         }
 
@@ -27,7 +33,7 @@ namespace GWI.Controllers
         public IActionResult Login(Models.Login login)
         {
 
-            if (!string.IsNullOrEmpty(login.Usuario) && !string.IsNullOrEmpty(login.Senha))
+            if (!string.IsNullOrEmpty(login.Email) && !string.IsNullOrEmpty(login.Senha))
             {
                 if (this.repository.check(login))
                 {
@@ -39,9 +45,15 @@ namespace GWI.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!");
+                
             }
-
             return View();
-        }           
+        }
+
+        public IActionResult Logout()
+        {
+            this.sessao.deleteTokenLogin();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace GWI.Services
+﻿using GWI.Models;
+
+namespace GWI.Services
 {
     public interface ISessao
     {
