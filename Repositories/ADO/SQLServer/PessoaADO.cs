@@ -6,10 +6,10 @@ namespace GWI.Repositories.ADO.SQLServer
 {
     public class PessoaADO
     {
-        private readonly string connectionString; //Declarado para toda a classe. Possível alterar somente no construtor.
-        public PessoaADO(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
+        private readonly string connectionString; 
+        public PessoaADO(string connectionString) 
         {
-            this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
+            this.connectionString = connectionString; 
         }
 
         public void add(Models.Pessoas pessoas)
@@ -21,7 +21,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "insert into pessoas (p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email) values (@Baldan e Marchesan abrem falência,@url da imagem ,@,@valor); select convert(int,@@identity) as id;;";
+                    command.CommandText = "insert into pessoas (p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email) values (@p_senha, @p_ativo, @p_nome, @p_sobrenome, @p_telefone, @p_email); select convert(int,@@identity) as id;;";
 
                     command.Parameters.Add(new SqlParameter("@p_senha", System.Data.SqlDbType.VarChar)).Value = pessoas.p_senha;
                     command.Parameters.Add(new SqlParameter("@p_ativo", System.Data.SqlDbType.Bit)).Value = pessoas.p_ativo;
@@ -30,7 +30,7 @@ namespace GWI.Repositories.ADO.SQLServer
                     command.Parameters.Add(new SqlParameter("@p_telefone", System.Data.SqlDbType.VarChar)).Value = pessoas.p_telefone;
                     command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
 
-                    pessoas.p_id = (int)command.ExecuteScalar(); // o homem do saco leva os dados até o sgbd e volta com o valor do id => ExecuteScalar retorna um único valor. Observe que o CommandText foi alterado com mais uma instrução. Então, as duas instruções são executadas e temos como retorno o valor do id que foi gerado pelo sgbd na tabela carro. Assim, conseguimos atualizar o valor do id do objeto carro que antes da inserção era 0.
+                    pessoas.p_id = (int)command.ExecuteScalar(); 
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.Pessoas getById(int id) //somente 1 carro.
+        public Models.Pessoas getById(int id) 
         {
             Models.Pessoas pessoa = new Models.Pessoas();
 

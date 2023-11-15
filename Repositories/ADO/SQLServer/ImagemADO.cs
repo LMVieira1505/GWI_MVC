@@ -7,10 +7,10 @@ namespace GWI.Repositories.ADO.SQLServer
 {
     public class ImagemADO
     {
-        private readonly string connectionString; //Declarado para toda a classe. Possível alterar somente no construtor.
-        public ImagemADO(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
-        {
-            this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
+        private readonly string connectionString; 
+        public ImagemADO(string connectionString)
+        { 
+            this.connectionString = connectionString;
         }
 
         public void add(Models.Imagens imagens)
@@ -26,7 +26,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     command.Parameters.Add(new SqlParameter("@im_url", System.Data.SqlDbType.VarChar)).Value = imagens.im_url;
               
-                    imagens.im_id = (int)command.ExecuteScalar(); // o homem do saco leva os dados até o sgbd e volta com o valor do id => ExecuteScalar retorna um único valor. Observe que o CommandText foi alterado com mais uma instrução. Então, as duas instruções são executadas e temos como retorno o valor do id que foi gerado pelo sgbd na tabela carro. Assim, conseguimos atualizar o valor do id do objeto carro que antes da inserção era 0.
+                    imagens.im_id = (int)command.ExecuteScalar(); 
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.Imagens getById(int id) //somente 1 carro.
+        public Models.Imagens getById(int id) 
         {
             Models.Imagens imagens = new Models.Imagens();
 
