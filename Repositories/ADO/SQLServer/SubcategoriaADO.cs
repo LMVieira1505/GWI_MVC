@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Data.SqlClient;
-using GWI.Models;
+﻿//using Microsoft.AspNetCore.Identity;
+//using Microsoft.Data.SqlClient;
+//using GWI.Models;
 
-namespace GWI.Repositories.ADO.SQLServer
-{
-    public class SubcategoriaADO
-    {
-    }
-}
+//namespace GWI.Repositories.ADO.SQLServer
+//{
+//    public class SubcategoriaADO
+//    {
+//    }
+//}

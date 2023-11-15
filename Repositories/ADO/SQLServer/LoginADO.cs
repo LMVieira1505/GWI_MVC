@@ -37,9 +37,9 @@ namespace GWI.Repositories.ADO.SQLServer
             return result;
         }
 
-        public loginResultado getType(Login login)
+        public LoginResultado getType(Login login)
         {
-            loginResultado result = new LoginResultado();
+            LoginResultado result = new LoginResultado();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -48,7 +48,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select id, tipo from login where usuario=@usuario and senha=@senha";
+                    command.CommandText = "select id, tipo from pessoas where usuario=@usuario and senha=@senha";
                     command.Parameters.Add(new SqlParameter("@usuario", System.Data.SqlDbType.VarChar)).Value = login.Email;
                     command.Parameters.Add(new SqlParameter("@senha", System.Data.SqlDbType.VarChar)).Value = login.Senha;
 
@@ -57,13 +57,10 @@ namespace GWI.Repositories.ADO.SQLServer
                         result.Sucesso = dr.Read();
 
                         if (result.Sucesso)
-                        {
-                            result.Id = (int)dr["id"];
+                        { 
                             result.TipoUsuario = dr["tipo"].ToString();
 
-
-                            login.Id = result.Id;
-                            login.TipoUsuario = result.TipoUsuario;
+                            login.tipoUser = result.TipoUsuario;
                         }
                     }
 
