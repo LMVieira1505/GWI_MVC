@@ -21,9 +21,9 @@ namespace GWI.Repositories.ADO.SQLServer
                     using (SqlCommand command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "insert into noticias (nt_titulo, nt_subtitulo, nt_texto, nt_data_publicação, nt_ativo, nt_cat_id, nt_sct_id, nt_p_id) values (@Baldan e Marchesan abrem falência,@url da imagem ,@,@valor); select convert(int,@@identity) as id;;";
+                        command.CommandText = "insert into tb_pessoas (nt_titulo, nt_subtitulo, nt_texto, nt_data_publicação, nt_ativo, nt_cat_id, nt_sct_id, nt_p_id) values (@Baldan e Marchesan abrem falência,@url da imagem ,@,@valor); select convert(int,@@identity) as id;;";
 
-                        command.Parameters.Add(new SqlParameter("@nt_titulo", System.Data.SqlDbType.VarChar)).Value = noticias.nt_titulo;
+                        command.Parameters.Add(new SqlParameter("@nt_titulo", System.Data.SqlDbType.VarChar)).Value = Noticias.nt_titulo;
                         command.Parameters.Add(new SqlParameter("@nt_subtitulo", System.Data.SqlDbType.VarChar)).Value = noticias.nt_subtitulo;
                         command.Parameters.Add(new SqlParameter("@nt_texto", System.Data.SqlDbType.Text)).Value = noticias.nt_texto;
                         command.Parameters.Add(new SqlParameter("@nt_data_publicação", System.Data.SqlDbType.DateTime)).Value = noticias.nt_data_publicação;

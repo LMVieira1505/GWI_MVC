@@ -36,7 +36,7 @@ namespace GWI.Controllers
             {
                 try
                 {
-                    this.repository.add(Noticia);
+                    this.repository.add(noticias);
 
                     return RedirectToAction(nameof(Index));
                 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using GWI.Models;
-using static GWI.Models.Imagens.Imagem;
+using static GWI.Models.Imagens;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace GWI.Repositories.ADO.SQLServer
