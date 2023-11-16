@@ -1,0 +1,42 @@
+﻿<!--  /main desktop/  -->
+<main class="pag_sem_cotacoes">
+    <!-- pagina de cadastro de usuario -->
+    <section class="secao-cadastro">
+        <h2 class="titulo-cadastro">Cadastro</h2>
+
+        <a asp-controller="Noticias" asp-action="Index">
+            <button class="cadastro-close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#141414" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </button>
+        </a>
+
+        <form class="form-cadastro" action="enviar.function" method="post">
+            <label class="label-cadastro" for="primeiro-nome">Primeiro Nome:</label>
+            <input class="input-cadastro" type="text" id="primeiro-nome" name="primeiro-nome" placeholder="Ex: Joãozinho">
+
+            <label class="label-cadastro" for="sobrenomes">Sobrenomes:</label>
+            <input class="input-cadastro" type="text" id="sobrenomes" name="sobrenomes" placeholder="Ex: Sobrenome1 Sobrenome2...">
+
+            <p class="label-cadastro">Telefone:</p>
+            <div>
+                <input class="input-cadastro" type="tel" id="ddd" name="ddd" placeholder="DDD">
+                <input class="input-cadastro" type="tel" id="telefone" name="telefone" placeholder="Número">
+            </div>
+
+            <label class="label-cadastro" for="email">Email:</label>
+            <input class="input-cadastro" type="email" id="email" name="email" placeholder="Ex: joaozinho@email.com">
+
+            <label class="label-cadastro" for="senha">Senha:</label>
+            <input class="input-cadastro" type="password" id="senha" name="senha">
+
+            <label class="label-cadastro" for="conf-senha">Confirmar Senha:</label>
+            <input class="input-cadastro" type="password" id="conf-senha" name="conf-senha">
+
+            <a asp-controller="Noticias"asp-action="Index">
+                <input class="submit-cadastro" type="submit" value="Ok">
+            </a>
+        </form>
+    </section>
+</main>

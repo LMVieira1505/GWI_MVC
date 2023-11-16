@@ -1,0 +1,41 @@
+﻿<!--  /main desktop/  -->
+<main class="pag_sem_cotacoes">
+    <!-- pagina de cadastro de usuario -->
+    <section class="secao-cadastro login">
+        <h2 class="titulo-cadastro">Login</h2>
+
+        <a asp-controller="Noticias" asp-action="Index">
+            <button class="cadastro-close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#141414" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </button>
+        </a>
+
+        <form class="form-cadastro">
+            <label class="label-cadastro" for="email">Email:</label>
+            <input class="input-cadastro" type="email" id="email" name="email" placeholder="Ex: joazinho@email.com">
+
+            <label class="label-cadastro" for="senha">Senha:</label>
+            <input class="input-cadastro" type="password" id="senha" name="senha">
+            <a asp-controller="Login" asp-action="VerificarEmail" class="link-recuperar-senha">Recuperar Senha</a>
+
+            <div class="container-login-3o">
+                <button class="botao-login-3o">
+                    <img src="../../img/index_img/google.png" alt="entrar com google" class="img-login-3o">
+                </button>
+                <button class="botao-login-3o">
+                    <img src="../../img/index_img/facebook.png" alt="entrar com facebook" class="img-login-3o">
+                </button>
+            </div>
+            <div>
+                <a asp-controller="Noticias" asp-action="Index">
+                    <input class="submit-cadastro dois-botoes-esquerda" type="submit" value="Entrar">
+                </a>
+                <a asp-controller="Login" asp-action="CadastrarUsuario">
+                    <button class="submit-cadastro dois-botoes-direita" type="button">Cadastre-Se</button>
+                </a>
+            </div>
+        </form>
+    </section>
+</main>

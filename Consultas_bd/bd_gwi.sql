@@ -21,7 +21,6 @@ CREATE TABLE tb_nivel (
 	nv_id int IDENTITY PRIMARY KEY NOT NULL,
 	nv_nivel int NOT NULL,
 	nv_descricao varchar(510) NOT NULL,
-	
 );
 
 CREATE TABLE tb_pessoas (
@@ -50,7 +49,7 @@ CREATE TABLE tb_noticias (
 	nt_titulo varchar(255) NOT NULL,
 	nt_subtitulo varchar(510) NOT NULL,
 	nt_texto text NOT NULL,
-	nt_data_publicação datetime NOT NULL,
+	nt_data_publicacao datetime NOT NULL,
 	nt_ativo bit NOT NULL,
 	nt_cat_id int FOREIGN KEY REFERENCES tb_categorias(cat_id),
 	nt_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)

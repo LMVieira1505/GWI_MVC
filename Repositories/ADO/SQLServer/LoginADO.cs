@@ -48,7 +48,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select id, tipo from pessoas where usuario=@usuario and senha=@senha";
+                    command.CommandText = "select id, tipo from tb_pessoas where p_email=@usuario and p_senha=@senha";
                     command.Parameters.Add(new SqlParameter("@usuario", System.Data.SqlDbType.VarChar)).Value = login.Email;
                     command.Parameters.Add(new SqlParameter("@senha", System.Data.SqlDbType.VarChar)).Value = login.Senha;
 
