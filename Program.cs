@@ -28,7 +28,7 @@ namespace GWI
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Index_home}/{action=Index}/{id?}");
+                pattern: "{controller=Noticias}/{action=Index}/{id?}");
 
             app.Run();
         }
