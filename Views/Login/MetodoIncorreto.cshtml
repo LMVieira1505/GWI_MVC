@@ -4,6 +4,8 @@
     <section class="secao-cadastro rec-senha">
         <h3 class="subtitulo-cadastro">O Método de Recuperação Selecionado não Foi Encontrado em Nossa Base de Dados</h3>
 
-        <button class="submit-cadastro">Ok</button>
+        <a asp-controller="Login" asp-action="EscolherMetodo">
+            <button class="submit-cadastro">Ok</button>
+        </a>
     </section>
 </main>

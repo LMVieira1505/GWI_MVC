@@ -14,13 +14,15 @@
 
         <h3 class="subtitulo-cadastro">Insira o Email Cadastrado</h3>
 
-        <form class="form-cadastro" action="enviar.function" method="post">
+        <form class="form-cadastro">
             <label class="label-cadastro" for="email">Email:</label>
             <input class="input-cadastro" type="email" id="email" name="email" placeholder="Ex: usuario@email.com">
             
             <a asp-controller="Login" asp-action="EscolherMetodo">
                 <input class="submit-cadastro" type="submit" value="Ok">
             </a>
+
+            <a asp-controller="Login" asp-action="ErroEmail">.</a>
         </form>
     </section>
 </main>

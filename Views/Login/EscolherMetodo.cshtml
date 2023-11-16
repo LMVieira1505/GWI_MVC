@@ -14,7 +14,7 @@
 
         <h3 class="subtitulo-cadastro">Selecione e Insira o Método de Envio do Código de Recuperação:</h3>
 
-        <form class="form-cadastro" action="enviar.function" method="post">
+        <form class="form-cadastro">
             <div class="accordion-rec-sen">
                 <div class="accordion-rec-sen-item">
                     <input type="radio" name="rec-senha" checked="checked" id="radio-rec-senha-1">
@@ -40,6 +40,7 @@
             <a asp-controller="Login" asp-action="InserirCodigo">
                 <input class="submit-cadastro" type="submit" value="Ok">
             </a>
+            <a asp-controller="Login" asp-action="MetodoIncorreto">.</a>
         </form>
     </section>
 </main>

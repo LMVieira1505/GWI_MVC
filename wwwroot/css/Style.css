@@ -632,15 +632,15 @@ main {
     background-color: #F7F7F7;
 }
 
-.cadastro-close-button:hover {
-    border-width: 2px;
-}
+    .cadastro-close-button:hover {
+        border-width: 2px;
+    }
 
 .submit-cadastro {
     width: 30%;
     color: #F7F7F7;
     background-color: #1D4988;
-    margin: 2vw 34.5% 1vw;
+    margin: 2vw auto 1vw;
 }
 
 .dois-botoes-esquerda {
@@ -658,9 +658,9 @@ main {
     color: #1D4988;
 }
 
-.link-recuperar-senha:hover {
-    text-decoration: underline;
-}
+    .link-recuperar-senha:hover {
+        text-decoration: underline;
+    }
 
 .container-login-3o {
     display: flex;

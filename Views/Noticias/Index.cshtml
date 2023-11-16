@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
+    int contador = 0;
+    int contador2 = 0;
 }
 
 
@@ -83,36 +85,23 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="~/img/educacao/fatec.jpg" class="d-block w-100 img_carrossel" alt="logo da empresa programmers">
-                    <a class="carousel-caption" href="">
-                        <h2 class="titulo_carrossel">Fatec Matao Luiz Marchesan Abre Vestibular</h2>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/empregos/aviao.jpg" class="d-block w-100 img_carrossel" alt="foto de 3 aviões">
-                    <a class="carousel-caption" href="">
-                        <h2 class="titulo_carrossel">Setor de Aviação: Novas Oportunidades</h2>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/esportes/nba.jpg" class="d-block w-100 img_carrossel" alt="nba">
-                    <a class="carousel-caption" href="">
-                        <h2 class="titulo_carrossel">NBA Inicia a Temporada com Grande Expectativa</h2>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/entretenimento/djonga.png" class="d-block w-100 img_carrossel" alt="repper djonga">
-                    <a class="carousel-caption" href="">
-                        <h2 class="titulo_carrossel">Djonga: O Rapper Mineiro Conquista o País com Sua Música Autêntica</h2>
-                    </a>
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/empregos/designer.jpg" class="d-block w-100 img_carrossel" alt="espaço de execução">
-                    <a class="carousel-caption" href="">
-                        <h2 class="titulo_carrossel">Baldan Procura Gerente de Marketing</h2>
-                    </a>
-                </div>
+                    @foreach (var item in Model)
+                    {
+                        contador++;
+                        if (contador<=5)
+                        {
+                        <div class="carousel-item active">
+                            <img src="~/@Html.DisplayFor(modelItem => item.im_url)" class="d-block w-100 img_carrossel">
+                            <a class="carousel-caption" href="">
+                                <h2 class="titulo_carrossel">@Html.DisplayFor(modelItem => item.nt_titulo)</h2>
+                            </a>
+                        </div>
+                        } else
+                        {
+                            break;
+                        }
+
+                    }
             </div>
             <button id="carousel_control_prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span id="carousel_prev_icon" aria-hidden="true">
@@ -143,14 +132,18 @@
     <div id="artigos_index" class="artigos">
         @foreach (var item in Model)
         {
-            <article class="noticia_main">
-                <img src="~/@Html.DisplayFor(modelItem => item.im_url)">
-                <a href="#">
-                    <h4>@Html.DisplayFor(modelItem => item.nt_titulo)</h4>
-                    <p class="descricao_da_noticia">@Html.DisplayFor(modelItem => item.nt_subtitulo)</p>
-                </a>
-                <p class="informacoes_da_noticia">@Html.DisplayFor(modelItem => item.p_username) — @Html.DisplayFor(modelItem => item.nt_data_publicacao)</p>
-            </article>
+            contador2++;
+            if (contador > 5)
+            {
+                <article class="noticia_main">
+                    <img src="~/@Html.DisplayFor(modelItem => item.im_url)">
+                    <a href="#">
+                        <h4>@Html.DisplayFor(modelItem => item.nt_titulo)</h4>
+                        <p class="descricao_da_noticia">@Html.DisplayFor(modelItem => item.nt_subtitulo)</p>
+                    </a>
+                    <p class="informacoes_da_noticia">@Html.DisplayFor(modelItem => item.p_username) — @Html.DisplayFor(modelItem => item.nt_data_publicacao)</p>
+                </article>
+            }
         }
     </div>
 </main>
