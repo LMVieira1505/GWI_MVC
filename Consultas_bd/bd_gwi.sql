@@ -17,9 +17,10 @@ CREATE TABLE tb_subcategorias (
 	sct_cat_id int FOREIGN KEY REFERENCES tb_categorias(cat_id)
 );
 
-CREATE TABLE tb_nivel (
+CREATE TABLE tb_niveis (
 	nv_id int IDENTITY PRIMARY KEY NOT NULL,
 	nv_nivel int NOT NULL,
+	nv_funcao varchar(55) NOT NULL,
 	nv_descricao varchar(510) NOT NULL,
 );
 
@@ -34,7 +35,7 @@ CREATE TABLE tb_pessoas (
 	p_ativo bit NOT NULL,
 	p_cpf char(11),
 	p_cnpj char(14),
-	p_nv_id int FOREIGN KEY REFERENCES tb_nivel(nv_id)
+	p_nv_id int FOREIGN KEY REFERENCES tb_niveis(nv_id)
 );
 
 
@@ -53,6 +54,12 @@ CREATE TABLE tb_noticias (
 	nt_ativo bit NOT NULL,
 	nt_cat_id int FOREIGN KEY REFERENCES tb_categorias(cat_id),
 	nt_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
+);
+
+CREATE TABLE tb_sctnt (
+	sctnt_id int IDENTITY PRIMARY KEY NOT NULL,
+	sctnt_nt_id int FOREIGN KEY REFERENCES tb_noticias(nt_id) NOT NULL,
+	sbtnt_sct_id int FOREIGN KEY REFERENCES tb_subcategorias(sct_id) NOT NULL
 );
 
 CREATE TABLE tb_img_not (
@@ -123,16 +130,16 @@ CREATE TABLE tb_cnhcr (
 	hbtcr_cr_id INT FOREIGN KEY REFERENCES tb_pessoas_curriculos(cr_id) NOT NULL
 );
 
-CREATE TABLE tb_cat_propaganda (
+CREATE TABLE tb_cat_propagandas (
 	pcat_id INT IDENTITY PRIMARY KEY NOT NULL,
 	pcat_tipo int NOT NULL,
 	pcat_nome varchar(55) NOT NULL,
 	pcat_descricao varchar(510) NOT NULL
 );
 
-CREATE TABLE tb_propaganda (
+CREATE TABLE tb_propagandas (
 	pro_id INT IDENTITY PRIMARY KEY NOT NULL,
 	pro_acesso int NOT NULL,
-	pro_pcat_id INT FOREIGN KEY REFERENCES tb_cat_propaganda(pcat_id) NOT NULL,
+	pro_pcat_id INT FOREIGN KEY REFERENCES tb_cat_propagandas(pcat_id) NOT NULL,
 	pro_img_id INT FOREIGN KEY REFERENCES tb_imagens(im_id) NOT NULL
 );

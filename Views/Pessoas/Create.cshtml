@@ -1,0 +1,70 @@
+﻿@model GWI.Models.Pessoas
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!--  /main desktop/  -->
+<main class="pag_sem_cotacoes">
+    <!-- pagina de cadastro de usuario -->
+    <section class="secao-cadastro">
+        <h2 class="titulo-cadastro">Cadastro</h2>
+
+        <a asp-controller="Noticias" asp-action="Index">
+            <button class="cadastro-close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#141414" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </button>
+        </a>
+
+        <form class="form-cadastro" asp-controller="Pessoas" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="p_nome" class="label-cadastro" for="p_nome">Primeiro Nome:</label>
+            <input asp-for="p_nome" class="input-cadastro" type="text" name="p_nome" placeholder="Ex: Joãozinho">
+            <span asp-validation-for="p_nome" class="text-danger"></span>
+
+            <label asp-for="p_sobrenome" class="label-cadastro" for="p_sobrenome">Sobrenomes:</label>
+            <input asp-for="p_sobrenome" class="input-cadastro" type="text" name="p_sobrenome" placeholder="Ex: Sobrenome1 Sobrenome2...">
+            <span asp-validation-for="p_sobrenome" class="text-danger"></span>
+
+            <label asp-for="p_username" class="label-cadastro" for="p_username">Usernam:</label>
+            <input asp-for="p_username" class="input-cadastro" type="text" name="p_username" placeholder="Ex: jps123">
+            <span asp-validation-for="p_username" class="text-danger"></span>
+
+            <label asp-for="p_telefone" class="label-cadastro" for="p_telefone">Telefone:</label>
+            <input asp-for="p_telefone" class="input-cadastro" type="tel" name="p_telefone" placeholder="16998876473">
+            <span asp-validation-for="p_telefone" class="text-danger"></span>
+
+            <label asp-for="p_email" class="label-cadastro" for="email">Email:</label>
+            <input asp-for="p_email" class="input-cadastro" type="email" name="p_email" placeholder="Ex: joaozinho@email.com">
+            <span asp-validation-for="p_email" class="text-danger"></span>
+
+            <label asp-for="p_senha" class="label-cadastro" for="senha">Senha:</label>
+            <input asp-for="p_senha" class="input-cadastro" type="password" name="p_senha">
+            <span asp-validation-for="p_senha" class="text-danger"></span>
+
+            <label asp-for="p_nv_id" class="label-cadastro" for="p_nv_id">Nivel:</label>
+            <input asp-for="p_nv_id" class="input-cadastro" type="number" name="p_nv_id">
+            <span asp-validation-for="p_nv_id" class="text-danger"></span>
+
+
+            @* <label class="label-cadastro">Confirmar Senha:</label>
+            <button class="input-cadastro" type="password" id="conf-senha" name="conf-senha"> *@
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="submit-cadastro">
+                </div>
+        </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }
+    </section>
+</main>

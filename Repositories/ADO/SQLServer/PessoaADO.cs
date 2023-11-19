@@ -21,7 +21,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "insert into pessoas (p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email) values (@p_senha, @p_ativo, @p_nome, @p_sobrenome, @p_telefone, @p_email); select convert(int,@@identity) as id;;";
+                    command.CommandText = "INSERT INTO tb_pessoas (p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email, p_nv_id, p_username) VALUES (@p_senha, @p_ativo, @p_nome, @p_sobrenome, @p_telefone, @p_email, @p_nv_id, @p_username); select convert(int, @@identity) as id;";
 
                     command.Parameters.Add(new SqlParameter("@p_senha", System.Data.SqlDbType.VarChar)).Value = pessoas.p_senha;
                     command.Parameters.Add(new SqlParameter("@p_ativo", System.Data.SqlDbType.Bit)).Value = pessoas.p_ativo;
@@ -29,6 +29,8 @@ namespace GWI.Repositories.ADO.SQLServer
                     command.Parameters.Add(new SqlParameter("@p_sobrenome", System.Data.SqlDbType.VarChar)).Value = pessoas.p_sobrenome;
                     command.Parameters.Add(new SqlParameter("@p_telefone", System.Data.SqlDbType.VarChar)).Value = pessoas.p_telefone;
                     command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
+                    command.Parameters.Add(new SqlParameter("@p_nv_id", System.Data.SqlDbType.Int)).Value = pessoas.p_nv_id;
+                    command.Parameters.Add(new SqlParameter("@p_username", System.Data.SqlDbType.VarChar)).Value = pessoas.p_username;
 
                     pessoas.p_id = (int)command.ExecuteScalar(); 
                 }
@@ -46,20 +48,23 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select p_id, p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email from pessoas;";
+                    command.CommandText = "select p_id, p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email, p_username, p_nv_id, p_ativo from tb_pessoas;";
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     while (dr.Read())
                     {
                         Models.Pessoas pessoas = new Models.Pessoas();
-                        pessoas.p_id = (int)dr["id"];
-                        pessoas.p_senha = (string)dr["senha"];
-                        pessoas.p_ativo = (bool)dr["ativo"];
-                        pessoas.p_nome = (string)dr["nome"];
-                        pessoas.p_sobrenome = (string)dr["sobrenome"];
-                        pessoas.p_telefone = (string)dr["telefone"];
-                        pessoas.p_email = (string)dr["email"];
+                        pessoas.p_id = (int)dr["p_id"];
+                        pessoas.p_senha = (string)dr["p_senha"];
+                        pessoas.p_ativo = (bool)dr["p_ativo"];
+                        pessoas.p_nome = (string)dr["p_nome"];
+                        pessoas.p_sobrenome = (string)dr["p_sobrenome"];
+                        pessoas.p_telefone = (string)dr["p_telefone"];
+                        pessoas.p_email = (string)dr["p_email"];
+                        pessoas.p_username = (string)dr["p_username"];
+                        pessoas.p_nv_id = (int)dr["p_nv_id"];
+                        pessoas.p_ativo = (bool)dr["p_ativo"];
 
                         pessoa.Add(pessoas);
                     }
