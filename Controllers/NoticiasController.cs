@@ -42,11 +42,6 @@ namespace GWI.Controllers
             }
         }
 
-      
-        public ActionResult Edit(int id)
-        {
-            return View(this.repository.getById(id));
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -67,9 +62,15 @@ namespace GWI.Controllers
         public ActionResult Delete(int id)
         {
             this.repository.delete(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToPage("Noticias","Index");
         }
 
+        public ActionResult Details(int id)
+        {
+            return View(this.repository.Details(id));
+        }
     }
+
+        
 }
 

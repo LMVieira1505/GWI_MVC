@@ -9,6 +9,7 @@
 
 <!--  /main desktop/  -->
 <main>
+    
     <!--cotações-->
     <section id="section_cotacoes">
         <ul id="container_cotacoes">
@@ -92,9 +93,10 @@
                         {
                         <div class="carousel-item active">
                             <img src="~/@Html.DisplayFor(modelItem => item.im_url)" class="d-block w-100 img_carrossel">
-                            <a class="carousel-caption" href="">
+                            <a class="carousel-caption" asp-controller="Noticias" asp-action="Details" asp-route-id="@item.nt_id">
                                 <h2 class="titulo_carrossel">@Html.DisplayFor(modelItem => item.nt_titulo)</h2>
                             </a>
+                            <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
                         </div>
                         } else
                         {
@@ -137,10 +139,11 @@
             {
                 <article class="noticia_main">
                     <img src="~/@Html.DisplayFor(modelItem => item.im_url)">
-                    <a href="#">
+                    <a asp-controller="Noticias" asp-action="Details" asp-route-id ="@item.nt_id">
                         <h4>@Html.DisplayFor(modelItem => item.nt_titulo)</h4>
                         <p class="descricao_da_noticia">@Html.DisplayFor(modelItem => item.nt_subtitulo)</p>
                     </a>
+                    <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
                     <p class="informacoes_da_noticia">@Html.DisplayFor(modelItem => item.p_username) — @Html.DisplayFor(modelItem => item.nt_data_publicacao)</p>
                 </article>
             }
