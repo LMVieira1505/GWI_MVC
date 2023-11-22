@@ -21,6 +21,10 @@ VALUES
 	('Marcos', 'Paulo Selva', '16443322771', 'marquin@outlook.com', 'marco123', 'Marcão', 0, 3),
 	('Úrsula', 'Carvalho Pinheiro', '16223311442', 'ursula@hotmail.com', 'ursula123', 'Úrsula', 0, 4);
 
+--DELETE FROM tb_pessoas
+--WHERE p_id > 4;
+--DBCC CHECKIDENT ('tb_pessoas', RESEED, 4); 
+
 ---------------------------------------------------------------
 ------  Inserir Notícias
 ---------------------------------------------------------------
@@ -108,7 +112,3 @@ VALUES
 	(1, 21, 7),
 	(1, 2, 8),
 	(1, 22, 9);
-
---DELETE FROM tb_pessoas
---WHERE p_id > 4;
---DBCC CHECKIDENT ('tb_pessoas', RESEED, 4);

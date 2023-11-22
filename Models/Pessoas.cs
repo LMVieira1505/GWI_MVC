@@ -42,6 +42,7 @@ namespace GWI.Models
             p_email = string.Empty;
             p_ativo = true;
             p_username = string.Empty;
+            p_nv_id = 4;
         }
     }
 }
