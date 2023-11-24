@@ -1,13 +1,14 @@
-﻿//using GWI.Models;
+﻿using GWI.Models;
 
-//namespace GWI.Services
-//{
-//    public interface ISessao
-//    {
-//        void addTokenLogin(Login login);
+namespace GWI.Services
+{
+    public interface ISessao
+    {
+        void addTokenPessoas(Pessoas pessoa);
 
-//        Login getTokenLogin();
-//        void deleteTokenLogin();
-//    }
-//}
+        Pessoas getTokenPessoas();
+
+        void deleteTokenPessoas();
+    }
+}
 

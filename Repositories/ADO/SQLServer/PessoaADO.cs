@@ -140,6 +140,63 @@ namespace GWI.Repositories.ADO.SQLServer
                 }
             }
         }
+        #region"Login"
+        public bool check(Pessoas pessoas)
+        {
+
+            bool result = false;
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select p_id from tb_pessoas where p_email = @p_email and p_senha = @p_senha";
+                    command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
+                    command.Parameters.Add(new SqlParameter("@p_senha", System.Data.SqlDbType.VarChar)).Value = pessoas.p_senha;
+
+                    SqlDataReader dr = command.ExecuteReader();
+                    result = dr.Read();
+                }
+            }
+
+            return result;
+        }
+
+        public LoginResultado getType(Pessoas pessoas)
+        {
+            LoginResultado result = new LoginResultado();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select p_nv_id from tb_pessoas where p_email=@p_email and p_senha=@p_senha";
+                    command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
+                    command.Parameters.Add(new SqlParameter("@p_senha", System.Data.SqlDbType.VarChar)).Value = pessoas.p_senha;
+
+                    using (SqlDataReader dr = command.ExecuteReader())
+                    {
+                        result.Sucesso = dr.Read();
+
+                        if (result.Sucesso)
+                        {
+                            result.TipoUsuario = (int)dr["p_nv_id"];
+
+                            pessoas.p_nv_id = result.TipoUsuario;
+                        }
+                    }
+
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }
 

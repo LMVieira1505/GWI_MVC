@@ -1,4 +1,10 @@
-﻿@* <!--  /main desktop/  -->
+﻿@model GWI.Models.Pessoas;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!--  /main desktop/  -->
 <main class="pag_sem_cotacoes">
     <!-- pagina de cadastro de usuario -->
     <section class="secao-cadastro login">
@@ -12,7 +18,7 @@
             </button>
         </a>
 
-        <form class="form-cadastro">
+        <form class="form-cadastro" asp-controller="Pessoas" asp-action="Login">
             <label asp-for="p_email" class="label-cadastro" for="email">Email:</label>
             <input asp-for="p_email" class="input-cadastro" type="email" name="p_email" placeholder="Ex: joaozinho@email.com">
             <span asp-validation-for="p_email" class="text-danger"></span>
@@ -30,13 +36,11 @@
                 </button>
             </div>
             <div>
-                <a asp-controller="Noticias" asp-action="Index">
-                    <input class="submit-cadastro dois-botoes-esquerda" type="submit" value="Entrar">
-                </a>
+                <input class="submit-cadastro dois-botoes-esquerda" type="submit" value="Entrar">
                 <a asp-controller="Pessoas" asp-action="Create">
                     <button class="submit-cadastro dois-botoes-direita" type="button">Cadastre-Se</button>
                 </a>
             </div>
         </form>
     </section>
-</main> *@
+</main>

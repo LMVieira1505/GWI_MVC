@@ -1,35 +1,35 @@
-﻿//using Newtonsoft.Json;
-//using GWI.Models;
+﻿using Newtonsoft.Json;
+using GWI.Models;
 
-//namespace GWI.Services
-//{
-//    public class Sessao : ISessao
-//    {
-//        private readonly IHttpContextAccessor httpContextAccessor;
-//        private readonly string tokenSessao;
+namespace GWI.Services
+{
+    public class Sessao : ISessao
+    {
+        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly string tokenSessao;
 
 
-//        public Sessao(IHttpContextAccessor httpContextAccessor)
-//        {
-//            this.httpContextAccessor = httpContextAccessor;
-//            this.tokenSessao = "login";
-//        }
+        public Sessao(IHttpContextAccessor httpContextAccessor)
+        {
+            this.httpContextAccessor = httpContextAccessor;
+            this.tokenSessao = "pessoas";
+        }
 
-//        public void addTokenLogin(Login login)
-//        {
-//            string loginTokenJson = JsonConvert.SerializeObject(login);
-//            this.httpContextAccessor.HttpContext?.Session.SetString(this.tokenSessao, loginTokenJson);
-//        }
+        public void addTokenPessoas(Pessoas pessoas)
+        {
+            string pessoasTokenJson = JsonConvert.SerializeObject(pessoas);
+            this.httpContextAccessor.HttpContext?.Session.SetString(this.tokenSessao, pessoasTokenJson);
+        }
 
-//        public Login getTokenLogin()
-//        {
-//            string? loginTokenJson = this.httpContextAccessor.HttpContext?.Session.GetString(this.tokenSessao);
-//            return loginTokenJson != null ? JsonConvert.DeserializeObject<Login>(loginTokenJson) : null;
-//        }
+        public Pessoas getTokenPessoas()
+        {
+            string? pessoasTokenJson = this.httpContextAccessor.HttpContext?.Session.GetString(this.tokenSessao);
+            return pessoasTokenJson != null ? JsonConvert.DeserializeObject<Pessoas>(pessoasTokenJson) : null;
+        }
 
-//        public void deleteTokenLogin()
-//        {
-//            this.httpContextAccessor.HttpContext?.Session.Remove(this.tokenSessao);
-//        }
-//    }
-//}
+        public void deleteTokenPessoas()
+        {
+            this.httpContextAccessor.HttpContext?.Session.Remove(this.tokenSessao);
+        }
+    }
+}

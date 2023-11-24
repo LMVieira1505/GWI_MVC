@@ -45,23 +45,12 @@ namespace GWI.Controllers
         //            return RedirectToAction("Index", "Home");
         //        }
         //        ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!");
-                
+
         //    }
         //    return View();
-        ////}
-
-        //public IActionResult Logout()
-        //{
-        //    this.sessao.deleteTokenLogin();
-        //    return RedirectToAction("Index", "Home");
         //}
 
         public IActionResult CadastrarUsuario()
-        {
-            return View();
-        }
-
-        public IActionResult FazerLogin()
         {
             return View();
         }

@@ -9,6 +9,16 @@ namespace GWI
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Controle de sessao
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddScoped<Services.ISessao, Services.Sessao>();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +35,9 @@ namespace GWI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Adicionar token de sessao
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
