@@ -2,6 +2,7 @@
 {
     public class NoticiaImagemAutor
     {
+        public int nt_id { get; set; }
         public string nt_titulo { get; set;}
         public string nt_subtitulo { get; set; }
         public string nt_texto { get; set; }
