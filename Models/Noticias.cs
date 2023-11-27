@@ -31,13 +31,14 @@ namespace GWI.Models
         public Noticias()
         {
             nt_id = 0;
-            nt_cat_id = 0;
-            nt_p_id = 0;
-            nt_ativo = false;
             nt_titulo = string.Empty;
             nt_subtitulo = string.Empty;
             nt_texto = string.Empty;
             nt_data_publicacao = DateTime.Now;
+            nt_ativo = false;
+            nt_cat_id = 0;
+            nt_p_id = 0;
+           
         }
     }
 }
