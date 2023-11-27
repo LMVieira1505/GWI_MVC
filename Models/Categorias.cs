@@ -18,5 +18,6 @@ namespace GWI.Models
             cat_nome = string.Empty;
             cat_ativo = false;
 
+        }
     }
 }

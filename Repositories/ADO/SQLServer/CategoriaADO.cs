@@ -12,7 +12,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
         }
 
-        public List<Models.Categorias> GetById()
+        public List<Models.Categorias> GetAll()
         {
             List<Models.Categorias> categorias = new List<Models.Categorias>();
 
