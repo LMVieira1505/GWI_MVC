@@ -18,10 +18,7 @@ namespace GWI.Controllers
         }
 
         //  Métodos de Login  //
-        public IActionResult FazerLogin()
-        {
-            return View();
-        }
+        #region
 
         public IActionResult Login()
         {
@@ -42,7 +39,8 @@ namespace GWI.Controllers
 
                     if (loginResultado.TipoUsuario == 1)
                         return RedirectToAction("Index", "Pessoas");
-                    return RedirectToAction("Index", "Noticias");
+                    else if (loginResultado.TipoUsuario == 4)
+                        return RedirectToAction(nameof(AcessarPerfilUsuario), new {id = pessoas.p_id});
                 }
                 ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!");
 
@@ -56,9 +54,11 @@ namespace GWI.Controllers
             this.sessao.deleteTokenPessoas();
             return RedirectToAction("Noticias", "Index");
         }
+        #endregion
 
 
-        // Métodos de Pessoa //
+        // Crud de Pessoa //
+        #region
         [HttpGet]
         public ActionResult Index()
         {
@@ -89,7 +89,7 @@ namespace GWI.Controllers
        
         public ActionResult Edit(int id)
         {
-            return View(this.repository.getById(id));
+            return View(this.repository.GetById(id));
         }
        
         [HttpPost]
@@ -112,5 +112,16 @@ namespace GWI.Controllers
             this.repository.delete(id);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
+
+        // Métodos de Perfil //
+        #region
+
+        public IActionResult AcessarPerfilUsuario(int id)
+        {
+            return View(this.repository.GetById(id));
+        }
+
+        #endregion
     }
 }
