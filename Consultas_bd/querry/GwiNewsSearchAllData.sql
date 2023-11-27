@@ -17,8 +17,10 @@ SELECT * FROM tb_hbcr;
 SELECT * FROM tb_habilidades;
 SELECT * FROM tb_cnhcr;
 SELECT * FROM tb_cnh;
+SELECT * FROM tb_fecr;
 SELECT * FROM tb_form_exp;
 SELECT * FROM tb_areas;
+
 
 SELECT * FROM tb_servicos;
 SELECT * FROM tb_propagandas;
