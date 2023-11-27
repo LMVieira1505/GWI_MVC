@@ -4,17 +4,17 @@ using GWI.Models;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
-    public class CategoriaADO
+    public class SubcatNoticiaADO
     {
         private readonly string connectionString; //Declarado para toda a classe. Possível alterar somente no construtor.
-        public CategoriaADO(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
+        public SubcatNoticiaADO(string connectionString) //Quem invocar o construtor do repositório deve enviar a string de conexão.
         {
             this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
         }
 
-        public List<Models.Categorias> GetAll()
+        public List<Models.SubcatNoticia> GetAll()
         {
-            List<Models.Categorias> categorias = new List<Models.Categorias>();
+            List<Models.SubcatNoticia> SubcatNoticias = new List<Models.SubcatNoticia>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -23,22 +23,22 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select cat_id, cat_nome, cat_ativo from tb_categorias;";
+                    command.CommandText = "select sctnt_id, sctnt_nt_id, sbtnt_sct_id from tb_sctnt;";
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     while (dr.Read())
                     {
-                        Models.Categorias categoria = new Models.Categorias();
-                        categoria.cat_id = (int)dr["cat_id"];
-                        categoria.cat_nome = (string)dr["cat_nome"];
-                        categoria.cat_ativo  = (bool)dr["cat_ativo"];
-                        categorias.Add(categoria);
+                        Models.SubcatNoticia SubcatNoticia = new Models.SubcatNoticia();
+                        SubcatNoticia.sctnt_id = (int)dr["cat_id"];
+                        SubcatNoticia.sctnt_nt_id = (int)dr["cat_id"];
+                        SubcatNoticia.sbtnt_sct_id = (int)dr["cat_id"];
+                        SubcatNoticias.Add(SubcatNoticia);
                     }
                 }
             }
 
-            return categorias;
+            return SubcatNoticias;
         }
 
     }

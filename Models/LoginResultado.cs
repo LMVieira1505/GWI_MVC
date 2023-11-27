@@ -1,4 +1,6 @@
-﻿namespace GWI.Models
+﻿using Microsoft.Extensions.WebEncoders.Testing;
+
+namespace GWI.Models
 {
     public class LoginResultado
     {
@@ -12,5 +14,11 @@
             Id = 0;
             TipoUsuario = 0;
         }
+
+        public int teste { get; set; }
+
+        public int teste1 { get; set; }
+        public int teste2 { get; set; }
+
     }
 }
