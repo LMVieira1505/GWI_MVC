@@ -62,7 +62,7 @@ namespace GWI.Controllers
         public ActionResult Delete(int id)
         {
             this.repository.delete(id);
-            return RedirectToPage("Noticias","Index");
+            return RedirectToAction(nameof(Index));
         }
 
         public ActionResult Details(int id)
