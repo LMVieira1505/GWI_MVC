@@ -13,6 +13,8 @@ namespace GWI.Controllers
             this.repository = new Repositories.ADO.SQLServer.NoticiaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
         }
 
+        // Crud de Notícia //
+        #region
         [HttpGet]
         public ActionResult Index()
         {
@@ -69,8 +71,6 @@ namespace GWI.Controllers
         {
             return View(this.repository.Details(id));
         }
+        #endregion
     }
-
-        
 }
-

@@ -91,7 +91,7 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.Pessoas getById(int id) 
+        public Models.Pessoas GetById(int id)
         {
             Models.Pessoas pessoa = new Models.Pessoas();
 
@@ -102,20 +102,19 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select p_id, p_senha, p_ativo, p_nome, p_sobrenome, p_telefone, p_email from pessoas where id=@id;";
-                    command.Parameters.Add(new SqlParameter("@id", System.Data.SqlDbType.Int)).Value = id;
+                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone FROM tb_pessoas WHERE p_id = @p_id;";
+                    command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     if (dr.Read())
                     {
-                        pessoa.p_id = (int)dr["id"];
-                        pessoa.p_senha = (string)dr["senha"];
-                        pessoa.p_ativo = (bool)dr["ativo"];
-                        pessoa.p_nome = (string)dr["nome"];
-                        pessoa.p_sobrenome = (string)dr["sobrenome"];
-                        pessoa.p_telefone = (string)dr["telefone"];
-                        pessoa.p_email = (string)dr["email"];
+                        pessoa.p_id = (int)dr["p_id"];
+                        pessoa.p_username = (string)dr["p_username"];
+                        pessoa.p_nome = (string)dr["p_nome"];
+                        pessoa.p_sobrenome = (string)dr["p_sobrenome"];
+                        pessoa.p_email = (string)dr["p_email"];
+                        pessoa.p_telefone = (string)dr["p_telefone"];
                     }
                 }
             }
@@ -176,7 +175,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select p_nv_id from tb_pessoas where p_email=@p_email and p_senha=@p_senha";
+                    command.CommandText = "select p_id, p_nv_id from tb_pessoas where p_email=@p_email and p_senha=@p_senha";
                     command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
                     command.Parameters.Add(new SqlParameter("@p_senha", System.Data.SqlDbType.VarChar)).Value = pessoas.p_senha;
 
@@ -188,6 +187,7 @@ namespace GWI.Repositories.ADO.SQLServer
                         {
                             result.TipoUsuario = (int)dr["p_nv_id"];
 
+                            pessoas.p_id = (int)dr["p_id"];
                             pessoas.p_nv_id = result.TipoUsuario;
                         }
                     }

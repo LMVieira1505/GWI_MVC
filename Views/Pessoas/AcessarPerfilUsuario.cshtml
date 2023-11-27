@@ -1,0 +1,33 @@
+﻿@model GWI.Models.Pessoas
+
+@{
+    ViewData["Title"] = "AcessarPerfilUsuario";
+}
+
+
+<!--  /main desktop/  -->
+<main class="pag_sem_cotacoes">
+    <section class="section-perfil">
+        <img src="">
+
+        <a>Editar Perfil</a>
+
+        <h2>@Html.DisplayFor(model => model.p_username)</h2>
+
+        <p>@Html.DisplayFor(model => model.p_nome) @Html.DisplayFor(model => model.p_sobrenome)</p>
+        <p>@Html.DisplayFor(model => model.p_telefone)</p>
+        <p>@Html.DisplayFor(model => model.p_email)</p>
+
+        <a>Add Infos Curriculo</a>
+
+        <h3>Meus Curriculos</h3>
+        <button>Editar Curriculos</button>
+        <!-- carrossel de curriculos-->
+        <div></div>
+
+        <h3>Noticias Favoritas</h3>
+        <a>Editar Favoritos</a>
+        <!-- carrossel de noticias salvas-->
+        <div></div>
+    </section>
+</main>
