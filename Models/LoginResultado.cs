@@ -15,10 +15,5 @@ namespace GWI.Models
             TipoUsuario = 0;
         }
 
-        public int teste { get; set; }
-
-        public int teste1 { get; set; }
-        public int teste2 { get; set; }
-
     }
 }
