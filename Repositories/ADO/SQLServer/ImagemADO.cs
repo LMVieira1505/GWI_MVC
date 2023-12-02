@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models;
-
+using GWI.Models.Imagens;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -13,7 +12,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString;
         }
 
-        public void add(Models.Imagens imagens)
+        public void add(Imagens imagens)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -31,9 +30,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Models.Imagens> get()
+        public List<Imagens> get()
         {
-            List<Models.Imagens> imagem = new List<Models.Imagens>();
+            List<Imagens> imagem = new List<Imagens>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -48,7 +47,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Models.Imagens imagens = new Models.Imagens();
+                        Imagens imagens = new Models.Imagens();
                         imagens.im_id = (int)dr["im_id"];
                         imagens.im_url = (string)dr["im_url"];
                         imagem.Add(imagens);
@@ -76,9 +75,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.Imagens getById(int id) 
+        public Imagens getById(int id) 
         {
-            Models.Imagens imagens = new Models.Imagens();
+            Imagens imagens = new Models.Imagens();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -103,7 +102,7 @@ namespace GWI.Repositories.ADO.SQLServer
             return imagens;
         }
 
-        public void update(int id, Models.Imagens imagens)
+        public void update(int id, Imagens imagens)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {

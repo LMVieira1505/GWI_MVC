@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GWI.Models
+namespace GWI.Models.Imagens
 {
     public class Imagens
     {

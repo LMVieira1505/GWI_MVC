@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models
+namespace GWI.Models.Imagens
 {
     public class ImgNot
     {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using GWI.Models.Imagens;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -10,7 +11,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString;
         }
 
-        public void add(Models.ImgNot imagensnot)
+        public void add(ImgNot imagensnot)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -30,9 +31,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Models.ImgNot> get()
+        public List<ImgNot> get()
         {
-            List<Models.ImgNot> imagemnot = new List<Models.ImgNot>();
+            List<ImgNot> imagemnot = new List<ImgNot>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -47,7 +48,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Models.ImgNot imagensnot = new Models.ImgNot();
+                        ImgNot imagensnot = new ImgNot();
                         imagensnot.imn_id = (int)dr["imn_id"];
                         imagensnot.imn_im_id = (int)dr["imn_im_id"];
                         imagensnot.imn_nt_id = (int)dr["imn_nt_id"];
@@ -78,9 +79,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.ImgNot getById(int id)
+        public ImgNot getById(int id)
         {
-            Models.ImgNot imagensnot = new Models.ImgNot();
+            ImgNot imagensnot = new ImgNot();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -108,7 +109,7 @@ namespace GWI.Repositories.ADO.SQLServer
             return imagensnot;
         }
 
-        public void update(int id, Models.ImgNot imagensnot)
+        public void update(int id, ImgNot imagensnot)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -126,5 +127,4 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
     }
-} 
-
+}
