@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models.Imagens.Imagens;
-using GWI.Models.Imagens;
+using GWI.Models;
+
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -13,7 +13,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString;
         }
 
-        public void add(Imagens imagens)
+        public void add(Models.Imagens imagens)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -22,7 +22,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "insert into imagens (im_url) values (@im_url); select convert(int,@@identity) as im_id;;";
+                    command.CommandText = "insert into tb_imagens (im_url) values (@im_url); select convert(int,@@identity) as im_id;;";
 
                     command.Parameters.Add(new SqlParameter("@im_url", System.Data.SqlDbType.VarChar)).Value = imagens.im_url;
               
@@ -31,9 +31,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Imagens> get()
+        public List<Models.Imagens> get()
         {
-            List<Imagens> imagem = new List<Imagens>();
+            List<Models.Imagens> imagem = new List<Models.Imagens>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -42,15 +42,15 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select im_id, im_url from imagens;";
+                    command.CommandText = "select im_id, im_url from tb_imagens;";
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     while (dr.Read())
                     {
-                        Imagens imagens = new Models.Imagens();
-                        imagens.im_id = (int)dr["id"];
-                        imagens.im_url = (string)dr["url"];
+                        Models.Imagens imagens = new Models.Imagens();
+                        imagens.im_id = (int)dr["im_id"];
+                        imagens.im_url = (string)dr["im_url"];
                         imagem.Add(imagens);
                     }
                 }
@@ -68,7 +68,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "delete from imagens where im_id = @im_id;";
+                    command.CommandText = "delete from tb_imagens where im_id = @im_id;";
                     command.Parameters.Add(new SqlParameter("@im_id", System.Data.SqlDbType.Int)).Value = id;
 
                     command.ExecuteNonQuery();
@@ -76,9 +76,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Imagens getById(int id) 
+        public Models.Imagens getById(int id) 
         {
-            Imagens imagens = new Models.Imagens();
+            Models.Imagens imagens = new Models.Imagens();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -87,15 +87,15 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select im_id, im_url from imagens where im_id=@im_id;";
+                    command.CommandText = "select im_id, im_url from tb_imagens where im_id=@im_id;";
                     command.Parameters.Add(new SqlParameter("@im_id", System.Data.SqlDbType.Int)).Value = id;
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     if (dr.Read())
                     {
-                        imagens.im_id = (int)dr["id"];
-                        imagens.im_url = (string)dr["url"];
+                        imagens.im_id = (int)dr["im_id"];
+                        imagens.im_url = (string)dr["im_url"];
                     }
                 }
             }
@@ -103,7 +103,7 @@ namespace GWI.Repositories.ADO.SQLServer
             return imagens;
         }
 
-        public void update(int id, Imagens imagens)
+        public void update(int id, Models.Imagens imagens)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -112,7 +112,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "update imagens set im_url = @im_url  where im_id=@im_id;";
+                    command.CommandText = "update tb_imagens set im_url = @im_url  where im_id=@im_id;";
 
                     command.Parameters.Add(new SqlParameter("@im_url", System.Data.SqlDbType.VarChar)).Value = imagens.im_url;
                     
