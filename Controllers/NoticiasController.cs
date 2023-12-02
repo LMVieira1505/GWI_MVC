@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GWI.Models;
 using GWI.Repositories.ADO.SQLServer;
+using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias.Noticias;
+using GWI.Models.Noticias;
 
 namespace GWI.Controllers
 {
@@ -30,7 +35,7 @@ namespace GWI.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Noticias noticias)
+        public ActionResult Create(Noticias noticias)
         {
             try
             {
@@ -47,7 +52,7 @@ namespace GWI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Models.Noticias noticias)
+        public ActionResult Edit(int id, Noticias noticias)
         {
             try
             {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.WebEncoders.Testing;
 
-namespace GWI.Models
+namespace GWI.Models.Pessoas
 {
     public class LoginResultado
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using GWI.Models;
 using GWI.Repositories.ADO.SQLServer;
+using GWI.Models.Imagens.Imagens;
+using GWI.Models.Imagens;
 
 namespace GWI.Controllers
 {
@@ -26,7 +27,7 @@ namespace GWI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Imagens imagens)
+        public ActionResult Create(Imagens imagens)
         {
             try
             {
@@ -47,7 +48,7 @@ namespace GWI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Models.Imagens imagens)
+        public ActionResult Edit(int id, Imagens imagens)
         {
             try
             {

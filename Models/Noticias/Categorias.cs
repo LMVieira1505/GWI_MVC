@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models
+namespace GWI.Models.Noticias
 {
     public class Categorias
     {
@@ -17,7 +17,6 @@ namespace GWI.Models
             cat_id = 0;
             cat_nome = string.Empty;
             cat_ativo = false;
-
         }
     }
 }

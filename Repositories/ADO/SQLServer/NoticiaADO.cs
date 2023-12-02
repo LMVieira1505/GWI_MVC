@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using GWI.Models.Noticias;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models;
 using System.Runtime.ConstrainedExecution;
 
 
@@ -14,7 +14,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; 
         }
 
-        public void add(Models.Noticias noticias)
+        public void add(Noticias noticias)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -38,9 +38,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Models.NoticiaImagemAutor> get()
+        public List<NoticiaImagemAutor> get()
         {
-            List<Models.NoticiaImagemAutor> noticia = new List<Models.NoticiaImagemAutor>();
+            List<NoticiaImagemAutor> noticia = new List<NoticiaImagemAutor>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -55,7 +55,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Models.NoticiaImagemAutor noticias = new Models.NoticiaImagemAutor();
+                        NoticiaImagemAutor noticias = new NoticiaImagemAutor();
                         noticias.nt_id = (int)dr["nt_id"];
                         noticias.nt_titulo = (string)dr["nt_titulo"];
                         noticias.nt_subtitulo = (string)dr["nt_subtitulo"];
@@ -72,9 +72,9 @@ namespace GWI.Repositories.ADO.SQLServer
             return noticia;
         }
 
-        public Models.NoticiaImagemAutor Details(int id)
+        public NoticiaImagemAutor Details(int id)
         {
-            Models.NoticiaImagemAutor noticia = new Models.NoticiaImagemAutor();
+            NoticiaImagemAutor noticia = new NoticiaImagemAutor();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -123,7 +123,7 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public void update(int id, Models.Noticias noticias)
+        public void update(int id, Noticias noticias)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {

@@ -1,8 +1,8 @@
-﻿using GWI.Models;
-using GWI.Services;
+﻿using GWI.Services;
 using GWI.Repositories.ADO.SQLServer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using GWI.Models.Pessoas;
 
 namespace GWI.Controllers
 {
@@ -27,7 +27,7 @@ namespace GWI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(Models.Pessoas pessoas)
+        public IActionResult Login(Pessoas pessoas)
         {
 
             if (!string.IsNullOrEmpty(pessoas.p_email) && !string.IsNullOrEmpty(pessoas.p_senha))
@@ -73,7 +73,7 @@ namespace GWI.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Pessoas pessoas)
+        public ActionResult Create(Pessoas pessoas)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace GWI.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Models.Pessoas pessoas)
+        public ActionResult Edit(int id, Pessoas pessoas)
         {
             try
             {
@@ -118,6 +118,11 @@ namespace GWI.Controllers
         #region
 
         public IActionResult AcessarPerfilUsuario(int id)
+        {
+            return View(this.repository.GetById(id));
+        }
+
+        public IActionResult EditarPerfil(int id)
         {
             return View(this.repository.GetById(id));
         }

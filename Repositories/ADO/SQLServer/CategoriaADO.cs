@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models;
+using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -12,9 +12,9 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
         }
 
-        public List<Models.Categorias> GetAll()
+        public List<Categorias> GetAll()
         {
-            List<Models.Categorias> categorias = new List<Models.Categorias>();
+            List<Categorias> categorias = new List<Categorias>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -29,7 +29,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Models.Categorias categoria = new Models.Categorias();
+                        Categorias categoria = new Models.Categorias();
                         categoria.cat_id = (int)dr["cat_id"];
                         categoria.cat_nome = (string)dr["cat_nome"];
                         categoria.cat_ativo  = (bool)dr["cat_ativo"];

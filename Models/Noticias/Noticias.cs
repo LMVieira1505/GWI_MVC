@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace GWI.Models
+namespace GWI.Models.Noticias
 {
     public class Noticias
     {
-        public int nt_id {get; set; }
+        public int nt_id { get; set; }
         public int nt_cat_id { get; set; }
         public int nt_p_id { get; set; }
 
@@ -38,7 +38,7 @@ namespace GWI.Models
             nt_ativo = false;
             nt_cat_id = 0;
             nt_p_id = 0;
-           
+
         }
     }
 }

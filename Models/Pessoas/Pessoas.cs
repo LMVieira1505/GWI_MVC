@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GWI.Models
+namespace GWI.Models.Pessoas
 {
     public class Pessoas
     {
@@ -31,6 +31,8 @@ namespace GWI.Models
 
         public string p_username { get; set; }
 
+        public int p_im_id { get; set; }
+
         public Pessoas()
         {
             p_senha = string.Empty;
@@ -43,6 +45,7 @@ namespace GWI.Models
             p_ativo = true;
             p_username = string.Empty;
             p_nv_id = 4;
+            p_im_id = 0; /*colocar id da imagem default de perfil*/
         }
     }
 }

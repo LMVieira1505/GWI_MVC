@@ -6,6 +6,12 @@ USE GWINEWS
 GO
 
 
+CREATE TABLE tb_imagens (
+	im_id int IDENTITY PRIMARY KEY NOT NULL,
+	im_url varchar(255) NOT NULL
+);
+
+
 CREATE TABLE tb_categorias (
 	cat_id int PRIMARY KEY IDENTITY NOT NULL,
 	cat_nome varchar(20) NOT NULL,
@@ -40,13 +46,8 @@ CREATE TABLE tb_pessoas (
 	p_ativo bit NOT NULL,
 	p_cpf char(11),
 	p_cnpj char(14),
-	p_nv_id int FOREIGN KEY REFERENCES tb_niveis(nv_id)
-);
-
-
-CREATE TABLE tb_imagens (
-	im_id int IDENTITY PRIMARY KEY NOT NULL,
-	im_url varchar(255) NOT NULL
+	p_nv_id int FOREIGN KEY REFERENCES tb_niveis(nv_id),
+	p_im_id int FOREIGN KEY REFERENCES tb_imagens(im_id)
 );
 
 
@@ -127,7 +128,6 @@ CREATE TABLE tb_form_exp (
 	fe_instituicao varchar(25) NOT NULL,
 	fe_ano_ini date NOT NULL,
 	fe_ano_ter date NOT NULL,
-	fe_area varchar(20) NOT NULL,
 	fe_descricao varchar(115) NOT NULL,
 	fe_ar_id int FOREIGN KEY REFERENCES tb_areas(ar_id),
 );
@@ -135,14 +135,15 @@ CREATE TABLE tb_form_exp (
 
 CREATE TABLE tb_pessoas_curriculos (
 	cr_id int IDENTITY PRIMARY KEY NOT NULL,
-	cr_Nome_Usuario varchar(255) NOT NULL,
-	cr_Endereco varchar(255) NOT NULL,
-	cr_Data_Nascimento date NOT NULL,
-	cr_Estado_Civil varchar(20) NOT NULL,
-	cr_Objetivos varchar(510) NOT NULL,
+	cr_nome varchar(255) NOT NULL,
+	cr_endereco varchar(255) NOT NULL,
+	cr_data_nasc date NOT NULL,
+	cr_estado_civil varchar(20) NOT NULL,
+	cr_objetivos varchar(510) NOT NULL,
 	cr_telefone_opc char(11),
 	cr_email_opc varchar(255),
-	cr_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
+	cr_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id),
+	cr_im_id int FOREIGN KEY REFERENCES tb_imagens(im_id)
 );
 
 
@@ -172,8 +173,11 @@ CREATE TABLE tb_fecr (
 ------  Comando Úteis
 ---------------------------------------------------------------
 
---ALTER TABLE TB_CNH
---DROP COLUMN CNH_LETRA;
+--ALTER TABLE [dbo].[tb_cnh]
+--DROP COLUMN cr_endereco;
+--ALTER TABLE [dbo].[tb_pessoas_curriculos]
+--ADD cr_email_opc varchar(255);
 
---ALTER TABLE TB_CNH
---ADD cnh_tipo varchar(3);
+--DELETE FROM tb_pessoas
+--WHERE p_id > 4;
+--DBCC CHECKIDENT ('tb_pessoas', RESEED, 4);

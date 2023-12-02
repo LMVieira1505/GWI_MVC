@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using GWI.Models;
+using GWI.Models.Pessoas;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -12,7 +13,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; 
         }
 
-        public void add(Models.Pessoas pessoas)
+        public void add(Pessoas pessoas)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -37,9 +38,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Models.Pessoas> get()
+        public List<Pessoas> get()
         {
-            List<Models.Pessoas> pessoa = new List<Models.Pessoas>();
+            List<Pessoas> pessoa = new List<Pessoas>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -54,7 +55,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Models.Pessoas pessoas = new Models.Pessoas();
+                        Pessoas pessoas = new Pessoas();
                         pessoas.p_id = (int)dr["p_id"];
                         pessoas.p_senha = (string)dr["p_senha"];
                         pessoas.p_ativo = (bool)dr["p_ativo"];
@@ -91,9 +92,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Models.Pessoas GetById(int id)
+        public Pessoas GetById(int id)
         {
-            Models.Pessoas pessoa = new Models.Pessoas();
+            Pessoas pessoa = new Pessoas();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -122,7 +123,7 @@ namespace GWI.Repositories.ADO.SQLServer
             return pessoa;
         }
 
-        public void update(int id, Models.Pessoas pessoas)
+        public void update(int id, Pessoas pessoas)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -196,6 +197,11 @@ namespace GWI.Repositories.ADO.SQLServer
             }
             return result;
         }
+
+        //internal bool check(Pessoas pessoas)
+        //{
+        //    throw new NotImplementedException();
+        //}
         #endregion
     }
 }

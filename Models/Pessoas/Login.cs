@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GWI.Models
+namespace GWI.Models.Pessoas
 {
     public class Login
     {
@@ -19,9 +19,9 @@ namespace GWI.Models
         public string tipoUser { get; set; }
         public Login()
         {
-            this.Email = "";
-            this.Senha = "";
-            this.tipoUser = string.Empty;
-        }    
+            Email = "";
+            Senha = "";
+            tipoUser = string.Empty;
+        }
     }
 }

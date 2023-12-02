@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GWI.Models
+namespace GWI.Models.Noticias
 {
-    public class SubcatNoticia
+    public class Subcategoria
     {
         public int sctnt_id { get; set; }
 
@@ -12,12 +12,11 @@ namespace GWI.Models
 
         public int sbtnt_sct_id { get; set; }
 
-        public SubcatNoticia()
+        public Subcategoria()
         {
             sctnt_id = 0;
             sctnt_nt_id = 0;
             sbtnt_sct_id = 0;
-
         }
     }
 }
