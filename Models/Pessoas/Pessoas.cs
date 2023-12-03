@@ -42,7 +42,7 @@ namespace GWI.Models.Pessoas
             p_sobrenome = string.Empty;
             p_telefone = string.Empty;
             p_email = string.Empty;
-            p_ativo = true;
+            p_ativo = false;
             p_username = string.Empty;
             p_nv_id = 4;
             p_im_id = 0; /*colocar id da imagem default de perfil*/

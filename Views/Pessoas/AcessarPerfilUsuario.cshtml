@@ -1,4 +1,4 @@
-﻿@model GWI.Models.Pessoas
+﻿@model GWI.Models.Pessoas.Pessoas
 
 @{
     ViewData["Title"] = "AcessarPerfilUsuario";
@@ -10,7 +10,7 @@
     <section class="section-perfil">
         <img src="">
 
-        <a>Editar Perfil</a>
+        <a asp-controller="Pessoas" asp-action="Edit" asp-route-id="@Model.p_id">Editar Perfil</a>
 
         <h2>@Html.DisplayFor(model => model.p_username)</h2>
 

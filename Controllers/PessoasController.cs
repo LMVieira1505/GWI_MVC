@@ -57,6 +57,7 @@ namespace GWI.Controllers
         #endregion
 
 
+
         // Crud de Pessoa //
         #region
         [HttpGet]
@@ -86,7 +87,8 @@ namespace GWI.Controllers
                 return View();
             }
         }
-       
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View(this.repository.GetById(id));
@@ -99,7 +101,7 @@ namespace GWI.Controllers
             try
             {
                 this.repository.update(id, pessoas);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AcessarPerfilUsuario), new { id = id });
             }
             catch
             {
@@ -114,15 +116,12 @@ namespace GWI.Controllers
         }
         #endregion
 
+
+
         // Métodos de Perfil //
         #region
 
         public IActionResult AcessarPerfilUsuario(int id)
-        {
-            return View(this.repository.GetById(id));
-        }
-
-        public IActionResult EditarPerfil(int id)
         {
             return View(this.repository.GetById(id));
         }

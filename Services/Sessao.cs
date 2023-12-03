@@ -1,10 +1,4 @@
 ﻿using Newtonsoft.Json;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas;
 using GWI.Models.Pessoas;
 
 namespace GWI.Services

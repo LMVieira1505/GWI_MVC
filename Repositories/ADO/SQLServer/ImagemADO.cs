@@ -47,7 +47,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Imagens imagens = new Models.Imagens();
+                        Imagens imagens = new Imagens();
                         imagens.im_id = (int)dr["im_id"];
                         imagens.im_url = (string)dr["im_url"];
                         imagem.Add(imagens);
@@ -77,7 +77,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
         public Imagens getById(int id) 
         {
-            Imagens imagens = new Models.Imagens();
+            Imagens imagens = new Imagens();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {

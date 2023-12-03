@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GWI.Repositories.ADO.SQLServer;
-using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias.Noticias;
-using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias;
-using GWI.Models.Noticias.Noticias.Noticias.Noticias;
-using GWI.Models.Noticias.Noticias.Noticias;
-using GWI.Models.Noticias.Noticias;
 using GWI.Models.Noticias;
 
 namespace GWI.Controllers

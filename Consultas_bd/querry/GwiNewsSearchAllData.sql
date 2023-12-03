@@ -45,4 +45,12 @@ INNER JOIN tb_imagens
 
 SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone
 FROM tb_pessoas
-WHERE p_id = 4;
+WHERE p_id = 5;
+
+---------------------------------------------------------------
+------  Update Pessoa
+---------------------------------------------------------------
+
+UPDATE tb_pessoas
+SET p_nome = 'Junin', p_sobrenome = 'Filho Neto', p_telefone = '16999888777', p_email = 'juniorfilho@email.com', p_senha = 'junin123', p_username = 'juninBoladao'
+WHERE p_id = 5;

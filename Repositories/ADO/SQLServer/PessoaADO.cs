@@ -13,6 +13,10 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; 
         }
 
+
+
+        #region"Crud Pessoa"
+
         public void add(Pessoas pessoas)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -36,6 +40,37 @@ namespace GWI.Repositories.ADO.SQLServer
                     pessoas.p_id = (int)command.ExecuteScalar(); 
                 }
             }
+        }
+
+        public Pessoas GetById(int id)
+        {
+            Pessoas pessoa = new Pessoas();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone FROM tb_pessoas WHERE p_id = @p_id;";
+                    command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        pessoa.p_id = (int)dr["p_id"];
+                        pessoa.p_username = (string)dr["p_username"];
+                        pessoa.p_nome = (string)dr["p_nome"];
+                        pessoa.p_sobrenome = (string)dr["p_sobrenome"];
+                        pessoa.p_email = (string)dr["p_email"];
+                        pessoa.p_telefone = (string)dr["p_telefone"];
+                    }
+                }
+            }
+
+            return pessoa;
         }
 
         public List<Pessoas> get()
@@ -92,37 +127,6 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public Pessoas GetById(int id)
-        {
-            Pessoas pessoa = new Pessoas();
-
-            using (SqlConnection connection = new SqlConnection(this.connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone FROM tb_pessoas WHERE p_id = @p_id;";
-                    command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
-
-                    SqlDataReader dr = command.ExecuteReader();
-
-                    if (dr.Read())
-                    {
-                        pessoa.p_id = (int)dr["p_id"];
-                        pessoa.p_username = (string)dr["p_username"];
-                        pessoa.p_nome = (string)dr["p_nome"];
-                        pessoa.p_sobrenome = (string)dr["p_sobrenome"];
-                        pessoa.p_email = (string)dr["p_email"];
-                        pessoa.p_telefone = (string)dr["p_telefone"];
-                    }
-                }
-            }
-
-            return pessoa;
-        }
-
         public void update(int id, Pessoas pessoas)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -132,14 +136,23 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "update pessoas set p_ativo = @0, where id=@id;";
+                    command.CommandText = "UPDATE tb_pessoas SET p_nome = @p_nome, p_sobrenome = @p_sobrenome, p_telefone = @p_telefone, p_email = @p_email, p_username = @p_username WHERE p_id = @p_id;";
 
-                    command.Parameters.Add(new SqlParameter("@0", System.Data.SqlDbType.Bit)).Value = pessoas.p_ativo;
+                    command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
+                    command.Parameters.Add(new SqlParameter("@p_nome", System.Data.SqlDbType.VarChar)).Value = pessoas.p_nome;
+                    command.Parameters.Add(new SqlParameter("@p_sobrenome", System.Data.SqlDbType.VarChar)).Value = pessoas.p_sobrenome;
+                    command.Parameters.Add(new SqlParameter("@p_telefone", System.Data.SqlDbType.VarChar)).Value = pessoas.p_telefone;
+                    command.Parameters.Add(new SqlParameter("@p_email", System.Data.SqlDbType.VarChar)).Value = pessoas.p_email;
+                    command.Parameters.Add(new SqlParameter("@p_username", System.Data.SqlDbType.VarChar)).Value = pessoas.p_username;
 
                     command.ExecuteNonQuery();
                 }
             }
         }
+        #endregion
+
+
+
         #region"Login"
         public bool check(Pessoas pessoas)
         {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models.Noticias.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -29,7 +29,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Subcategoria SubcatNoticia = new Models.Subcategoria();
+                        Subcategoria SubcatNoticia = new Subcategoria();
                         SubcatNoticia.sctnt_id = (int)dr["cat_id"];
                         SubcatNoticia.sctnt_nt_id = (int)dr["cat_id"];
                         SubcatNoticia.sbtnt_sct_id = (int)dr["cat_id"];

@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GWI.Repositories.ADO.SQLServer;
-using GWI.Models.Imagens.Imagens.Imagens;
-using GWI.Models.Imagens.Imagens;
 using GWI.Models.Imagens;
 
 namespace GWI.Controllers

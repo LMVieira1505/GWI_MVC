@@ -1,10 +1,4 @@
 ﻿using GWI.Models.Pessoas;
-using GWI.Models.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
-using GWI.Models.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas.Pessoas;
 
 namespace GWI.Services
 {

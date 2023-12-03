@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models.Noticias.Noticias.Noticias.Noticias.Noticias;
+using GWI.Models.Noticias;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -29,7 +29,7 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Categorias categoria = new Models.Categorias();
+                        Categorias categoria = new Categorias();
                         categoria.cat_id = (int)dr["cat_id"];
                         categoria.cat_nome = (string)dr["cat_nome"];
                         categoria.cat_ativo  = (bool)dr["cat_ativo"];
