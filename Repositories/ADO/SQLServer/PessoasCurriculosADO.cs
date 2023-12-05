@@ -64,8 +64,8 @@ namespace GWI.Repositories.ADO.SQLServer
                         forExpArea.fe_tipo = (bool)dr["fe_tipo"];
                         forExpArea.fe_nome = (string)dr["fe_nome"];
                         forExpArea.fe_instituicao = (string)dr["fe_instituicao"];
-                        forExpArea.fe_ano_ini = (string)dr["fe_ano_ini"];
-                        forExpArea.fe_ano_ter = (string)dr["fe_ano_ter"];
+                        forExpArea.fe_ano_ini = (DateTime)dr["fe_ano_ini"];
+                        forExpArea.fe_ano_ter = (DateTime)dr["fe_ano_ter"];
                         forExpArea.fe_descricao = (string)dr["fe_descricao"];
                         forExpArea.ar_nome = (string)dr["ar_nome"];
                         forExpArea.ar_tipo = (string)dr["ar_tipo"];
@@ -101,8 +101,8 @@ namespace GWI.Repositories.ADO.SQLServer
                         forExpArea.fe_tipo = (bool)dr["fe_tipo"];
                         forExpArea.fe_nome = (string)dr["fe_nome"];
                         forExpArea.fe_instituicao = (string)dr["fe_instituicao"];
-                        forExpArea.fe_ano_ini = (string)dr["fe_ano_ini"];
-                        forExpArea.fe_ano_ter = (string)dr["fe_ano_ter"];
+                        forExpArea.fe_ano_ini = (DateTime)dr["fe_ano_ini"];
+                        forExpArea.fe_ano_ter = (DateTime)dr["fe_ano_ter"];
                         forExpArea.fe_descricao = (string)dr["fe_descricao"];
                         forExpArea.ar_nome = (string)dr["ar_nome"];
                         forExpArea.ar_tipo = (string)dr["ar_tipo"];

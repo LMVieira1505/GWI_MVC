@@ -21,7 +21,15 @@ namespace GWI.Controllers
             return View(this.repository.get());
         }
 
-       
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            return View(this.repository.Details(id));
+        }
+
+
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -60,16 +68,12 @@ namespace GWI.Controllers
             }
         }
 
-        
+
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             this.repository.delete(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View(this.repository.Details(id));
         }
         #endregion
     }

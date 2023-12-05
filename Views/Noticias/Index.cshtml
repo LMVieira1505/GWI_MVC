@@ -89,8 +89,8 @@
                     @foreach (var item in Model)
                     {
                         contador++;
-                        if (contador<=5)
-                        {
+                    if (contador == 1)
+                    {
                         <div class="carousel-item active">
                             <img src="~/@Html.DisplayFor(modelItem => item.im_url)" class="d-block w-100 img_carrossel">
                             <a class="carousel-caption" asp-controller="Noticias" asp-action="Details" asp-route-id="@item.nt_id">
@@ -98,12 +98,24 @@
                             </a>
                             <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
                         </div>
-                        } else
-                        {
-                            break;
-                        }
-
                     }
+
+                    else if (contador <= 5)
+                    {
+                        <div class="carousel-item">
+                            <img src="~/@Html.DisplayFor(modelItem => item.im_url)" class="d-block w-100 img_carrossel">
+                            <a class="carousel-caption" asp-controller="Noticias" asp-action="Details" asp-route-id="@item.nt_id">
+                                <h2 class="titulo_carrossel">@Html.DisplayFor(modelItem => item.nt_titulo)</h2>
+                            </a>
+                            <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
+                        </div>
+                    }
+
+                    else
+                    {
+                        break;
+                    }
+                }
             </div>
             <button id="carousel_control_prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span id="carousel_prev_icon" aria-hidden="true">

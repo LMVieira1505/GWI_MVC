@@ -20,11 +20,11 @@ namespace GWI.Models.Curriculos
 
         [Required(ErrorMessage = "Campo Ano de Início Obrigatório", AllowEmptyStrings = false)]
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Mínimo de 4 e máximo de 10 caracteres.")]
-        public string fe_ano_ini { get; set; }
+        public DateTime fe_ano_ini { get; set; }
 
         [Required(ErrorMessage = "Campo Ano de Término Obrigatório", AllowEmptyStrings = false)]
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Mínimo de 4 e máximo de 10 caracteres.")]
-        public string fe_ano_ter { get; set; }
+        public DateTime fe_ano_ter { get; set; }
 
         [Required(ErrorMessage = "Campo Descrição Obrigatório", AllowEmptyStrings = false)]
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Mínimo de 10 e máximo de 200 caracteres.")]
@@ -41,8 +41,8 @@ namespace GWI.Models.Curriculos
             fe_tipo = false;
             fe_nome = string.Empty;
             fe_instituicao = string.Empty;
-            fe_ano_ini = string.Empty;
-            fe_ano_ter = string.Empty;
+            fe_ano_ini = DateTime.Now;
+            fe_ano_ter = DateTime.Now;
             fe_descricao = string.Empty;
             fe_ar_id = 0;
         }

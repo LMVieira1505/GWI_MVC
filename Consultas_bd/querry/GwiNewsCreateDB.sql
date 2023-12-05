@@ -181,6 +181,6 @@ CREATE TABLE tb_fecr (
 --ALTER TABLE tb_areas
 --ADD ar_tipo varchar(50);
 
---DELETE FROM tb_areas;
+--DELETE FROM tb_form_exp;
 --WHERE p_id > 4;
---DBCC CHECKIDENT ('tb_pessoas', RESEED, 4);
+--DBCC CHECKIDENT ('tb_form_exp', RESEED, 0);

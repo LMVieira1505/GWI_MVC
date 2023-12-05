@@ -65,7 +65,13 @@ namespace GWI.Controllers
         {
             return View(this.repository.get());
         }
-        
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Pessoas pessoas)
