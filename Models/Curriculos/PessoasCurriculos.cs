@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
-namespace GWI.Models.Pessoas
+namespace GWI.Models.Curriculos
 {
     public class PessoasCurriculos
     {
@@ -13,6 +13,8 @@ namespace GWI.Models.Pessoas
         public string cr_objetivos { get; set; }
         public string cr_telefone_opc { get; set; }
         public string cr_email_opc { get; set; }
+        public int cr_p_id { get; set; }
+        public int cr_im_id { get; set; }
 
         public PessoasCurriculos()
         {

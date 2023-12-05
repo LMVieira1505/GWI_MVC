@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "AcessarPerfilUsuario";
+    int p_id = Model.p_id;
 }
 
 
@@ -18,7 +19,7 @@
         <p>@Html.DisplayFor(model => model.p_telefone)</p>
         <p>@Html.DisplayFor(model => model.p_email)</p>
 
-        <a>Add Infos Curriculo</a>
+        <a asp-controller="PessoasCurriculos" asp-action="Index" asp-route-id="@p_id">Add Infos Curriculo</a>
 
         <h3>Meus Curriculos</h3>
         <button>Editar Curriculos</button>

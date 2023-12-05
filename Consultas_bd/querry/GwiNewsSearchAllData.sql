@@ -18,8 +18,9 @@ SELECT * FROM tb_habilidades;
 SELECT * FROM tb_cnhcr;
 SELECT * FROM tb_cnh;
 SELECT * FROM tb_fecr;
-SELECT * FROM tb_form_exp;
 SELECT * FROM tb_areas;
+
+SELECT * FROM tb_form_exp;
 
 
 SELECT * FROM tb_servicos;
@@ -54,3 +55,23 @@ WHERE p_id = 5;
 UPDATE tb_pessoas
 SET p_nome = 'Junin', p_sobrenome = 'Filho Neto', p_telefone = '16999888777', p_email = 'juniorfilho@email.com', p_senha = 'junin123', p_username = 'juninBoladao'
 WHERE p_id = 5;
+
+---------------------------------------------------------------
+------  Retornar Todas For_Exps de uma Pessoa
+---------------------------------------------------------------
+
+SELECT fe_tipo, fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, ar_nome, ar_tipo
+FROM tb_form_exp 
+INNER JOIN tb_pessoas 
+	ON tb_form_exp.fe_p_id = tb_pessoas.p_id
+INNER JOIN tb_areas 
+	ON tb_form_exp.fe_ar_id = tb_areas.ar_id
+WHERE p_id = 4;
+
+---------------------------------------------------------------
+------  Update For_Exp
+---------------------------------------------------------------
+
+UPDATE tb_form_exp 
+SET fe_tipo = 0, fe_nome = 'DSM', fe_instituicao = 'Fatec Aqa', fe_ano_ini = '2023-01-01', fe_ano_ter = '2023-01-01', fe_descricao = 'Curso Legal', fe_ar_id = 50 
+WHERE fe_id = 1;

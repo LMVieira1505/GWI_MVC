@@ -2,9 +2,8 @@
 
 namespace GWI.Models.Curriculos
 {
-    public class ForExp
+    public class ForExpArea
     {
-
         public int fe_id { get; set; }
 
         [Required(ErrorMessage = "Campo Formação Acadêmica ou Experiência Profissional Obrigatório", AllowEmptyStrings = false)]
@@ -30,12 +29,13 @@ namespace GWI.Models.Curriculos
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Mínimo de 10 e máximo de 200 caracteres.")]
         public string fe_descricao { get; set; }
 
-        [Required(ErrorMessage = "Campo Área de Atuação Obrigatório")]
-        public int fe_ar_id { get; set; }
+
+        public string ar_tipo { get; set; }
+        public string ar_nome { get; set; }
 
 
 
-        public ForExp()
+        public ForExpArea()
         {
             fe_id = 0;
             fe_tipo = false;
@@ -44,7 +44,8 @@ namespace GWI.Models.Curriculos
             fe_ano_ini = string.Empty;
             fe_ano_ter = string.Empty;
             fe_descricao = string.Empty;
-            fe_ar_id = 0;
+            ar_tipo = string.Empty;
+            ar_nome = string.Empty;
         }
     }
 }

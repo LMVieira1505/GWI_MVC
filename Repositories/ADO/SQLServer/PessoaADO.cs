@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
-using GWI.Models;
 using GWI.Models.Pessoas;
 
 namespace GWI.Repositories.ADO.SQLServer

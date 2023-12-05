@@ -113,117 +113,81 @@ VALUES
 	(1, 22, 9);
 
 ---------------------------------------------------------------
-------  Inserir Informações de Currículos
+------  Inserir Informações Gerais de Currículos
 ---------------------------------------------------------------
 
 INSERT INTO tb_pessoas_curriculos 
-	(cr_Nome_Usuario, cr_Endereco, cr_Data_Nascimento, cr_Estado_Civil, cr_Objetivos, cr_telefone_opc, cr_email_opc, cr_p_id)
+	(cr_nome, cr_endereco, cr_data_nasc, cr_estado_civil, cr_objetivos, cr_telefone_opc, cr_email_opc, cr_p_id)
 VALUES
 	('Úrsula Carvalho Pinheiro', 'Rua dos Loucos 536, Vila Doida, 155000-432, São Paulo, SP', '1991-10-20', 'Solteira', 'Busco uma transição profissional do direito para o desenvolvimento de software, buscando aplicar minha habilidade analítica e experiência em resolução de problemas de maneira inovadora. Almejo integrar equipes dinâmicas, contribuindo para projetos com minha bagagem jurídica e dedicação ao aprendizado constante.', '16438934291', 'ursula.advogada@hotmail.com', 4);
 
 INSERT INTO tb_areas
-	(ar_nome)
+	(ar_tipo, ar_nome)
 VALUES
-	('Medicina'),
-	('Engenharia'),
-	('Tecnologia da Informação'),
-	('Educação'),
-	('Finanças'),
-	('Marketing'),
-	('Direito'),
-	('Psicologia'),
-	('Recursos Humanos'),
-	('Arquitetura'),
-	('Design Gráfico'),
-	('Ciência de Dados'),
-	('Agricultura'),
-	('Meio Ambiente'),
-	('Jornalismo'),
-	('Arte e Design'),
-	('Música'),
-	('Hotelaria e Turismo'),
-	('Administração'),
-	('Logística'),
-	('Publicidade'),
-	('Vendas'),
-	('Saúde Pública'),
-	('Gestão de Projetos'),
-	('Ciência da Computação'),
-	('Comércio Internacional'),
-	('Consultoria Empresarial'),
-	('Ciências Sociais'),
-	('Comunicação'),
-	('Energias Renováveis'),
-	('Aviação'),
-	('Fotografia'),
-	('Geologia'),
-	('Segurança Cibernética'),
-	('Design de Moda'),
-	('Fisioterapia'),
-	('Nutrição'),
-	('Engenharia Biomédica'),
-	('Desenvolvimento de Jogos'),
-	('Gestão Esportiva'),
-	('Gestão de Qualidade'),
-	('Serviço Social'),
-	('Terapia Ocupacional'),
-	('Astrofísica'),
-	('Relações Internacionais'),
-	('Design de Interiores'),
-	('Filosofia'),
-	('Antropologia'),
-	('Biologia Marinha'),
-	('Gestão de Recursos Humanos'),
-	('Engenharia Civil'),
-	('Odontologia'),
-	('Administração Pública'),
-	('Gestão de Riscos'),
-	('Geografia'),
-	('Design de Produto'),
-	('Desenvolvimento Web'),
-	('Engenharia Elétrica'),
-	('Medicina Veterinária'),
-	('Comércio Eletrônico'),
-	('Design de Experiência do Usuário (UX)'),
-	('Ciências Políticas'),
-	('Telecomunicações'),
-	('Psiquiatria'),
-	('Economia'),
-	('Biblioteconomia'),
-	('Ciências Forenses'),
-	('Gerontologia'),
-	('Engenharia Química'),
-	('Terapia da Fala'),
-	('História'),
-	('Ciência da Alimentação'),
-	('Engenharia Mecânica'),
-	('Recreação e Lazer'),
-	('Matemática'),
-	('Engenharia de Software'),
-	('Coaching'),
-	('Terapia Familiar'),
-	('Design Industrial'),
-	('Robótica'),
-	('Enfermagem'),
-	('Ciência da Linguagem'),
-	('Ciência da Informação'),
-	('Desenvolvimento Sustentável'),
-	('Ciência Forense Digital'),
-	('Engenharia Aeroespacial'),
-	('Gestão Ambiental'),
-	('Paleontologia'),
-	('Ciências da Religião'),
-	('História da Arte'),
-	('Musicoterapia'),
-	('Escrita Criativa'),
-	('Meteorologia'),
-	('Engenharia de Telecomunicações'),
-	('Engenharia de Petróleo'),
-	('Farmácia'),
-	('Oceanografia'),
-	('Bioinformática'),
-	('Escultura'),
-	('Arqueologia');
+	('Serviços Sociais e Educação', 'Educação'),
+	('Serviços Sociais e Educação', 'Terapia Ocupacional'),
+	('Serviços Sociais e Educação', 'Gestão de Recursos Humanos'),
+	('Serviços Sociais e Educação', 'Administração Pública'),
+	('Serviços Sociais e Educação', 'Design de Interiores'),
+	('Serviços Sociais e Educação', 'Filosofia'),
+	('Serviços Sociais e Educação', 'Antropologia'),
+	('Serviços Sociais e Educação', 'Ciências da Religião'),
+	('Serviços Sociais e Educação', 'História'),
+	('Serviços Sociais e Educação', 'Musicoterapia'),
+	('Serviços Sociais e Educação', 'Escrita Criativa'),
+	('Serviços Sociais e Educação', 'Design de Moda'),
+
+	('Engenharia e Manufatura', 'Engenharia'),
+	('Engenharia e Manufatura', 'Arquitetura'),
+	('Engenharia e Manufatura', 'Design Industrial'),
+	('Engenharia e Manufatura', 'Engenharia Biomédica'),
+	('Engenharia e Manufatura', 'Engenharia Civil'),
+	('Engenharia e Manufatura', 'Engenharia Elétrica'),
+	('Engenharia e Manufatura', 'Engenharia Mecânica'),
+	('Engenharia e Manufatura', 'Engenharia Química'),
+	('Engenharia e Manufatura', 'Engenharia de Software'),
+	('Engenharia e Manufatura', 'Engenharia Aeroespacial'),
+	('Engenharia e Manufatura', 'Engenharia de Telecomunicações'),
+	('Engenharia e Manufatura', 'Engenharia de Petróleo'),
+	('Engenharia e Manufatura', 'Gestão Ambiental'),
+
+	('Negócios e Finanças', 'Finanças'),
+	('Negócios e Finanças', 'Marketing'),
+	('Negócios e Finanças', 'Administração'),
+	('Negócios e Finanças', 'Logística'),
+	('Negócios e Finanças', 'Vendas'),
+	('Negócios e Finanças', 'Comércio Internacional'),
+	('Negócios e Finanças', 'Consultoria Empresarial'),
+	('Negócios e Finanças', 'Comércio Eletrônico'),
+	('Negócios e Finanças', 'Economia'),
+	('Negócios e Finanças', 'Gestão de Riscos'),
+
+	('Saúde e Ciências da Vida', 'Medicina'),
+	('Saúde e Ciências da Vida', 'Psicologia'),
+	('Saúde e Ciências da Vida', 'Nutrição'),
+	('Saúde e Ciências da Vida', 'Fisioterapia'),
+	('Saúde e Ciências da Vida', 'Gestão Esportiva'),
+	('Saúde e Ciências da Vida', 'Odontologia'),
+	('Saúde e Ciências da Vida', 'Ciência da Alimentação'),
+	('Saúde e Ciências da Vida', 'Enfermagem'),
+	('Saúde e Ciências da Vida', 'Medicina Veterinária'),
+	('Saúde e Ciências da Vida', 'Farmácia'),
+	('Saúde e Ciências da Vida', 'Bioinformática'),
+	('Saúde e Ciências da Vida', 'Paleontologia'),
+	
+	('Tecnologia da Informação', 'Desenvolvimento de Jogos'),
+	('Tecnologia da Informação', 'Ciência de Dados'),
+	('Tecnologia da Informação', 'Segurança Cibernética'),
+	('Tecnologia da Informação', 'Desenvolvimento Web'),
+	('Tecnologia da Informação', 'Telecomunicações'),
+	('Tecnologia da Informação', 'Engenharia de Software'),
+	('Tecnologia da Informação', 'Desenvolvimento Sustentável'),
+	('Tecnologia da Informação', 'Desenvolvimento de Software'),
+	('Tecnologia da Informação', 'Ciência Forense Digital'),
+	('Tecnologia da Informação', 'Design de Experiência do Usuário (UX)'),
+	('Tecnologia da Informação', 'Robótica'),
+	('Tecnologia da Informação', 'Engenharia de Telecomunicações'),
+	('Tecnologia da Informação', 'Bioinformática');
 
 INSERT INTO tb_habilidades
 	(hb_tipo, hb_nome)
@@ -323,3 +287,23 @@ VALUES
 	('D'),
 	('E'),
 	('ACC');
+
+---------------------------------------------------------------
+------  Inserir Experiências e Formações de Currículos
+---------------------------------------------------------------
+
+INSERT INTO tb_form_exp 
+	(fe_tipo, fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, fe_ar_id, fe_p_id)
+VALUES
+	(0, 'Desenvolvimento de Software Multiplataforma', 'Fatec Matao - Luiz Marchesan', '2023', '2025', 'Curso de TI focado em desenvolvimento de software para multi dispositivos, inclusive estudos sobre AI e IOT', 55, 4);
+
+
+INSERT INTO tb_form_exp 
+	(fe_tipo, fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, fe_ar_id, fe_p_id)
+VALUES
+	(0, 'ADM', 'Etec Aqa', '2020', '2022', 'Etim ADM', 28, 4);
+
+INSERT INTO tb_form_exp 
+	(fe_tipo, fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, fe_ar_id, fe_p_id)
+VALUES
+	(1, 'Estágio em TI', 'Predileta', '2023-12-12', '2024-06-06', 'Estágio no setor de TI', 55, 4);

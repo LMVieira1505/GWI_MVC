@@ -105,7 +105,7 @@ CREATE TABLE tb_servicos (
 
 CREATE TABLE tb_cnh (
 	cnh_id int PRIMARY KEY IDENTITY NOT NULL,
-	cnh_letra varchar(2) NOT NULL
+	cnh_tipo varchar(2) NOT NULL
 );
 
 
@@ -118,6 +118,7 @@ CREATE TABLE tb_habilidades (
  
 CREATE TABLE tb_areas(
 	ar_id int PRIMARY KEY IDENTITY NOT NULL,
+	ar_tipo varchar(50) NOT NULL,
 	ar_nome varchar(50) NOT NULL
 );
 
@@ -125,11 +126,13 @@ CREATE TABLE tb_areas(
 CREATE TABLE tb_form_exp (
 	fe_id int PRIMARY KEY IDENTITY NOT NULL,
 	fe_tipo bit NOT NULL,
-	fe_instituicao varchar(25) NOT NULL,
+	fe_nome varchar(255) NOT NULL,
+	fe_instituicao varchar(110) NOT NULL,
 	fe_ano_ini date NOT NULL,
 	fe_ano_ter date NOT NULL,
 	fe_descricao varchar(115) NOT NULL,
 	fe_ar_id int FOREIGN KEY REFERENCES tb_areas(ar_id),
+	fe_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
 );
 
 
@@ -173,11 +176,11 @@ CREATE TABLE tb_fecr (
 ------  Comando Úteis
 ---------------------------------------------------------------
 
---ALTER TABLE [dbo].[tb_cnh]
---DROP COLUMN cr_endereco;
---ALTER TABLE [dbo].[tb_pessoas_curriculos]
---ADD cr_email_opc varchar(255);
+--ALTER TABLE tb_form_exp
+--DROP COLUMN fe_NOME;
+--ALTER TABLE tb_areas
+--ADD ar_tipo varchar(50);
 
---DELETE FROM tb_pessoas
+--DELETE FROM tb_areas;
 --WHERE p_id > 4;
 --DBCC CHECKIDENT ('tb_pessoas', RESEED, 4);

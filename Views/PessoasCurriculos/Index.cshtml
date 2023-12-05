@@ -1,0 +1,83 @@
+﻿@model IEnumerable<GWI.Models.Curriculos.ForExpArea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_instituicao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_ano_ini)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_ano_ter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fe_descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ar_tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ar_nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_instituicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_ano_ini)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_ano_ter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fe_descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ar_tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ar_nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
