@@ -105,7 +105,7 @@ CREATE TABLE tb_servicos (
 
 CREATE TABLE tb_cnh (
 	cnh_id int PRIMARY KEY IDENTITY NOT NULL,
-	cnh_tipo varchar(2) NOT NULL
+	cnh_tipo varchar(3) NOT NULL
 );
 
 
@@ -176,11 +176,10 @@ CREATE TABLE tb_fecr (
 ------  Comando Úteis
 ---------------------------------------------------------------
 
---ALTER TABLE tb_form_exp
---DROP COLUMN fe_ano_ter;
---ALTER TABLE tb_form_exp
---ADD fe_ano_ter int;
+--ALTER TABLE tb_cnh
+--DROP COLUMN cnh_tipo;
+--ALTER TABLE tb_cnh
+--ADD cnh_tipo varchar(3);
 
---DELETE FROM tb_form_exp;
---WHERE p_id > 4;
---DBCC CHECKIDENT ('tb_form_exp', RESEED, 0);
+--DELETE FROM tb_cnh;
+--DBCC CHECKIDENT ('tb_cnh', RESEED, 0);

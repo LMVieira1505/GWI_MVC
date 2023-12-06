@@ -30,9 +30,9 @@ namespace GWI.Repositories.ADO.SQLServer
             }
         }
 
-        public List<Imagens> get()
+        public List<Imagens> GetImagens()
         {
-            List<Imagens> imagem = new List<Imagens>();
+            List<Imagens> imagens = new List<Imagens>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
@@ -41,21 +41,21 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select im_id, im_url from tb_imagens;";
+                    command.CommandText = "SELECT im_id, im_url FROM tb_imagens;";
 
                     SqlDataReader dr = command.ExecuteReader();
 
                     while (dr.Read())
                     {
-                        Imagens imagens = new Imagens();
-                        imagens.im_id = (int)dr["im_id"];
-                        imagens.im_url = (string)dr["im_url"];
-                        imagem.Add(imagens);
+                        Imagens imagem = new Imagens();
+                        imagem.im_id = (int)dr["im_id"];
+                        imagem.im_url = (string)dr["im_url"];
+                        imagens.Add(imagem);
                     }
                 }
             }
 
-            return imagem;
+            return imagens;
         }
 
         public void delete(int id)

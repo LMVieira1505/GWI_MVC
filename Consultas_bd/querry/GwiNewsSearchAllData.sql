@@ -52,9 +52,9 @@ WHERE p_id = 5;
 ------  Update Pessoa
 ---------------------------------------------------------------
 
-UPDATE tb_pessoas
-SET p_nome = 'Junin', p_sobrenome = 'Filho Neto', p_telefone = '16999888777', p_email = 'juniorfilho@email.com', p_senha = 'junin123', p_username = 'juninBoladao'
-WHERE p_id = 5;
+--UPDATE tb_pessoas
+--SET p_nome = 'Junin', p_sobrenome = 'Filho Neto', p_telefone = '16999888777', p_email = 'juniorfilho@email.com', p_senha = 'junin123', p_username = 'juninBoladao'
+--WHERE p_id = 5;
 
 ---------------------------------------------------------------
 ------  Retornar Todas For_Exps de uma Pessoa
@@ -72,6 +72,27 @@ WHERE p_id = 4;
 ------  Update For_Exp
 ---------------------------------------------------------------
 
-UPDATE tb_form_exp 
-SET fe_tipo = 0, fe_nome = 'DSM', fe_instituicao = 'Fatec Aqa', fe_ano_ini = '2023-01-01', fe_ano_ter = '2023-01-01', fe_descricao = 'Curso Legal', fe_ar_id = 50 
-WHERE fe_id = 1;
+--UPDATE tb_form_exp 
+--SET fe_tipo = 0, fe_nome = 'DSM', fe_instituicao = 'Fatec Aqa', fe_ano_ini = 2023, fe_ano_ter = 2025, fe_descricao = 'Curso Legal', fe_ar_id = 50 
+--WHERE fe_id = 1;
+
+---------------------------------------------------------------
+------  Delete For Exp
+---------------------------------------------------------------
+
+--DELETE FROM tb_form_exp WHERE fe_id = 5;
+--DBCC CHECKIDENT ('tb_form_exp', RESEED, 4);
+
+---------------------------------------------------------------
+------  Retorno de Categorias
+---------------------------------------------------------------
+
+SELECT cat_id, cat_nome, cat_ativo 
+FROM tb_categorias;
+
+---------------------------------------------------------------
+------  Retorno de Subcategorias
+---------------------------------------------------------------
+
+SELECT sct_id, sct_nome, sct_ativo, sct_cat_id
+FROM tb_subcategorias;

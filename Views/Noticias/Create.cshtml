@@ -36,25 +36,131 @@
             <input asp-for="nt_data_publicacao" class="input-cadastro" type="date" name="nt_data_publicacao" placeholder="DD/MM/AAAA">
             <span asp-validation-for="nt_data_publicacao" class="text-danger"></span>
 
-            <label asp-for="nt_ativo" class="label-cadastro" for="p_username">ativo:</label>
-            <input asp-for="nt_ativo" class="input-cadastro" type="text" name="p_username" placeholder="Ex: Zequinha joca">
-            <span asp-validation-for="nt_ativo" class="text-danger"></span>
 
-            <label asp-for="nt_cat_id" class="label-cadastro" for="nt_cat_id">Cat Id:</label>
-            <input asp-for="nt_cat_id" class="input-cadastro" type="text" name="nt_cat_id">
-            <span asp-validation-for="nt_cat_id" class="text-danger"></span>
-
-            <label asp-for="nt_p_id" class="label-cadastro" for="nt_p_id">Pessoa id:</label>
-            <input asp-for="nt_p_id" class="input-cadastro" type="text" name="nt_p_id">
-            <span asp-validation-for="nt_p_id" class="text-danger"></span>
-
-            @* <label asp-for="p_nv_id" class="label-cadastro" for="p_nv_id">Nivel:</label>
-            <input asp-for="p_nv_id" class="input-cadastro" type="number" name="p_nv_id">
-            <span asp-validation-for="p_nv_id" class="text-danger"></span> *@
+            <h2>Categorias e Subcategorias</h2>
+            <div class="accordion" id="accordionExample">
 
 
-            @* <label class="label-cadastro">Confirmar Senha:</label>
-            <button class="input-cadastro" type="password" id="conf-senha" name="conf-senha"> *@
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <div style="display: flex">
+                            <input type="radio" asp-for="nt_cat_id" value="1" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" />
+                            <button class="accordion-button" type="button"
+                                Empregos
+                            </button>
+                        </div>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                {
+                                    if (subcategoria.sct_cat_id == 1)
+                                    {
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <div style="display: flex">
+                            <input type="radio" asp-for="nt_cat_id" value="2" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" />
+                            <button class="accordion-button collapsed" type="button">
+                                Educação
+                            </button>
+                        </div>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                {
+                                    if (subcategoria.sct_cat_id == 2)
+                                    {
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <div style="display: flex">
+                            <input type="radio" asp-for="nt_cat_id" value="3" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" />
+                            <button class="accordion-button collapsed" type="button">
+                                Esportes
+                            </button>
+                        </div>                        
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                {
+                                    if (subcategoria.sct_cat_id == 3)
+                                    {
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <div style="display: flex">
+                            <input type="radio" asp-for="nt_cat_id" value="4" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" />
+                            <button class="accordion-button collapsed" type="button">
+                                Entretenimento
+                            </button>
+                        </div>                        
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                {
+                                    if (subcategoria.sct_cat_id == 4)
+                                    {
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <div style="display: flex">
+                            <input type="radio" asp-for="nt_cat_id" value="5" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" />
+                            <button class="accordion-button collapsed" type="button">
+                                Economia
+                            </button>
+                        </div>                        
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                {
+                                    if (subcategoria.sct_cat_id == 5)
+                                    {
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Create" class="submit-cadastro">

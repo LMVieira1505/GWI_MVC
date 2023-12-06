@@ -12,7 +12,7 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; //atualização do atributo por meio do valor que veio no parâmetro do construtor..
         }
 
-        public List<Categorias> GetAll()
+        public List<Categorias> GetCategorias()
         {
             List<Categorias> categorias = new List<Categorias>();
 
@@ -23,7 +23,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select cat_id, cat_nome, cat_ativo from tb_categorias;";
+                    command.CommandText = "SELECT cat_id, cat_nome, cat_ativo FROM tb_categorias;";
 
                     SqlDataReader dr = command.ExecuteReader();
 
@@ -32,7 +32,7 @@ namespace GWI.Repositories.ADO.SQLServer
                         Categorias categoria = new Categorias();
                         categoria.cat_id = (int)dr["cat_id"];
                         categoria.cat_nome = (string)dr["cat_nome"];
-                        categoria.cat_ativo  = (bool)dr["cat_ativo"];
+                        categoria.cat_ativo = (bool)dr["cat_ativo"];
                         categorias.Add(categoria);
                     }
                 }
@@ -40,6 +40,5 @@ namespace GWI.Repositories.ADO.SQLServer
 
             return categorias;
         }
-
     }
 }

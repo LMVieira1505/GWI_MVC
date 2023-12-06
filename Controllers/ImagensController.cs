@@ -10,13 +10,18 @@ namespace GWI.Controllers
 
         public ImagensController(IConfiguration configuration) 
         {
-            this.repository = new Repositories.ADO.SQLServer.ImagemADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
+            this.repository = new ImagemADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View(this.repository.get());
+            return View(this.repository.GetImagens());
+        }
+
+        public List<Imagens> GetImagens()
+        {
+            return this.repository.GetImagens();
         }
 
         public ActionResult Create()

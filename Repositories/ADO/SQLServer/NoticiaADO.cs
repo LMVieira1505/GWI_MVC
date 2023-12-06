@@ -1,4 +1,5 @@
-﻿using GWI.Models.Noticias;
+﻿using GWI.Models.Imagens;
+using GWI.Models.Noticias;
 using GWI.Models.Pessoas;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
@@ -15,7 +16,8 @@ namespace GWI.Repositories.ADO.SQLServer
             this.connectionString = connectionString; 
         }
 
-        #region "CRUD noticia"
+        // CRUD Notícia //
+        #region
         public void add(Noticias noticias)
         {
             using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -148,6 +150,107 @@ namespace GWI.Repositories.ADO.SQLServer
                     command.ExecuteNonQuery();
                 }
             }
+        }
+        #endregion
+
+
+        // Categorias //
+        #region
+        public List<Categorias> GetCategorias()
+        {
+            List<Categorias> categorias = new List<Categorias>();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT cat_id, cat_nome, cat_ativo FROM tb_categorias;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Categorias categoria = new Categorias();
+                        categoria.cat_id = (int)dr["cat_id"];
+                        categoria.cat_nome = (string)dr["cat_nome"];
+                        categoria.cat_ativo = (bool)dr["cat_ativo"];
+                        categorias.Add(categoria);
+                    }
+                }
+            }
+
+            return categorias;
+        }
+
+        #endregion
+
+        // Subcategorias //
+        #region
+
+        public List<Subcategorias> GetSubcategorias()
+        {
+            List<Subcategorias> subcategorias = new List<Subcategorias>();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT sct_id, sct_nome, sct_ativo, sct_cat_id FROM tb_subcategorias;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Subcategorias subcategoria = new Subcategorias();
+                        subcategoria.sct_id = (int)dr["sct_id"];
+                        subcategoria.sct_nome = (string)dr["sct_nome"];
+                        subcategoria.sct_ativo = (bool)dr["sct_ativo"];
+                        subcategoria.sct_cat_id = (int)dr["sct_cat_id"];
+                        subcategorias.Add(subcategoria);
+                    }
+                }
+            }
+
+            return subcategorias;
+        }
+
+        #endregion
+
+        // Imagens //
+        #region
+
+        public List<Imagens> GetImagens()
+        {
+            List<Imagens> imagens = new List<Imagens>();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT im_id, im_url FROM tb_imagens;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Imagens imagem = new Imagens();
+                        imagem.im_id = (int)dr["im_id"];
+                        imagem.im_url = (string)dr["im_url"];
+                        imagens.Add(imagem);
+                    }
+                }
+            }
+
+            return imagens;
         }
         #endregion
     }

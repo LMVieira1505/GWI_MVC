@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GWI.Repositories.ADO.SQLServer;
 using GWI.Models.Noticias;
-using GWI.Models.Pessoas;
+using GWI.Models.Imagens;
+using System.Configuration;
 
 namespace GWI.Controllers
 {
@@ -29,8 +30,12 @@ namespace GWI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int p_id)
         {
+            ViewBag.p_id = p_id;
+            ViewBag.CategoriasList = this.repository.GetCategorias();
+            ViewBag.SubcategoriasList = this.repository.GetSubcategorias();
+            ViewBag.ImagensList = this.repository.GetImagens();
             return View();
         }
 
