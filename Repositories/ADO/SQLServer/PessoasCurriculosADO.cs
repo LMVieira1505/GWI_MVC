@@ -140,6 +140,22 @@ namespace GWI.Repositories.ADO.SQLServer
                 }
             }
         }
+
+        public void DefDelete(int fe_id)
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "DELETE FROM tb_form_exp WHERE fe_id = @fe_id; DBCC CHECKIDENT ('tb_form_exp', RESEED, 4);";
+
+                    command.Parameters.Add(new SqlParameter("@fe_id", System.Data.SqlDbType.Bit)).Value = fe_id;
+                }
+            }
+        }
         #endregion
 
 
