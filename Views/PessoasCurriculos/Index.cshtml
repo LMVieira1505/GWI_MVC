@@ -71,8 +71,7 @@
                 @Html.DisplayFor(modelItem => item.ar_nome)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <a class="btn btn-primary" role="button" asp-controller="PessoasCurriculos" asp-action="Edit" asp-route-id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Editar</a>
             </td>
         </tr>
 }

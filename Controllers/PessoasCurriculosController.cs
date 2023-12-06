@@ -52,20 +52,22 @@ namespace GWI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int p_id)
         {
+            ViewBag.p_id = p_id;
             ViewBag.AreasList = this.repository.GetAreas();
             return View(this.repository.GetByIdForExp(id));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ForExp forExp)
+        public ActionResult Edit(int p_id, ForExpArea forExp)
         {
             try
             {
-                this.repository.UpdateForExp(id, forExp);
-                return RedirectToAction(nameof(Index), new { p_id = id });
+                ViewBag.AreasList = this.repository.GetAreas();
+                this.repository.UpdateForExp(forExp);
+                return RedirectToAction(nameof(Index), new { p_id = p_id });
             }
             catch
             {
