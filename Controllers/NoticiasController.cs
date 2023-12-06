@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GWI.Repositories.ADO.SQLServer;
 using GWI.Models.Noticias;
+using GWI.Models.Pessoas;
 
 namespace GWI.Controllers
 {
@@ -21,13 +22,11 @@ namespace GWI.Controllers
             return View(this.repository.get());
         }
 
-
         [HttpGet]
         public ActionResult Details(int id)
         {
-            return View(this.repository.Details(id));
+            return View(this.repository.GetById(id));
         }
-
 
         [HttpGet]
         public ActionResult Create()
@@ -35,7 +34,6 @@ namespace GWI.Controllers
             return View();
         }
 
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Noticias noticias)
@@ -53,6 +51,12 @@ namespace GWI.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            return View(this.repository.GetById(id));
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Noticias noticias)
@@ -60,7 +64,7 @@ namespace GWI.Controllers
             try
             {
                 this.repository.update(id, noticias);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id });
             }
             catch
             {
