@@ -295,6 +295,6 @@ VALUES
 INSERT INTO tb_form_exp 
 	(fe_tipo, fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, fe_ar_id, fe_p_id)
 VALUES
-	(0, 'Desenvolvimento de Software Multiplataforma', 'Fatec Matao - Luiz Marchesan', '2023', '2025', 'Curso de TI focado em desenvolvimento de software para multi dispositivos, inclusive estudos sobre AI e IOT', 55, 4),
-	(0, 'ADM', 'Etec Aqa', '2020', '2022', 'Etim ADM', 28, 4),
-	(1, 'Estágio em TI', 'Predileta', '2023-12-12', '2024-06-06', 'Estágio no setor de TI', 55, 4);
+	(0, 'Desenvolvimento de Software Multiplataforma', 'Fatec Matao - Luiz Marchesan', 2023, 2025, 'Curso de TI focado em desenvolvimento de software para multi dispositivos, inclusive estudos sobre AI e IOT', 55, 4),
+	(0, 'ADM', 'Etec Aqa', 2020, 2022, 'Etim ADM', 28, 4),
+	(1, 'Estágio em TI', 'Predileta', 2023, 2024, 'Estágio no setor de TI', 55, 4);

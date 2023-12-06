@@ -128,8 +128,8 @@ CREATE TABLE tb_form_exp (
 	fe_tipo bit NOT NULL,
 	fe_nome varchar(255) NOT NULL,
 	fe_instituicao varchar(110) NOT NULL,
-	fe_ano_ini date NOT NULL,
-	fe_ano_ter date NOT NULL,
+	fe_ano_ini int NOT NULL,
+	fe_ano_ter int NOT NULL,
 	fe_descricao varchar(115) NOT NULL,
 	fe_ar_id int FOREIGN KEY REFERENCES tb_areas(ar_id),
 	fe_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
@@ -177,9 +177,9 @@ CREATE TABLE tb_fecr (
 ---------------------------------------------------------------
 
 --ALTER TABLE tb_form_exp
---DROP COLUMN fe_NOME;
---ALTER TABLE tb_areas
---ADD ar_tipo varchar(50);
+--DROP COLUMN fe_ano_ter;
+--ALTER TABLE tb_form_exp
+--ADD fe_ano_ter int;
 
 --DELETE FROM tb_form_exp;
 --WHERE p_id > 4;

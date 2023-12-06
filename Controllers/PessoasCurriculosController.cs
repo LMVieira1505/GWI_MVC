@@ -20,20 +20,30 @@ namespace GWI.Controllers
         // Crud de Formação e Experiência Profissional //
         #region
         [HttpGet]
-        public IActionResult Index(int p_id)
+        public ActionResult Index(int p_id)
         {
+            ViewBag.p_id = p_id;
             return View(this.repository.GetForExps(p_id));
+        }
+
+        [HttpGet]
+        public ActionResult Create(int p_id)
+        {
+            ViewBag.p_id = p_id;
+            ViewBag.AreasList = this.repository.GetAreas();
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ForExp forExp)
+        public ActionResult Create(ForExp forExp, int p_id)
         {
             try
             {
+                forExp.fe_p_id = p_id;
                 this.repository.CreateForExp(forExp);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { p_id = p_id});
             }
             catch
             {
@@ -44,6 +54,7 @@ namespace GWI.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            ViewBag.AreasList = this.repository.GetAreas();
             return View(this.repository.GetByIdForExp(id));
         }
 
