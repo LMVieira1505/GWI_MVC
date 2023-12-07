@@ -52,35 +52,42 @@ namespace GWI.Controllers
         }
 
         [HttpGet]
+        public ActionResult Edit(int fe_id, int p_id) 
+        {
+            this.repository.DefDelete(fe_id);
+            return RedirectToAction(nameof(Create), new { p_id = p_id });
+        }
+
+        [HttpGet]
         public ActionResult Delete(int fe_id, int p_id)
         {
             this.repository.DefDelete(fe_id);
             return RedirectToAction(nameof(Index), new { p_id = p_id});
         }
 
-        [HttpGet]
-        public ActionResult Edit(int id, int p_id)
-        {
-            ViewBag.p_id = p_id;
-            ViewBag.AreasList = this.repository.GetAreas();
-            return View(this.repository.GetByIdForExp(id));
-        }
+        //[HttpGet]
+        //public ActionResult Edit(int id, int p_id)
+        //{
+        //    ViewBag.p_id = p_id;
+        //    ViewBag.AreasList = this.repository.GetAreas();
+        //    return View(this.repository.GetByIdForExp(id));
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int p_id, ForExpArea forExp)
-        {
-            try
-            {
-                forExp.fe_p_id = p_id;
-                this.repository.UpdateForExp(forExp);
-                return RedirectToAction(nameof(Index), new { p_id = p_id });
-            }
-            catch
-            {
-                return RedirectToAction(nameof(Index), new { p_id = p_id }); ;
-            }
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int p_id, ForExpArea forExp)
+        //{
+        //    try
+        //    {
+        //        ViewBag.AreasList = this.repository.GetAreas();
+        //        this.repository.UpdateForExp(forExp);
+        //        return RedirectToAction(nameof(Index), new { p_id = p_id });
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
         #endregion
     }
 }
