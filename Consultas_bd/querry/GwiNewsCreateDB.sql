@@ -130,7 +130,7 @@ CREATE TABLE tb_form_exp (
 	fe_instituicao varchar(110) NOT NULL,
 	fe_ano_ini int NOT NULL,
 	fe_ano_ter int NOT NULL,
-	fe_descricao varchar(115) NOT NULL,
+	fe_descricao varchar(200) NOT NULL,
 	fe_ar_id int FOREIGN KEY REFERENCES tb_areas(ar_id),
 	fe_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
 );
@@ -138,15 +138,9 @@ CREATE TABLE tb_form_exp (
 
 CREATE TABLE tb_pessoas_curriculos (
 	cr_id int IDENTITY PRIMARY KEY NOT NULL,
-	cr_nome varchar(255) NOT NULL,
 	cr_endereco varchar(255) NOT NULL,
-	cr_data_nasc date NOT NULL,
-	cr_estado_civil varchar(20) NOT NULL,
-	cr_objetivos varchar(510) NOT NULL,
-	cr_telefone_opc char(11),
-	cr_email_opc varchar(255),
-	cr_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id),
-	cr_im_id int FOREIGN KEY REFERENCES tb_imagens(im_id)
+	cr_objetivos varchar(200) NOT NULL,
+	cr_p_id int FOREIGN KEY REFERENCES tb_pessoas(p_id)
 );
 
 
@@ -176,10 +170,20 @@ CREATE TABLE tb_fecr (
 ------  Comando Úteis
 ---------------------------------------------------------------
 
---ALTER TABLE tb_cnh
---DROP COLUMN cnh_tipo;
---ALTER TABLE tb_cnh
---ADD cnh_tipo varchar(3);
+--ALTER TABLE tb_pessoas_curriculos
+--DROP COLUMN cr_nome;
+--ALTER TABLE tb_pessoas_curriculos
+--DROP COLUMN cr_data_nasc;
+--ALTER TABLE tb_pessoas_curriculos
+--DROP COLUMN cr_estado_civil;
+--ALTER TABLE tb_pessoas_curriculos
+--DROP COLUMN cr_telefone_opc;
+--ALTER TABLE tb_pessoas_curriculos
+--DROP COLUMN cr_email_opc;
+
+
+--ALTER TABLE tb_form_exp
+--ADD fe_descricao varchar(200);
 
 --DELETE FROM tb_cnh;
 --DBCC CHECKIDENT ('tb_cnh', RESEED, 0);

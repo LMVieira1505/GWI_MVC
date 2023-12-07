@@ -13,8 +13,8 @@
         <form asp-action="Create" asp-route-p_id="@ViewBag.p_id">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input asp-for="fe_tipo" type="radio" value="0"/> Formação Acadêmica
-                <input asp-for="fe_tipo" type="radio" value="1"/> Experiência Profissional
+                <input asp-for="fe_tipo" type="radio" value="false" /> Formação Acadêmica
+                <input asp-for="fe_tipo" type="radio" value="true" /> Experiência Profissional
             </div>
             <div class="form-group">
                 <label asp-for="fe_nome" class="control-label"></label>
@@ -45,11 +45,11 @@
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Serviços Sociais e Educação
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
                                 @foreach (var item in ViewBag.AreasList)
@@ -59,7 +59,7 @@
                                         <li><input type="radio" asp-for="fe_ar_id" value="@item.ar_id" id="@item.ar_id" />@item.ar_nome</li>
                                     }
                                 }
-                            </ul>                     
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -163,5 +163,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

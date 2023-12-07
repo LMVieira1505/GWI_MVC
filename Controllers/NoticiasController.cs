@@ -32,7 +32,7 @@ namespace GWI.Controllers
         [HttpGet]
         public ActionResult Create(int p_id)
         {
-            ViewBag.p_id = p_id;
+            ViewBag.p_id = 3;
             ViewBag.CategoriasList = this.repository.GetCategorias();
             ViewBag.SubcategoriasList = this.repository.GetSubcategorias();
             ViewBag.ImagensList = this.repository.GetImagens();
@@ -41,17 +41,17 @@ namespace GWI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Noticias noticias)
+        public ActionResult Create(Noticias noticias, int p_id)
         {
             try
             {
+                noticias.nt_p_id = p_id;
                 this.repository.add(noticias);
-
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Index));
             }
         }
 

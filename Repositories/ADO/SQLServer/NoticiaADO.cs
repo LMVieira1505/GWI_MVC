@@ -39,6 +39,22 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     noticias.nt_id = (int)command.ExecuteScalar();
                 }
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    foreach (int item in noticias.nt_subcategorias)
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "INSERT INTO tb_sctnt (sctnt_nt_id, sbtnt_sct_id) VALUES (@sctnt_nt_id, @sctnt_sct_id);";
+
+                        command.Parameters.Clear();
+
+                        command.Parameters.Add(new SqlParameter("@sctnt_nt_id", System.Data.SqlDbType.Int)).Value = noticias.nt_id;
+                        command.Parameters.Add(new SqlParameter("@sctnt_sct_id", System.Data.SqlDbType.Int)).Value = item;
+
+                        command.ExecuteNonQuery();
+                    }
+                }
             }
         }
 

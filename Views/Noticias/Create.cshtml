@@ -17,7 +17,7 @@
             </button>
         </a>
 
-        <form class="form-cadastro" asp-controller="Noticias" asp-action="Create">
+        <form class="form-cadastro" asp-controller="Noticias" asp-action="Create" asp-route-p_id="@ViewBag.p_id">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <label asp-for="nt_titulo" class="label-cadastro" for="nt_titulo">Titulo:</label>
@@ -45,7 +45,7 @@
                     <h2 class="accordion-header">
                         <div style="display: flex">
                             <input type="radio" asp-for="nt_cat_id" value="1" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" />
-                            <button class="accordion-button" type="button"
+                            <button class="accordion-button" type="button">
                                 Empregos
                             </button>
                         </div>
@@ -57,7 +57,7 @@
                                 {
                                     if (subcategoria.sct_cat_id == 1)
                                     {
-                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" name="nt_subcategorias"/>@subcategoria.sct_nome</li>
                                     }
                                 }
                             </ul>
@@ -81,7 +81,7 @@
                                 {
                                     if (subcategoria.sct_cat_id == 2)
                                     {
-                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" name="nt_subcategorias"/>@subcategoria.sct_nome</li>
                                     }
                                 }
                             </ul>
@@ -105,7 +105,7 @@
                                 {
                                     if (subcategoria.sct_cat_id == 3)
                                     {
-                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" name="nt_subcategorias"/>@subcategoria.sct_nome</li>
                                     }
                                 }
                             </ul>
@@ -129,7 +129,7 @@
                                 {
                                     if (subcategoria.sct_cat_id == 4)
                                     {
-                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" name="nt_subcategorias" />@subcategoria.sct_nome</li>
                                     }
                                 }
                             </ul>
@@ -153,7 +153,7 @@
                                 {
                                     if (subcategoria.sct_cat_id == 5)
                                     {
-                                        <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
+                                        <li><input type="checkbox" value="@subcategoria.sct_id" name="nt_subcategorias" />@subcategoria.sct_nome</li>
                                     }
                                 }
                             </ul>

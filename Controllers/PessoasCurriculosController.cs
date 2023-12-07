@@ -3,6 +3,8 @@ using GWI.Repositories.ADO.SQLServer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using GWI.Models.Curriculos;
+using GWI.Models.Noticias;
+using GWI.Models;
 
 namespace GWI.Controllers
 {
@@ -16,6 +18,34 @@ namespace GWI.Controllers
             this.repository = new Repositories.ADO.SQLServer.PessoasCurriculosADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
             this.sessao = sessao;
         }
+
+        // Curriculo Completo //
+        #region
+        public ActionResult CurriculoCompleto(int p_id)
+        {
+            ViewBag.CnhList = this.repository.GetCnhs();
+            ViewBag.HabilidadeList = this.repository.GetHabilidades();
+            ViewBag.FeList = this.repository.GetForExps(p_id);
+            ViewBag.Pessoa = this.repository.GetByIdPessoa(p_id);
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CurriculoCompleto(CurriculoCompleto cr, int p_id)
+        {
+            try
+            {
+                cr.P_Id = p_id;
+                this.repository.CreateCurriculo(cr);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return RedirectToAction(nameof(Index));
+            }
+        }
+        #endregion
 
         // Crud de Formação e Experiência Profissional //
         #region

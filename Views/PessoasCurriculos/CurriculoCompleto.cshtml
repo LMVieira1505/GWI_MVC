@@ -1,0 +1,247 @@
+﻿@model GWI.Models.CurriculoCompleto
+
+@{
+    ViewData["Title"] = "CurriculoCompleto";
+}
+
+<h1>CurriculoCompleto</h1>
+
+<h4>CurriculoCompleto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CurriculoCompleto" asp-route-p_id="@ViewBag.Pessoa.p_id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h3>@ViewBag.Pessoa.p_nome @ViewBag.Pessoa.p_sobrenome</h3>
+
+            <h3>@ViewBag.Pessoa.p_telefone</h3>
+
+            <h3>@ViewBag.Pessoa.p_email</h3>
+            <div class="form-group">
+                <label asp-for="Endereco" class="control-label"></label>
+                <input asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Objetivos" class="control-label"></label>
+                <input asp-for="Objetivos" class="form-control" />
+                <span asp-validation-for="Objetivos" class="text-danger"></span>
+            </div>
+
+            <h2>Formação Acadêmica e Experiência Profissional</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Formação Acadêmica
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.FeList)
+                                {
+                                    if (item.fe_tipo == false)
+                                    {
+                                        <li><input type="checkbox" name="Forexp" value="@item.fe_id" />@item.fe_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Experiência Profissional
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.FeList)
+                                {
+                                    if (item.fe_tipo == true)
+                                    {
+                                        <li><input type="checkbox" name="Forexp" value="@item.fe_id" />@item.fe_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <h2>Habilidades</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Serviços Sociais e Educação
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.HabilidadeList)
+                                {
+                                    if (item.hb_tipo == "Serviços Sociais e Educação")
+                                    {
+                                        <li><input type="checkbox" name="Habilidade" value="@item.hb_id"/>@item.hb_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Engenharia e Manufatura
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.HabilidadeList)
+                                {
+                                    if (item.hb_tipo == "Engenharia e Manufatura")
+                                    {
+                                        <li><input type="checkbox" name="Habilidade" value="@item.hb_id" />@item.hb_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Negócios e Finanças
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.HabilidadeList)
+                                {
+                                    if (item.hb_tipo == "Negócios e Finanças")
+                                    {
+                                        <li><input type="checkbox" name="Habilidade" value="@item.hb_id" />@item.hb_nome</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Saúde e Ciências da Vida
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @foreach (var item in ViewBag.HabilidadeList)
+                                    {
+                                        if (item.hb_tipo == "Saúde e Ciências da Vida")
+                                        {
+                                            <li><input type="checkbox" name="Habilidade" value="@item.hb_id" />@item.hb_nome</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Tecnologia da Informação
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @foreach (var item in ViewBag.HabilidadeList)
+                                    {
+                                        if (item.hb_tipo == "Tecnologia da Informação")
+                                        {
+                                            <li><input type="checkbox" name="Habilidade" value="@item.hb_id" />@item.hb_nome</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Interpessoais e Comportamentais
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @foreach (var item in ViewBag.HabilidadeList)
+                                    {
+                                        if (item.hb_tipo == "Interpessoais e Comportamentais")
+                                        {
+                                            <li><input type="checkbox" name="Habilidade" value="@item.hb_id" />@item.hb_nome</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <h2>Habilitação</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            CNH
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var item in ViewBag.CnhList)
+                                {
+                                    <li><input type="checkbox" name="Cnh" value="@item.cnh_id" />@item.cnh_tipo</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

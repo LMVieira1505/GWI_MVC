@@ -40,6 +40,14 @@ INNER JOIN tb_img_not
 INNER JOIN tb_imagens 
 	ON tb_img_not.imn_im_id = tb_imagens.im_id;
 
+
+SELECT nt_id, nt_titulo, nt_subtitulo, nt_texto, nt_data_publicacao, p_username, imn_capa, im_url 
+FROM tb_noticias 
+INNER JOIN tb_pessoas ON tb_noticias.nt_p_id = tb_pessoas.p_id 
+INNER JOIN tb_img_not ON tb_noticias.nt_id = tb_img_not.imn_nt_id 
+INNER JOIN tb_imagens ON tb_img_not.imn_im_id = tb_imagens.im_id 
+where nt_ativo=1;
+
 ---------------------------------------------------------------
 ------  Retornar Pessoa
 ---------------------------------------------------------------
@@ -96,3 +104,18 @@ FROM tb_categorias;
 
 SELECT sct_id, sct_nome, sct_ativo, sct_cat_id
 FROM tb_subcategorias;
+
+---------------------------------------------------------------
+------  Create Notícia
+---------------------------------------------------------------
+
+--INSERT INTO tb_noticias 
+--	(nt_titulo, nt_subtitulo, nt_texto, nt_data_publicacao, nt_ativo, nt_cat_id, nt_p_id) 
+--VALUES 
+--	(@nt_titulo, @nt_subtitulo, @nt_texto, @nt_data_publicacao, @nt_ativo, @nt_cat_id, @nt_p_id); 
+--SELECT convert(INT,@@IDENTITY) AS id;;
+
+--INSERT INTO 
+--	tb_sctnt (sctnt_nt_id, sbtnt_sct_id) 
+--VALUES 
+--	(@sctnt_nt_id, @sctnt_sct_id);

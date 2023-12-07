@@ -12,6 +12,8 @@ namespace GWI.Models.Noticias
 
         public bool nt_ativo;
 
+        public List<int> nt_subcategorias { get; set; }
+
         [Required(ErrorMessage = "Campo título obrigatório", AllowEmptyStrings = false)]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Mínimo de 3 e máximo de 50 caracteres.")]
         public string nt_titulo { get; set; }
@@ -35,10 +37,9 @@ namespace GWI.Models.Noticias
             nt_subtitulo = string.Empty;
             nt_texto = string.Empty;
             nt_data_publicacao = DateTime.Now;
-            nt_ativo = false;
+            nt_ativo = true;
             nt_cat_id = 0;
             nt_p_id = 0;
-
         }
     }
 }

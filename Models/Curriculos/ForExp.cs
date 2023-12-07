@@ -11,7 +11,7 @@ namespace GWI.Models.Curriculos
         public bool fe_tipo { get; set; }
 
         [Required(ErrorMessage = "Campo Título de Atuação Obrigatório", AllowEmptyStrings = false)]
-        [StringLength(500, MinimumLength = 10, ErrorMessage = "Mínimo de 10 e máximo de 110 caracteres.")]
+        [StringLength(110, MinimumLength = 10, ErrorMessage = "Mínimo de 10 e máximo de 110 caracteres.")]
         public string fe_nome { get; set; }
 
         [Required(ErrorMessage = "Campo Texto Obrigatório", AllowEmptyStrings = false)]

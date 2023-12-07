@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using GWI.Models.Curriculos;
 using GWI.Models.Pessoas;
+using GWI.Models;
 
 namespace GWI.Repositories.ADO.SQLServer
 {
@@ -36,7 +37,7 @@ namespace GWI.Repositories.ADO.SQLServer
                     command.Parameters.Add(new SqlParameter("@fe_ar_id", System.Data.SqlDbType.Int)).Value = forExp.fe_ar_id;
                     command.Parameters.Add(new SqlParameter("@fe_p_id", System.Data.SqlDbType.Int)).Value = forExp.fe_p_id;
 
-                    forExp.fe_id = (int)command.ExecuteScalar();
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -160,7 +161,6 @@ namespace GWI.Repositories.ADO.SQLServer
         }
         #endregion
 
-
         // Áreas //
         #region
         public List<Areas> GetAreas()
@@ -194,7 +194,6 @@ namespace GWI.Repositories.ADO.SQLServer
         }
         #endregion
 
-
         // CNH //
         #region
         public List<Cnh> GetCnhs()
@@ -215,8 +214,8 @@ namespace GWI.Repositories.ADO.SQLServer
                     while (dr.Read())
                     {
                         Cnh cnh = new Cnh();
-                        cnh.cnh_id = (int)dr["ar_id"];
-                        cnh.cnh_tipo = (string)dr["ar_tipo"];
+                        cnh.cnh_id = (int)dr["cnh_id"];
+                        cnh.cnh_tipo = (string)dr["cnh_tipo"];
 
                         cnhs.Add(cnh);
                     }
@@ -226,7 +225,6 @@ namespace GWI.Repositories.ADO.SQLServer
             return cnhs;
         }
         #endregion
-
 
         // Habilidades //
         #region
@@ -258,6 +256,81 @@ namespace GWI.Repositories.ADO.SQLServer
             }
 
             return habilidades;
+        }
+        #endregion
+
+        // Pessoas //
+        #region
+
+        public Pessoas GetByIdPessoa(int id)
+        {
+            Pessoas pessoa = new Pessoas();
+
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone FROM tb_pessoas WHERE p_id = @p_id;";
+                    command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        pessoa.p_id = (int)dr["p_id"];
+                        pessoa.p_username = (string)dr["p_username"];
+                        pessoa.p_nome = (string)dr["p_nome"];
+                        pessoa.p_sobrenome = (string)dr["p_sobrenome"];
+                        pessoa.p_email = (string)dr["p_email"];
+                        pessoa.p_telefone = (string)dr["p_telefone"];
+                    }
+                }
+            }
+
+            return pessoa;
+        }
+
+        #endregion
+
+        // Curriculo Completo //
+        #region
+        public void CreateCurriculo(CurriculoCompleto cr)
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "INSERT into tb_pessoas_curriculos (cr_objetivos, cr_endereco, cr_p_id) values (@cr_objetivos, @cr_endereco, @cr_p_id); select convert(int,@@identity) as id;;";
+
+                    command.Parameters.Add(new SqlParameter("@cr_objetivos", System.Data.SqlDbType.VarChar)).Value = cr.Objetivos;
+                    command.Parameters.Add(new SqlParameter("@cr_endereco", System.Data.SqlDbType.VarChar)).Value = cr.Endereco;
+                    command.Parameters.Add(new SqlParameter("@cr_p_id", System.Data.SqlDbType.Int)).Value = cr.P_Id;
+
+                    command.ExecuteNonQuery();
+                }
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    foreach (int item in cr.Habilidade)
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "INSERT INTO tb_hbcr (hbcr_cr_id, hbcr_hb_id) VALUES (@hbcr_cr_id, @hbcr_hb_id);";
+
+                        command.Parameters.Clear();
+
+                        command.Parameters.Add(new SqlParameter("@hbcr_cr_id", System.Data.SqlDbType.Int)).Value = cr.Id;
+                        command.Parameters.Add(new SqlParameter("@hbcr_hb_id", System.Data.SqlDbType.Int)).Value = item;
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
         #endregion
     }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}a{text-decoration:none;color:inherit}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}img{border:0}table{border-collapse:collapse;border-spacing:0}
+
+        body {
+            width: 210px;
+            height: 280px;
+            font-family: Arial, Helvetica, sans-serif;            
+        }
+
+        h1 {
+            font-size: 10px;
+        }
+
+        h2 {
+            font-size: 8px;
+            margin-bottom: 3.5px;
+        }
+
+        h3 {
+            font-size: 5.5px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 5px;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 55px;
+            background-color: #404259ff;
+            color: #ffffffff;
+            text-align: right;
+            border-bottom: solid 2.5px #63657aff;
+        }
+
+        .img-header-container {
+            width: 70px;
+            height: 55px;
+            padding-top: 2px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+        }
+
+        .img-header {
+            width: 49px;
+            height: 49px;
+            border-radius: 50%;
+        }
+
+        .text-header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 140px;
+            height: 55px;
+            padding-top: 5px;
+            padding-right: 7.5px;
+            padding-bottom: 2px;
+            padding-left: 2px;
+        }
+
+        .p-header-container {
+            width: 80px;
+            margin-top: 2px;
+        }
+
+        .p-header {
+            margin-bottom: 2px;
+        }
+
+        #main {
+            width: 100%;
+            height: 222px;
+            background-color: #ffffff;
+            color: #63657aff;
+        }
+
+        #main p {
+            line-height: 7px;
+        }
+
+        .description-container {
+            text-align: center;
+            padding-top: 5.5px;
+            padding-right: 24px;
+            padding-left: 24px;
+            padding-bottom: 2.5px;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            height: 180px;
+        }
+
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            width: 90px;
+        }
+
+        .card-content {
+            margin-bottom: 5px;
+        }
+
+        .ul-card {
+            list-style: disc;
+            font-size: 5px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="img-header-container">
+            <img class="img-header" src="../img/entretenimento_img/djonga.png">
+        </div>
+        <div class="text-header-container">
+            <h1>Gabriel Fecchio Paravani Larocca</h1>
+            <div class="p-header-container">
+                <p class="p-header">Telefone: (99) 99999-9999</p>
+                <p class="p-header">E-mail: gabriellarocca@email.com</p>
+                <p class="p-header">Endereço: Rua Alegre, 123 - Cidade Brasileira, SP, Brasil</p>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="description-container">
+            <h2>Objetivos</h2>
+            <p>Cargo de Gerência de Finanças, visando executar as funções de controle de fluxo de caixa, analisar os relatórios referentes, apresentar as propostas aos investidores e enviar remessas ao exterior</p>
+        </div>
+        <div class="content-container">
+            <div class="content-box">
+                <h2>Experiência Profissional</h2>
+                <card class="card-content">
+                    <h3>Gerente Financeiro, Pense S.A.</h3>
+                    <h3>(2018 - o momento)</h3>
+                    <ul class="ul-card">
+                        <li><p>Gestão de fluxo de caixa</p></li>
+                        <li><p>Reuniões semanais com a diretoria</p></li>
+                        <li><p>Preparo de apresentações para investidores</p></li>
+                        <li><p>Implementação de novos sistemas</p></li>
+                    </ul>
+                </card>
+                <card class="card-content">
+                    <h3>Coordenador Financeiro, Lira e Cia.</h3>
+                    <h3>(2012 - 2018)</h3>
+                    <ul class="ul-card">
+                        <li><p>Gestão de fluxo de caixa</p></li>
+                        <li><p>Envio de remessas para o exterior</p></li>
+                        <li><p>Revisão de documentos</p></li>
+                        <li><p>Análise de relatórios</p></li>
+                    </ul>
+                </card>   
+                <card class="card-content">
+                    <h3>Analista Financeiro, Lobo S.A.</h3>
+                    <h3>(2007 - 2012)</h3>
+                    <ul class="ul-card">
+                        <li><p>Gestão de fluxo de caixa</p></li>
+                        <li><p>Reuniões semanais com a diretoria</p></li>
+                        <li><p>Preparo de apresentações para investidores</p></li>
+                        <li><p>Implementação de novos sistemas</p></li>
+                    </ul>
+                </card>
+            </div>
+            <div class="content-box">
+                <h2>Formação Acadêmica</h2>
+                <card class="card-content">
+                    <h3>Bacharelado em Administração de Empresas, Universidade XYZ</h3>
+                    <h3>(2008 - 2012)</h3>
+                    <ul class="ul-card">
+                        <li><p>Ênfase em Finanças e Gestão Empresarial</p></li>
+                        <li><p>Trabalho de Conclusão: Internacionalização de Empresas</p></li>
+                        <li><p>Participação em projetos de gestão financeira</p></li>
+                    </ul>
+                </card>
+                <card class="card-content">
+                    <h3>Ciências Contábeis, Universidade Alpha</h3>
+                    <h3>(2003 - 2007)</h3>
+                    <ul class="ul-card">
+                        <li><p>Contabilidade Financeira e Gerencial</p></li>
+                        <li><p>Trabalho de Conclusão: Análise de Custos em Empresas</p></li>
+                    </ul>
+                </card>
+                <h2>Habilidades e Interesses</h2>
+                <card class="card-content">
+                    <ul class="ul-card">
+                        <li><p>Inglês fluente</p></li>
+                        <li><p>Espanhol fluente</p></li>
+                        <li><p>Especialista em sistemas</p></li>
+                        <li><p>Gosto de promover grupos de discussaõ de diversidade</p></li>
+                    </ul>
+                </card>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

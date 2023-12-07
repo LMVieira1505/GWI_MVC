@@ -41,45 +41,47 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_instituicao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_ano_ini)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_ano_ter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fe_descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ar_tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ar_nome)
-            </td>
-            <td>
-                <a class="btn btn-primary" role="button" asp-controller="PessoasCurriculos" asp-action="Edit" asp-route-id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Editar</a>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_instituicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_ano_ini)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_ano_ter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ar_tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ar_nome)
+                </td>
+                <td>
+                    <a class="btn btn-primary" role="button" asp-controller="PessoasCurriculos" asp-action="Edit" asp-route-id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Editar</a>
                     <a class="btn btn-secondary" role="button" asp-controller="PessoasCurriculos" asp-action="Delete" asp-route-fe_id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Deletar</a>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 
 </table>
 
 <p>
     <a asp-controller="PessoasCurriculos" asp-action="Create" asp-route-p_id="@ViewBag.p_id">Create New</a>
+    <a asp-controller="PessoasCurriculos" asp-action="CurriculoCompleto" asp-route-p_id="@ViewBag.p_id">Create Curriculo</a>
 </p>
