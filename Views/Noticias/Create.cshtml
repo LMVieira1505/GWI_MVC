@@ -1,4 +1,5 @@
-﻿@model GWI.Models.Noticias.Noticias
+﻿@using GWI.Models.Noticias;
+@model GWI.Models.Noticias.Noticias
 
 @{
     ViewData["Title"] = "Create";
@@ -45,14 +46,14 @@
                     <h2 class="accordion-header">
                         <div style="display: flex">
                             <input type="radio" asp-for="nt_cat_id" value="1" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" />
-                            <button class="accordion-button" type="button"
+                            <button class="accordion-button collapsed" type="button">
                                 Empregos
                             </button>
                         </div>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <ul>
+                            @* <ul>
                                 @foreach (var subcategoria in ViewBag.SubcategoriasList)
                                 {
                                     if (subcategoria.sct_cat_id == 1)
@@ -60,7 +61,7 @@
                                         <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
                                     }
                                 }
-                            </ul>
+                            </ul> *@
                         </div>
                     </div>
                 </div>
@@ -77,13 +78,13 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                @* @foreach (var subcategoria in ViewBag.SubcategoriasList)
                                 {
                                     if (subcategoria.sct_cat_id == 2)
                                     {
                                         <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
                                     }
-                                }
+                                } *@
                             </ul>
                         </div>
                     </div>
@@ -101,13 +102,13 @@
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                               @*  @foreach (var subcategoria in ViewBag.SubcategoriasList)
                                 {
                                     if (subcategoria.sct_cat_id == 3)
                                     {
                                         <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
                                     }
-                                }
+                                } *@
                             </ul>
                         </div>
                     </div>
@@ -125,13 +126,13 @@
                     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                @* @foreach (var subcategoria in ViewBag.SubcategoriasList)
                                 {
                                     if (subcategoria.sct_cat_id == 4)
                                     {
                                         <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
                                     }
-                                }
+                                } *@
                             </ul>
                         </div>
                     </div>
@@ -149,13 +150,13 @@
                     <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (var subcategoria in ViewBag.SubcategoriasList)
+                                @* @foreach (var subcategoria in ViewBag.SubcategoriasList)
                                 {
                                     if (subcategoria.sct_cat_id == 5)
                                     {
                                         <li><input type="checkbox" value="@subcategoria.sct_id" />@subcategoria.sct_nome</li>
                                     }
-                                }
+                                } *@
                             </ul>
                         </div>
                     </div>
