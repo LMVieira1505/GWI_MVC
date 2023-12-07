@@ -72,7 +72,7 @@
             </td>
             <td>
                 <a class="btn btn-primary" role="button" asp-controller="PessoasCurriculos" asp-action="Edit" asp-route-id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Editar</a>
-                    <a class="btn btn-secondary" role="button" asp-controller="PessoasCurriculos" asp-action="Delete" asp-route-id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Deletar</a>
+                    <a class="btn btn-secondary" role="button" asp-controller="PessoasCurriculos" asp-action="Delete" asp-route-fe_id="@item.fe_id" asp-route-p_id="@ViewBag.p_id">Deletar</a>
             </td>
         </tr>
 }

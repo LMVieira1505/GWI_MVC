@@ -127,16 +127,16 @@ namespace GWI.Repositories.ADO.SQLServer
                     command.Connection = connection;
                     command.CommandText = "UPDATE tb_form_exp SET fe_tipo = @fe_tipo, fe_nome = @fe_nome, fe_instituicao = @fe_instituicao, fe_ano_ini = @fe_ano_ini, fe_ano_ter = @fe_ano_ter, fe_descricao = @fe_descricao, fe_ar_id = @fe_ar_id WHERE fe_id = @fe_id;; select convert(int, @@identity) as id;";
 
-                    command.Parameters.Add(new SqlParameter("@fe_id", System.Data.SqlDbType.Bit)).Value = forExp.fe_id;
+                    command.Parameters.Add(new SqlParameter("@fe_id", System.Data.SqlDbType.Int)).Value = forExp.fe_id;
                     command.Parameters.Add(new SqlParameter("@fe_tipo", System.Data.SqlDbType.Bit)).Value = forExp.fe_tipo;
                     command.Parameters.Add(new SqlParameter("@fe_nome", System.Data.SqlDbType.VarChar)).Value = forExp.fe_nome;
                     command.Parameters.Add(new SqlParameter("@fe_instituicao", System.Data.SqlDbType.VarChar)).Value = forExp.fe_instituicao;
-                    command.Parameters.Add(new SqlParameter("@fe_ano_ini", System.Data.SqlDbType.VarChar)).Value = forExp.fe_ano_ini;
-                    command.Parameters.Add(new SqlParameter("@fe_ano_ter", System.Data.SqlDbType.VarChar)).Value = forExp.fe_ano_ter;
+                    command.Parameters.Add(new SqlParameter("@fe_ano_ini", System.Data.SqlDbType.Int)).Value = forExp.fe_ano_ini;
+                    command.Parameters.Add(new SqlParameter("@fe_ano_ter", System.Data.SqlDbType.Int)).Value = forExp.fe_ano_ter;
                     command.Parameters.Add(new SqlParameter("@fe_descricao", System.Data.SqlDbType.VarChar)).Value = forExp.fe_descricao;
                     command.Parameters.Add(new SqlParameter("@fe_ar_id", System.Data.SqlDbType.Int)).Value = forExp.fe_ar_id;
 
-                    forExp.fe_id = (int)command.ExecuteScalar();
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -150,9 +150,11 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "DELETE FROM tb_form_exp WHERE fe_id = @fe_id; DBCC CHECKIDENT ('tb_form_exp', RESEED, 4);";
+                    command.CommandText = "DELETE FROM tb_form_exp WHERE fe_id = @fe_id;";
 
-                    command.Parameters.Add(new SqlParameter("@fe_id", System.Data.SqlDbType.Bit)).Value = fe_id;
+                    command.Parameters.Add(new SqlParameter("@fe_id", System.Data.SqlDbType.Int)).Value = fe_id;
+
+                    command.ExecuteNonQuery();
                 }
             }
         }
