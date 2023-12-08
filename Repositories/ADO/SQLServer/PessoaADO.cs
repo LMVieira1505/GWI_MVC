@@ -13,8 +13,8 @@ namespace GWI.Repositories.ADO.SQLServer
         }
 
 
-        // Crud Pessoa //
-        #region
+
+        #region"Crud Pessoa"
 
         public void add(Pessoas pessoas)
         {
@@ -150,8 +150,9 @@ namespace GWI.Repositories.ADO.SQLServer
         }
         #endregion
 
-        // Login //
-        #region
+
+
+        #region"Login"
         public bool check(Pessoas pessoas)
         {
 
@@ -208,6 +209,11 @@ namespace GWI.Repositories.ADO.SQLServer
             }
             return result;
         }
+
+        //internal bool check(Pessoas pessoas)
+        //{
+        //    throw new NotImplementedException();
+        //}
         #endregion
     }
 }
