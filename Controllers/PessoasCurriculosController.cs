@@ -38,12 +38,19 @@ namespace GWI.Controllers
             {
                 cr.P_Id = p_id;
                 this.repository.CreateCurriculo(cr);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(GetCurriculo), new { cr = cr });
             }
             catch
             {
                 return RedirectToAction(nameof(Index));
             }
+        }
+
+        [HttpGet]
+        public ActionResult GetCurriculo(CurriculoCompleto cr)
+        {
+            this.repository.GetCurriculo();
+            return View();
         }
         #endregion
 

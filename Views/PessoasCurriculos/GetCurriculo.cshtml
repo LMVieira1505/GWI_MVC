@@ -1,0 +1,264 @@
+﻿@model GWI.Models.CurriculoCompleto
+
+@{
+    ViewData["Title"] = "GetCurriculo";
+}
+
+<h1>GetCurriculo</h1>
+
+<div>
+    <h4>CurriculoCompleto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.P_Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.P_Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Objetivos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Objetivos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}a{text-decoration:none;color:inherit}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}img{border:0}table{border-collapse:collapse;border-spacing:0}
+
+        body {
+            width: 210px;
+            height: 280px;
+            font-family: Arial, Helvetica, sans-serif;            
+        }
+
+        h1 {
+            font-size: 10px;
+        }
+
+        h2 {
+            font-size: 8px;
+            margin-bottom: 3.5px;
+        }
+
+        h3 {
+            font-size: 5.5px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 5px;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 55px;
+            background-color: #404259ff;
+            color: #ffffffff;
+            text-align: right;
+            border-bottom: solid 2.5px #63657aff;
+        }
+
+        .img-header-container {
+            width: 70px;
+            height: 55px;
+            padding-top: 2px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+        }
+
+        .img-header {
+            width: 49px;
+            height: 49px;
+            border-radius: 50%;
+        }
+
+        .text-header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 140px;
+            height: 55px;
+            padding-top: 5px;
+            padding-right: 7.5px;
+            padding-bottom: 2px;
+            padding-left: 2px;
+        }
+
+        .p-header-container {
+            width: 80px;
+            margin-top: 2px;
+        }
+
+        .p-header {
+            margin-bottom: 2px;
+        }
+
+        #main {
+            width: 100%;
+            height: 222px;
+            background-color: #ffffff;
+            color: #63657aff;
+        }
+
+        #main p {
+            line-height: 7px;
+        }
+
+        .description-container {
+            text-align: center;
+            padding-top: 5.5px;
+            padding-right: 24px;
+            padding-left: 24px;
+            padding-bottom: 2.5px;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            height: 180px;
+        }
+
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            width: 90px;
+        }
+
+        .card-content {
+            margin-bottom: 5px;
+        }
+
+        .ul-card {
+            list-style: disc;
+            font-size: 5px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="img-header-container">
+            <img class="img-header" src="~/img/entreteniment/djonga.png">
+        </div>
+        <div class="text-header-container">
+            <h1>@Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Telefone)</h1>
+            <div class="p-header-container">
+                <p class="p-header">Telefone: @Html.DisplayFor(model => model.Telefone)</p>
+                <p class="p-header">E-mail: @Html.DisplayFor(model => model.Email)</p>
+                <p class="p-header">Endereço: @Html.DisplayFor(model => model.Endereco)</p>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="description-container">
+            <h2>Objetivos</h2>
+            <p>@Html.DisplayFor(model => model.Objetivos)</p>
+        </div>
+        <div class="content-container">
+            <div class="content-box">
+                <h2>Experiência Profissional</h2>
+                @foreach (var item in ViewBag.Fe)
+                    {
+                        if (item.fe_tipo == true)  
+                        {
+                            <card class="card-content">
+                                <h3>@item.fe_nome, @item.fe_instituicao</h3>
+                                <h3>(@item.fe_ano_ini - @item.fe_ano_ter)</h3>
+                                <ul class="ul-card">
+                                    <li><p>@item.fe_descricao</p></li>
+                                </ul>
+                            </card>
+                        }           
+                    }
+            </div>
+            <div class="content-box">
+                <h2>Formação Acadêmica</h2>
+                @foreach (var item in ViewBag.Fe)
+                {
+                    if (item.fe_tipo == false)
+                    {
+                        <card class="card-content">
+                            <h3>@item.fe_nome, @item.fe_instituicao</h3>
+                            <h3>(@item.fe_ano_ini - @item.fe_ano_ter)</h3>
+                            <ul class="ul-card">
+                                <li><p>@item.fe_descricao</p></li>
+                            </ul>
+                        </card>
+                    }
+                }
+
+                <h2>Habilidades</h2>
+                <ul class="ul-card">
+                @foreach (var item in ViewBag.Hab)
+                {
+                    <li><p>@item</p></li>
+                }
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

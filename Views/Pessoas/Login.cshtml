@@ -26,15 +26,6 @@
             <label asp-for="p_senha" class="label-cadastro" for="senha">Senha:</label>
             <input asp-for="p_senha" class="input-cadastro" type="password" name="p_senha">
             <span asp-validation-for="p_senha" class="text-danger"></span>
-
-            <div class="container-login-3o">
-                <button class="botao-login-3o">
-                    <img src="~/img/index/google.png" alt="entrar com google" class="img-login-3o">
-                </button>
-                <button class="botao-login-3o">
-                    <img src="~/img/index/facebook.png" alt="entrar com facebook" class="img-login-3o">
-                </button>
-            </div>
             <div>
                 <input class="submit-cadastro dois-botoes-esquerda" type="submit" value="Entrar">
                 <a asp-controller="Pessoas" asp-action="Create">

@@ -320,16 +320,91 @@ namespace GWI.Repositories.ADO.SQLServer
                     foreach (int item in cr.Habilidade)
                     {
                         command.Connection = connection;
-                        command.CommandText = "INSERT INTO tb_hbcr (hbcr_cr_id, hbcr_hb_id) VALUES (@hbcr_cr_id, @hbcr_hb_id);";
+                        command.CommandText = "INSERT INTO tb_hbcr (hbcr_cr_id, hbcr_hb_id) VALUES ((SELECT TOP (1) cr_id FROM tb_pessoas_curriculos ORDER BY cr_id DESC), @hbcr_hb_id);";
 
                         command.Parameters.Clear();
 
-                        command.Parameters.Add(new SqlParameter("@hbcr_cr_id", System.Data.SqlDbType.Int)).Value = cr.Id;
                         command.Parameters.Add(new SqlParameter("@hbcr_hb_id", System.Data.SqlDbType.Int)).Value = item;
 
                         command.ExecuteNonQuery();
                     }
                 }
+            }
+        }
+
+        public CurriculoCompleto GetCurriculo()
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                CurriculoCompleto cr = new CurriculoCompleto();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT cr_endereco, cr_objetivos, p_nome, p_sobrenome, p_telefone, p_email FROM tb_pessoas_curriculos INNER JOIN tb_pessoas ON cr_p_id = p_id;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+              
+                    cr.Endereco = (string)dr["cr_endereco"];
+                    cr.Objetivos = (string)dr["cr_objetivos"];
+                    cr.Nome = (string)dr["p_nome"];
+                    cr.Sobrenome = (string)dr["p_sobrenome"];
+                    cr.Telefone = (string)dr["p_telefone"];
+                    cr.Email = (string)dr["p_email"];
+                    
+                    command.ExecuteNonQuery();
+                }
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT cnh_tipo FROM tb_pessoas_curriculos INNER JOIN tb_cnhcr ON hbtcr_cr_id = cr_id INNER JOIN tb_cnh ON cnh_id = cnhcr_hbt_id;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {                        
+                        cr.Cnhs.Add((string)dr["cnh_tipo"]);
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT hb_nome FROM tb_pessoas_curriculos INNER JOIN tb_hbcr ON hbcr_cr_id = cr_id INNER JOIN tb_habilidades ON hb_id = hbcr_hb_id;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        cr.Hab.Add((string)dr["hb_nome"]);
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT fe_nome, fe_instituicao, fe_ano_ini, fe_ano_ter, fe_descricao, fe_tipo FROM tb_pessoas_curriculos INNER JOIN tb_fecr ON fecr_cr_id = cr_id INNER JOIN tb_form_exp ON fecr_fe_id = fe_id;";
+
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        ForExp hb = new ForExp();
+                        hb.fe_nome = (string)dr["fe_nome"];
+                        hb.fe_instituicao = (string)dr["fe_instituicao"];
+                        hb.fe_ano_ini = (int)dr["fe_ano_ini"];
+                        hb.fe_ano_ter = (int)dr["fe_ano_ter"];
+                        hb.fe_descricao = (string)dr["fe_descricao"];
+                        hb.fe_tipo = (bool)dr["fe_tipo"];
+
+                        cr.Fe.Add(hb);
+                    }                    
+                }
+
+                return cr;
             }
         }
         #endregion
