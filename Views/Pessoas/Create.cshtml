@@ -49,13 +49,9 @@
             <input asp-for="p_nv_id" class="input-cadastro" type="number" name="p_nv_id">
             <span asp-validation-for="p_nv_id" class="text-danger"></span> *@
 
-
-            @* <label class="label-cadastro">Confirmar Senha:</label>
-            <button class="input-cadastro" type="password" id="conf-senha" name="conf-senha"> *@
-
-                <div class="form-group">
-                    <input type="submit" value="Create" class="submit-cadastro">
-                </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="submit-cadastro">
+            </div>
         </form>
         <div>
             <a asp-action="Index">Back to List</a>

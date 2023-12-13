@@ -1,0 +1,146 @@
+﻿@model GWI.Models.Pessoas.Pessoas;
+
+@{
+    ViewData["Title"] = "AcessarPerfilUsuario";
+}
+
+
+<!--  /main desktop/  -->
+<main class="pag_sem_cotacoes">
+    <section class="section-perfil">
+        <img src="">
+
+        <a asp-controller="Pessoas" asp-action="Edit" asp-route-id="@Model.p_id">Editar Perfil</a>
+
+        <h2>@Html.DisplayFor(model => model.p_username)</h2>
+
+        <p>@Html.DisplayFor(model => model.p_nome) @Html.DisplayFor(model => model.p_sobrenome)</p>
+        <p>@Html.DisplayFor(model => model.p_telefone)</p>
+        <p>@Html.DisplayFor(model => model.p_email)</p>
+
+        <!-- listar usuários -->
+        <h2>Usuários</h2>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userOne" aria-expanded="false" aria-controls="userOne">
+                        Usuários Padrão
+                    </button>
+                </h2>
+                <div id="userOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Username</th>
+                                    <th>Nome</th>
+                                    <th>Sobrenome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Documento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (GWI.Models.Pessoas.Pessoas pessoas in ViewBag.ListPadrao)
+                                {
+                                    <tr>
+                                        <td>@pessoas.p_id</td>
+                                        <td>@pessoas.p_username</td>
+                                        <td>@pessoas.p_nome</td>
+                                        <td>@pessoas.p_sobrenome</td>
+                                        <td>@pessoas.p_email</td>
+                                        <td>@pessoas.p_telefone</td>
+                                        <td>docs</td>
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary" role="button" asp-controller="Pessoas" asp-action="Edit" asp-route-p_id="@pessoas.p_id">Editar</a>
+                                            <a class="btn btn-danger" role="button" asp-controller="Pessoas" asp-action="Delete" asp-route-p_id="@pessoas.p_id" asp-route-nv="@Model.p_nv_id" asp-route-us_id="@Model.p_id">Remover</a>
+                                        </div>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userTwo" aria-expanded="false" aria-controls="userTwo">
+                        Autores
+                    </button>
+                </h2>
+                <div id="userTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Username</th>
+                                    <th>Nome</th>
+                                    <th>Sobrenome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Documento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (GWI.Models.Pessoas.Pessoas pessoas in ViewBag.ListAutor)
+                                {
+                                    <tr>
+                                        <td>@pessoas.p_id</td>
+                                        <td>@pessoas.p_username</td>
+                                        <td>@pessoas.p_nome</td>
+                                        <td>@pessoas.p_sobrenome</td>
+                                        <td>@pessoas.p_email</td>
+                                        <td>@pessoas.p_telefone</td>
+                                        <td>docs</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userThree" aria-expanded="false" aria-controls="userThree">
+                        Administradores
+                    </button>
+                </h2>
+                <div id="userThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Username</th>
+                                    <th>Nome</th>
+                                    <th>Sobrenome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Documento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (GWI.Models.Pessoas.Pessoas pessoas in ViewBag.ListAdm)
+                                {
+                                    <tr>
+                                        <td>@pessoas.p_id</td>
+                                        <td>@pessoas.p_username</td>
+                                        <td>@pessoas.p_nome</td>
+                                        <td>@pessoas.p_sobrenome</td>
+                                        <td>@pessoas.p_email</td>
+                                        <td>@pessoas.p_telefone</td>
+                                        <td>docs</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- logout -->
+        <a asp-controller="Pessoas" asp-action="Logout">LogOut</a>
+    </section>
+</main>

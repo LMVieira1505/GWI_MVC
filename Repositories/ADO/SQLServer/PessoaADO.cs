@@ -13,8 +13,8 @@ namespace GWI.Repositories.ADO.SQLServer
         }
 
 
-
-        #region"Crud Pessoa"
+        // Crud Pessoa //
+        #region
 
         public void add(Pessoas pessoas)
         {
@@ -52,7 +52,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone FROM tb_pessoas WHERE p_id = @p_id;";
+                    command.CommandText = "SELECT p_id, p_userName, p_nome, p_sobrenome, p_email, p_telefone, p_nv_id FROM tb_pessoas WHERE p_id = @p_id;";
                     command.Parameters.Add(new SqlParameter("@p_id", System.Data.SqlDbType.Int)).Value = id;
 
                     SqlDataReader dr = command.ExecuteReader();
@@ -65,20 +65,24 @@ namespace GWI.Repositories.ADO.SQLServer
                         pessoa.p_sobrenome = (string)dr["p_sobrenome"];
                         pessoa.p_email = (string)dr["p_email"];
                         pessoa.p_telefone = (string)dr["p_telefone"];
+                        pessoa.p_nv_id = (int)dr["p_nv_id"];
                     }
                 }
             }
-
             return pessoa;
         }
 
-        public List<Pessoas> get()
+        public List<List<Pessoas>> get()
         {
-            List<Pessoas> pessoa = new List<Pessoas>();
+            List<List<Pessoas>> pessoas = new List<List<Pessoas>>();
 
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
                 connection.Open();
+
+                List<Pessoas> padrao = new List<Pessoas>();
+                List<Pessoas> autor = new List<Pessoas>();
+                List<Pessoas> adm = new List<Pessoas>();
 
                 using (SqlCommand command = new SqlCommand())
                 {
@@ -89,24 +93,42 @@ namespace GWI.Repositories.ADO.SQLServer
 
                     while (dr.Read())
                     {
-                        Pessoas pessoas = new Pessoas();
-                        pessoas.p_id = (int)dr["p_id"];
-                        pessoas.p_senha = (string)dr["p_senha"];
-                        pessoas.p_ativo = (bool)dr["p_ativo"];
-                        pessoas.p_nome = (string)dr["p_nome"];
-                        pessoas.p_sobrenome = (string)dr["p_sobrenome"];
-                        pessoas.p_telefone = (string)dr["p_telefone"];
-                        pessoas.p_email = (string)dr["p_email"];
-                        pessoas.p_username = (string)dr["p_username"];
-                        pessoas.p_nv_id = (int)dr["p_nv_id"];
-                        pessoas.p_ativo = (bool)dr["p_ativo"];
+                        Pessoas pessoa = new Pessoas();
+                        pessoa.p_id = (int)dr["p_id"];
+                        pessoa.p_senha = (string)dr["p_senha"];
+                        pessoa.p_ativo = (bool)dr["p_ativo"];
+                        pessoa.p_nome = (string)dr["p_nome"];
+                        pessoa.p_sobrenome = (string)dr["p_sobrenome"];
+                        pessoa.p_telefone = (string)dr["p_telefone"];
+                        pessoa.p_email = (string)dr["p_email"];
+                        pessoa.p_username = (string)dr["p_username"];
+                        pessoa.p_nv_id = (int)dr["p_nv_id"];
+                        pessoa.p_ativo = (bool)dr["p_ativo"];
 
-                        pessoa.Add(pessoas);
+                        switch (pessoa.p_nv_id)
+                        {
+                            case 1:
+                                adm.Add(pessoa);
+                                break;
+
+                            case 3:
+                                autor.Add(pessoa);
+                                break;
+                            case 4:
+                                padrao.Add(pessoa);
+                                break;
+
+                            default:
+                                break;
+                        }
                     }
                 }
+                pessoas.Add(padrao);
+                pessoas.Add(autor);
+                pessoas.Add(adm);
             }
 
-            return pessoa;
+            return pessoas;
         }
 
         public void delete(int id)
@@ -118,7 +140,7 @@ namespace GWI.Repositories.ADO.SQLServer
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "delete from pessoas where id = @id;";
+                    command.CommandText = "delete from tb_pessoas where p_id = @id;";
                     command.Parameters.Add(new SqlParameter("@id", System.Data.SqlDbType.Int)).Value = id;
 
                     command.ExecuteNonQuery();
@@ -148,11 +170,13 @@ namespace GWI.Repositories.ADO.SQLServer
                 }
             }
         }
+
         #endregion
 
 
+        // Login //
+        #region
 
-        #region"Login"
         public bool check(Pessoas pessoas)
         {
 
@@ -210,10 +234,6 @@ namespace GWI.Repositories.ADO.SQLServer
             return result;
         }
 
-        //internal bool check(Pessoas pessoas)
-        //{
-        //    throw new NotImplementedException();
-        //}
         #endregion
     }
 }

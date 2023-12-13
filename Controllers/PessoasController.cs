@@ -3,17 +3,18 @@ using GWI.Repositories.ADO.SQLServer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using GWI.Models.Pessoas;
+using System.Linq.Expressions;
 
 namespace GWI.Controllers
 {
     public class PessoasController : Controller
     {
-        private readonly Repositories.ADO.SQLServer.PessoaADO repository;
-        private readonly Services.ISessao sessao;
+        private readonly PessoaADO repository;
+        private readonly ISessao sessao;
 
-        public PessoasController(IConfiguration configuration, Services.ISessao sessao)
+        public PessoasController(IConfiguration configuration, ISessao sessao)
         { 
-            this.repository = new Repositories.ADO.SQLServer.PessoaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
+            this.repository = new PessoaADO(configuration.GetConnectionString(Configurations.Appsettings.getKeyConnectionString()));
             this.sessao = sessao;
         }
 
@@ -37,13 +38,14 @@ namespace GWI.Controllers
                     var loginResultado = repository.getType(pessoas);
                     this.sessao.addTokenPessoas(pessoas);
 
-                    if (loginResultado.TipoUsuario == 1)
-                        return RedirectToAction("Index", "Pessoas");
-                    else if (loginResultado.TipoUsuario == 4)
-                        return RedirectToAction(nameof(AcessarPerfilUsuario), new {id = pessoas.p_id});
+                    switch (loginResultado.TipoUsuario) {
+                        case 1:
+                            return RedirectToAction(nameof(AcessarPerfilAdm), new { id = pessoas.p_id });
+                        case 4:
+                            return RedirectToAction(nameof(AcessarPerfilUsuario), new { id = pessoas.p_id });
+                    }
                 }
                 ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!");
-
             }
             ViewBag.Error = "Usuario não detectado";
             return View();
@@ -52,10 +54,9 @@ namespace GWI.Controllers
         public IActionResult Logout()
         {
             this.sessao.deleteTokenPessoas();
-            return RedirectToAction("Noticias", "Index");
+            return RedirectToAction("Index", "Noticias");
         }
         #endregion
-
 
 
         // Crud de Pessoa //
@@ -80,7 +81,7 @@ namespace GWI.Controllers
             {
                 this.repository.add(pessoas);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Login));
             }
             catch
             {
@@ -109,22 +110,45 @@ namespace GWI.Controllers
             }
         }
        
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int p_id, int nv, int us_id)
         {
-            this.repository.delete(id);
-            return RedirectToAction(nameof(Index));
+            this.repository.delete(p_id);
+            switch (nv)
+            {
+                case 1:
+                    return RedirectToAction(nameof(AcessarPerfilAdm), new { id = us_id });
+
+                default:
+                    return RedirectToAction("Index", "Noticias");
+            }
         }
         #endregion
-
 
 
         // Métodos de Perfil //
         #region
 
-        public IActionResult AcessarPerfilUsuario(int id)
+        #region"Padrão"
+
+                public IActionResult AcessarPerfilUsuario(int id)
+                {
+                    return View(this.repository.GetById(id));
+                }
+
+                #endregion
+
+        #region"ADM"
+
+        public IActionResult AcessarPerfilAdm(int id)
         {
+            List<List<Pessoas>> pessoas = this.repository.get();
+            ViewBag.ListPadrao = pessoas[0];
+            ViewBag.ListAutor = pessoas[1];
+            ViewBag.ListAdm = pessoas[2];
             return View(this.repository.GetById(id));
         }
+
+        #endregion
 
         #endregion
     }

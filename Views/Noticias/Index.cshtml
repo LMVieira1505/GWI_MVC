@@ -107,7 +107,6 @@
                             <a class="carousel-caption" asp-controller="Noticias" asp-action="Details" asp-route-id="@item.nt_id">
                                 <h2 class="titulo_carrossel">@Html.DisplayFor(modelItem => item.nt_titulo)</h2>
                             </a>
-                            <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
                         </div>
                     }
 
@@ -155,8 +154,6 @@
                         <h4>@Html.DisplayFor(modelItem => item.nt_titulo)</h4>
                         <p class="descricao_da_noticia">@Html.DisplayFor(modelItem => item.nt_subtitulo)</p>
                     </a>
-                    <a asp-controller="Noticias" asp-action="Delete" asp-route-id="@item.nt_id">Deletar</a>
-                    <a asp-controller="Noticias" asp-action="Create" asp-route-id="@item.nt_id">Criar</a>
                     <p class="informacoes_da_noticia">@Html.DisplayFor(modelItem => item.p_username) — @Html.DisplayFor(modelItem => item.nt_data_publicacao)</p>
                 </article>
             }

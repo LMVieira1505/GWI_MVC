@@ -1,0 +1,61 @@
+PERFIL DE ADM
+	X # Login e Logout
+	# Editar Perfil
+		X - Editar nome
+		X - Editar sobrenome
+		X - Editar email
+		- Editar senha
+		- Editar foto de perfil
+	# Usuários
+		- Adicionar autores
+		X - Listar todos os users (autores e default)
+		- Acessar users
+		- Editar users
+		X - Remover users
+	# Notícias
+		- Listar todas as notícias
+		- Acessar notícias
+		- Editar notícias
+		- Remover notícias
+	# Categorias
+		- Adicionar categorias
+		- Listar todas as categorias
+		- Editar categorias
+		- Remover categorias
+	# Subcategorias
+		- Adicionar subcategorias
+		- Listar todas as subcategorias
+		- Editar subcategorias
+		- Remover subcategorias
+	# Serviços
+		- Adicionar serviços
+		- Listar todos os serviços
+		- Acessar serviços
+		- Editar serviços
+		- Remover serviços
+	# Categorias de Propaganda
+		- Adicionar categorias
+		- Listar todos os categorias
+		- Editar categorias
+		- Remover categorias
+	# Propagandas
+		- Adicionar propagandas
+		- Listar todos os propagandas
+		- Acessar propagandas
+		- Editar propagandas
+		- Remover propagandas
+	# Habilidades
+		- Adicionar habilidades
+		- Listar todos os habilidades
+		- Editar habilidades
+		- Remover habilidades
+	# Areas
+		- Adicionar areas
+		- Listar todos os areas
+		- Editar areas
+		- Remover areas
+	# CNH
+		- Adicionar cnh
+		- Listar todos os cnh
+		- Editar cnh
+		- Remover cnh
