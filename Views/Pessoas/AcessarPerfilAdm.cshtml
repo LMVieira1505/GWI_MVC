@@ -39,6 +39,7 @@
                                     <th>Email</th>
                                     <th>Telefone</th>
                                     <th>Documento</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,10 +53,12 @@
                                         <td>@pessoas.p_email</td>
                                         <td>@pessoas.p_telefone</td>
                                         <td>docs</td>
-                                        <div class="btn-group">
-                                            <a class="btn btn-primary" role="button" asp-controller="Pessoas" asp-action="Edit" asp-route-p_id="@pessoas.p_id">Editar</a>
-                                            <a class="btn btn-danger" role="button" asp-controller="Pessoas" asp-action="Delete" asp-route-p_id="@pessoas.p_id" asp-route-nv="@Model.p_nv_id" asp-route-us_id="@Model.p_id">Remover</a>
-                                        </div>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-primary" role="button" asp-controller="Pessoas" asp-action="Edit" asp-route-id="@pessoas.p_id">Editar</a>
+                                                <a class="btn btn-danger" role="button" asp-controller="Pessoas" asp-action="Delete" asp-route-p_id="@pessoas.p_id" asp-route-nv="@Model.p_nv_id" asp-route-us_id="@Model.p_id">Remover</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
