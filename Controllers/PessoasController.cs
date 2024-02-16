@@ -73,15 +73,30 @@ namespace GWI.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("CreateByAdm")]
+        public ActionResult Create(int nv, int us_id)
+        {
+            ViewBag.nvUser = nv;
+            ViewBag.idUser = us_id;
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Pessoas pessoas)
+        public ActionResult Create(Pessoas pessoas, int nv, int us_id)
         {
             try
             {
                 this.repository.add(pessoas);
+                switch (nv)
+                {
+                    case 1:
+                        return RedirectToAction(nameof(AcessarPerfilAdm), new { id = us_id });
 
-                return RedirectToAction(nameof(Login));
+                    default:
+                        return RedirectToAction(nameof(Login));
+                }
             }
             catch
             {
@@ -90,19 +105,28 @@ namespace GWI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int nv, int us_id)
         {
+            ViewBag.nvUser = nv;
+            ViewBag.idUser = us_id;
             return View(this.repository.GetById(id));
         }
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Pessoas pessoas)
+        public ActionResult Edit(int id, int nv, int us_id, Pessoas pessoas)
         {
             try
             {
                 this.repository.update(id, pessoas);
-                return RedirectToAction(nameof(AcessarPerfilUsuario), new { id = id });
+                switch (nv)
+                {
+                    case 1:
+                        return RedirectToAction(nameof(AcessarPerfilAdm), new { id = us_id });
+
+                    default:
+                        return RedirectToAction(nameof(AcessarPerfilUsuario), new { id = id });
+                }
             }
             catch
             {

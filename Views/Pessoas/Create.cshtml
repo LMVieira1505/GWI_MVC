@@ -18,7 +18,7 @@
             </button>
         </a>
 
-        <form class="form-cadastro" asp-controller="Pessoas" asp-action="Create">
+        <form class="form-cadastro" asp-controller="Pessoas" asp-action="Create" asp-route-nv="@ViewBag.nvUser ?? 0" asp-route-us_id="@ViewBag.idUser ?? 0">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <label asp-for="p_nome" class="label-cadastro" for="p_nome">Primeiro Nome:</label>

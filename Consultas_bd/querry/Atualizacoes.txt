@@ -7,10 +7,10 @@ PERFIL DE ADM
 		- Editar senha
 		- Editar foto de perfil
 	# Usuários
-		- Adicionar autores
+		@@@@@ - Adicionar autores
 		X - Listar todos os users (autores e default)
 		- Acessar users
-		- Editar users
+		X - Editar users
 		X - Remover users
 	# Notícias
 		- Listar todas as notícias
